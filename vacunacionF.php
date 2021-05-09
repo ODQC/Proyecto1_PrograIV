@@ -56,19 +56,25 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Inicio </a>
+                <a class="nav-link" href="index.php">Inicio </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="registros.html">Registros</a>
+                <a class="nav-link" href="registros.php">Registros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="vacunacionF.html">Vacunación</a>
+                <a class="nav-link" href="vacunacionF.php">Vacunación</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="informes.html">Informes</a>
+                <a class="nav-link" href="informes.php">Informes</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="signUp.html">Usuarios<span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="signUp.php">Usuarios<span class="sr-only">(current)</span> </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.php">LogOut </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./CRUD_PHP/procesos/logout.php">Salir</a>
               </li>
 
             </ul>

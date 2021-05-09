@@ -82,6 +82,9 @@ echo $_SESSION['user'];
               <li class="nav-item">
                 <a class="nav-link" href="signUp.html">Usuarios</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./CRUD_PHP/procesos/logout.php">Salir</a>
+              </li>
 
             </ul>
           </div>
@@ -315,11 +318,12 @@ echo $_SESSION['user'];
               Contactos:
             </h4>
             <div class="contact_link_box">
-              <a href="">
+              <a href="mailto:oscar.quesda.calderon@est.una.cr">Send email</a>
 
-                <span>
-                  oscar.quesda.calderon@est.una.cr
-                </span>
+
+              <span>
+                oscar.quesda.calderon@est.una.cr
+              </span>
               </a>
               <a href="https://github.com/ODQC" target="_blank">
 
@@ -327,11 +331,11 @@ echo $_SESSION['user'];
                   https://github.com/ODQC
                 </span>
               </a>
-              <a href="">
+              <a href="mailto:oscaardanielqc@outlook.es">Send email</a>
 
-                <span>
-                  oscaardanielqc@outlook.es
-                </span>
+              <span>
+                oscaardanielqc@outlook.es
+              </span>
               </a>
             </div>
           </div>

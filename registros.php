@@ -38,44 +38,46 @@
 
   <div class="hero_area">
     <!-- header section strats -->
-  <header class="header_section">
-    <div class="container">
-      <nav class="navbar navbar-expand-lg custom_nav-container ">
-        <a class="navbar-brand" href="index.html">
-          <span>
-            Sistema de
-            Vacunación <br>contra el Covid-19
-          </span>
-        </a>
-  
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class=""> </span>
-        </button>
-  
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Inicio </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="registros.html">Registros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="vacunacionF.html">Vacunación</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="informes.html">Informes</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="signUp.html">Usuarios<span class="sr-only">(current)</span> </a>
-            </li>
-  
-          </ul>
-        </div>
-      </nav>
-    </div>
-  </header>
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              Sistema de
+              Vacunación <br>contra el Covid-19
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Inicio </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="registros.html">Registros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="vacunacionF.html">Vacunación</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="informes.html">Informes</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="signUp.html">Usuarios<span class="sr-only">(current)</span> </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./CRUD_PHP/procesos/logout.php">Salir</a>
+              </li>
+
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
     <!-- end header section -->
   </div>
 
@@ -83,41 +85,41 @@
 
   <section class="about_section layout_padding">
     <div class="container  ">
-      
-          <div class="container">
-            <h2>Registros de pacientes vacunados contra COVID-19</h2>
-            <p>Acontiniacion se mostrara los registros de las personas vacunadas con el SARS-COV-2 y el tipo de vacuna que recibieron.</p>
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Num Registro</th>
-                  <th>Cédula</th>
-                  <th>Tipo vacuna</th>
-                  <th>Marca vacuna </th>
-                  <th>Tipo Paciente</th>
-                  <th>fecha</th>
-                  
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>207460988</td>
-                  <td>Dos dosis</td>
-                  <td>BioNTech-Pfizer</td>
-                  <td>Sin riesgo</td>
-                  <td>08/05/2021</td>
-                </tr>
-               
-              </tbody>
-            </table>
-          </div>
 
-        </div>
-       
-          
-        </div>
+      <div class="container">
+        <h2>Registros de pacientes vacunados contra COVID-19</h2>
+        <p>Acontiniacion se mostrara los registros de las personas vacunadas con el SARS-COV-2 y el tipo de vacuna que recibieron.</p>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Num Registro</th>
+              <th>Cédula</th>
+              <th>Tipo vacuna</th>
+              <th>Marca vacuna </th>
+              <th>Tipo Paciente</th>
+              <th>fecha</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>207460988</td>
+              <td>Dos dosis</td>
+              <td>BioNTech-Pfizer</td>
+              <td>Sin riesgo</td>
+              <td>08/05/2021</td>
+            </tr>
+
+          </tbody>
+        </table>
       </div>
+
+    </div>
+
+
+    </div>
+    </div>
     </div>
   </section>
 
@@ -134,26 +136,26 @@
             </h4>
             <div class="contact_link_box">
               <a href="">
-  
+
                 <span>
                   oscar.quesda.calderon@est.una.cr
                 </span>
               </a>
               <a href="https://github.com/ODQC" target="_blank">
-  
+
                 <span>
                   https://github.com/ODQC
                 </span>
               </a>
               <a href="">
-  
+
                 <span>
                   oscaardanielqc@outlook.es
                 </span>
               </a>
             </div>
           </div>
-  
+
         </div>
         <div class="col-md-6 col-lg-3 footer_col">
           <div class="footer_detail">
@@ -165,8 +167,8 @@
               <br>Ingeniería en Sistemas UNA.
               <br>Desarrollado por Oscar Quesada.
               <br>Proyecto basado en Orthoc template
-  
-  
+
+
             </p>
           </div>
         </div>
@@ -209,10 +211,10 @@
             </a>
             <div class="img-box">
               <img src="images/GitHub-Logo.png" alt="">
-  
-  
+
+
             </div>
-  
+
           </div>
         </div>
       </div>
@@ -221,7 +223,7 @@
           Rediseñada con fines académicos.<br>
           &copy; <span id="displayYear"></span> All Rights Reserved By
           <a href="https://html.design/" target="_blank">Free Html Templates</a>
-  
+
         </p>
       </div>
     </div>
