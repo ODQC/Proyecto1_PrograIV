@@ -1,7 +1,7 @@
 <?php
 	$email=$_POST['email'];
-	$clave=md5($_POST['clave']);
-	$query="SELECT * FROM RegistroCovid19.Usuarios WHERE email='$email' AND password='$clave'";
+	$password=md5($_POST['password']);
+	$query="SELECT * FROM RegistroCovid19.Usuarios WHERE email='$email' AND contrasenia='$password'";
 	echo $query;
 	$consulta2=$mysqli->query($query);
 	if($consulta2->num_rows>=1){
@@ -9,8 +9,10 @@
 		session_start();
 		$_SESSION['user']=$fila['nombre'];
 		$_SESSION['verificar']=true;
-		header("Location: seleccionar.php");
+		header("Location: index.php");
 	}else{
-		echo "Los datos son incorrectos";
+	echo '<script type="text/JavaScript"> 
+     				alert("La el email o contraseña son incorrectos");
+     			</script>';
 	}
 	

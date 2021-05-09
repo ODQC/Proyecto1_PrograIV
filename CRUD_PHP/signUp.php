@@ -207,7 +207,6 @@
     <script src="js/main.js"></script>
     <?php
     		if(isset($_POST[''])){
-    			require_once "/CRUD_PHP/php/connect.php";
     			require_once "/CRUD_PHP/procesos/guardarUsuarios.php";
     		}
     ?>

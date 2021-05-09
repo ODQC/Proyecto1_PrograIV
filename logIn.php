@@ -23,15 +23,13 @@
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container">
                 <div class="signup-content">
-                    <form method="POST" id="signup-form" class="signup-form">
+                    <form action="logIn.php" method="POST" id="signup-form" class="signup-form">
                         <h2 class="form-title">Acceder al Sistema</h2>
                         <div class="form-group">
-                            <input type="email" class="form-input" name="email" id="email"
-                                placeholder="Correo Electrónico" />
+                            <input type="email" class="form-input" name="email" id="email" placeholder="Correo Electrónico" />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="password" id="password"
-                                placeholder="Contraseña" />
+                            <input type="text" class="form-input" name="password" id="password" placeholder="Contraseña" />
                             <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                         </div>
 
@@ -54,14 +52,15 @@
     <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/main.js"></script>
-<!-- 
+     
     <?php
-    		if(isset($_POST['email']) && isset($_POST['password'])){
-    			require_once "php/connect.php";
-    			require_once "procesos/login.php";
-    		}
+        if (isset($_POST['email']) && isset($_POST['password'])) {
+            require_once "CRUD_PHP/php/connect.php";
+            require_once "CRUD_PHP/procesos/login.php";
+        }
     ?>
--->
+    
+
 </body><!-- La plantilla fue tomada de  Colorlib (https://colorlib.com) -->
 
 </html>

@@ -31,7 +31,7 @@
 	}else{
 		$campos="Nombre='$nombre',Apellido='$apellido',Email='$email'";
 	}
-	$query="UPDATE RegistroCovid19.Usuarios SET $campos WHERE id='$id'";
+	$query="UPDATE RegistroCovid19.Usuarios SET $campos WHERE idUsuario='$id'";
 	if($mysqli->query($query)){
 		echo "Datos actualizados";
 	}else{
