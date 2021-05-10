@@ -320,10 +320,15 @@ echo $_SESSION['user'];
             <div class="contact_link_box">
               <a href="mailto:oscar.quesda.calderon@est.una.cr">
 
+                <span>
+                  oscar.quesda.calderon@est.una.cr
+                </span>
+              </a>
+              <a href="mailto:oscaardanielqc@outlook.es">
 
-              <span>
-                oscar.quesda.calderon@est.una.cr
-              </span>
+                <span>
+                  oscaardanielqc@outlook.es
+                </span>
               </a>
               <a href="https://github.com/ODQC" target="_blank">
 
@@ -331,12 +336,7 @@ echo $_SESSION['user'];
                   https://github.com/ODQC
                 </span>
               </a>
-              <a href="mailto:oscaardanielqc@outlook.es">
 
-              <span>
-                oscaardanielqc@outlook.es
-              </span>
-              </a>
             </div>
           </div>
 
@@ -366,19 +366,19 @@ echo $_SESSION['user'];
                 Inicio <br>
               </a>
               <a class="" href="pacientes.php">
-                Ingreso Pacientes
+                Registro
               </a>
               <a class="" href="vacunacion.php">
-                Registro de Vacunación
+                Vacunación
               </a>
               <a class="" href="informes.php">
-                Informes de vacunación
+                Informes
               </a>
-              <a class="" href="usuariosF.php">
-                Registro Usuarios
+              <a class="" href="logIn.php">
+                Usuarios
               </a>
-              <a class="" href="actividad.php">
-                Actividad de Usuarios
+              <a class="" href="./CRUD_PHP/procesos/logout.php">
+                Salir
               </a>
             </div>
           </div>

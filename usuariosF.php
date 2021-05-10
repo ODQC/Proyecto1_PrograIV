@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!$_SESSION['verificar']) {
+  header("Location: logIn.php");
+}
+echo $_SESSION['user'];
+?>
 <!DOCTYPE html>
 <html>
 
@@ -22,8 +29,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -50,8 +56,7 @@
             </span>
           </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
           </button>
 
@@ -95,157 +100,157 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form_container contact-form">
-            <form method="$_POST" action="vacunacionF.php">
+            <form method="$_POST" action="usuariosF.php">
               <div>
                 <label for="sel1">Ingrese el número de cédula:</label>
-                <input type="text" placeholder="Número de cédula" />
+                <input type="text" placeholder="Número de cédula" id="idUsuario" name="idUsuario" />
               </div>
               <div>
                 <label for="sel1">Ingrese el nombre :</label>
-                <input type="text" placeholder="Nombre" />
+                <input type="text" placeholder="Nombre" id="nombre" name="nombre" />
               </div>
               <div>
                 <label for="sel1">Ingrese el primer apellido :</label>
-                <input type="text" placeholder="Apellido 1" />
+                <input type="text" placeholder="Apellido 1" id="apellido1" name="apellido1" />
               </div>
               <div>
                 <label for="sel1">Ingrese el segundo apellido:</label>
-                <input type="text" placeholder="Apellido 2" />
+                <input type="text" placeholder="Apellido 2" id="apellido2" name="apellido2" />
               </div>
               <div class="form-group">
                 <label for="sel1">Indique el genero:</label>
-                <select class="form-control" id="sel1">
-                  <option>--Genero--</option>
-                  <option>Hombre</option>
-                  <option>Mujer</option>
-                  <option>No quiero indicar</option>
+                <select class="form-control" id="genero" name="genero">
+                  <option value="">--Genero--</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Femenino">Femenino/option>
+                  <option value="No indicado">No quiero indicar</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="sel1">Indique la edad:</label>
-                <select class="form-control" id="sel1">
-                  <option>--Edad--</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                  <option>9</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-                  <option>13</option>
-                  <option>14</option>
-                  <option>15</option>
-                  <option>16</option>
-                  <option>17</option>
-                  <option>18</option>
-                  <option>19</option>
-                  <option>20</option>
-                  <option>21</option>
-                  <option>22</option>
-                  <option>23</option>
-                  <option>24</option>
-                  <option>25</option>
-                  <option>26</option>
-                  <option>27</option>
-                  <option>28</option>
-                  <option>29</option>
-                  <option>30</option>
-                  <option>31</option>
-                  <option>32</option>
-                  <option>33</option>
-                  <option>34</option>
-                  <option>35</option>
-                  <option>36</option>
-                  <option>37</option>
-                  <option>38</option>
-                  <option>39</option>
-                  <option>40</option>
-                  <option>41</option>
-                  <option>42</option>
-                  <option>43</option>
-                  <option>44</option>
-                  <option>45</option>
-                  <option>46</option>
-                  <option>47</option>
-                  <option>48</option>
-                  <option>49</option>
-                  <option>50</option>
-                  <option>51</option>
-                  <option>52</option>
-                  <option>53</option>
-                  <option>54</option>
-                  <option>55</option>
-                  <option>56</option>
-                  <option>57</option>
-                  <option>58</option>
-                  <option>59</option>
-                  <option>50</option>
-                  <option>61</option>
-                  <option>62</option>
-                  <option>63</option>
-                  <option>64</option>
-                  <option>65</option>
-                  <option>66</option>
-                  <option>67</option>
-                  <option>68</option>
-                  <option>69</option>
-                  <option>70</option>
-                  <option>71</option>
-                  <option>72</option>
-                  <option>73</option>
-                  <option>74</option>
-                  <option>75</option>
-                  <option>76</option>
-                  <option>77</option>
-                  <option>78</option>
-                  <option>79</option>
-                  <option>80</option>
-                  <option>81</option>
-                  <option>82</option>
-                  <option>83</option>
-                  <option>84</option>
-                  <option>85</option>
-                  <option>86</option>
-                  <option>87</option>
-                  <option>88</option>
-                  <option>89</option>
-                  <option>90</option>
-                  <option>91</option>
-                  <option>92</option>
-                  <option>93</option>
-                  <option>94</option>
-                  <option>95</option>
-                  <option>96</option>
-                  <option>97</option>
-                  <option>98</option>
-                  <option>99</option>
-                  <option>100</option>
+
+                <select class="form-control" id="edad" name="edad">
+                  <option value="">--Edad--</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                  <option value="32">32</option>
+                  <option value="33">33</option>
+                  <option value="34">34</option>
+                  <option value="35">35</option>
+                  <option value="36">36</option>
+                  <option value="37">37</option>
+                  <option value="38">38</option>
+                  <option value="39">39</option>
+                  <option value="40">40</option>
+                  <option value="41">41</option>
+                  <option value="42">42</option>
+                  <option value="43">43</option>
+                  <option value="44">44</option>
+                  <option value="45">45</option>
+                  <option value="46">46</option>
+                  <option value="47">47</option>
+                  <option value="48">48</option>
+                  <option value="49">49</option>
+                  <option value="50">50</option>
+                  <option value="51">51</option>
+                  <option value="52">52</option>
+                  <option value="53">53</option>
+                  <option value="54">54</option>
+                  <option value="55">55</option>
+                  <option value="56">56</option>
+                  <option value="57">57</option>
+                  <option value="58">58</option>
+                  <option value="59">59</option>
+                  <option value="60">60</option>
+                  <option value="61">61</option>
+                  <option value="62">62</option>
+                  <option value="63">63</option>
+                  <option value="64">64</option>
+                  <option value="65">65</option>
+                  <option value="66">66</option>
+                  <option value="67">67</option>
+                  <option value="68">68</option>
+                  <option value="69">69</option>
+                  <option value="70">70</option>
+                  <option value="71">71</option>
+                  <option value="72">72</option>
+                  <option value="73">73</option>
+                  <option value="74">74</option>
+                  <option value="75">75</option>
+                  <option value="76">76</option>
+                  <option value="77">77</option>
+                  <option value="78">78</option>
+                  <option value="79">79</option>
+                  <option value="80">80</option>
+                  <option value="81">81</option>
+                  <option value="82">82</option>
+                  <option value="83">83</option>
+                  <option value="84">84</option>
+                  <option value="85">85</option>
+                  <option value="86">86</option>
+                  <option value="87">87</option>
+                  <option value="88">88</option>
+                  <option value="89">89</option>
+                  <option value="90">90</option>
+                  <option value="91">91</option>
+                  <option value="92">92</option>
+                  <option value="93">93</option>
+                  <option value="94">94</option>
+                  <option value="95">95</option>
+                  <option value="96">96</option>
+                  <option value="97">97</option>
+                  <option value="98">98</option>
+                  <option value="99">99</option>
+                  <option value="100">100</option>
                 </select>
               </div>
               <div>
                 <label for="sel1">Ingrese su correo elctrónico :</label>
-                <input type="email" placeholder="Correo electrónico" />
+                <input type="email" placeholder="Correo electrónico" name="email" id="email" />
               </div>
               <div>
                 <label for="sel1">Ingrese el número de teléfono :</label>
-                <input type="text" placeholder="Teléfono" />
+                <input type="text" placeholder="Teléfono" name="telefono" id="telefono" />
               </div>
               <div>
                 <label for="sel1">Ingrese la contraseña :</label>
-                <input type="password" placeholder="Contraseña" />
+                <input type="password" placeholder="Contraseña" id="password" name="password" />
               </div>
               <div>
                 <label for="sel1">Ingrese la contraseña de nuevo:</label>
-                <input type="password" placeholder="Contraseña" />
+                <input type="password" placeholder="Contraseña" id="password2" name="password2" />
               </div>
               <div class="form-group">
                 <label for="sel1">Indique el tipo de usuario:</label>
-                <select class="form-control" id="sel1">
+                <select class="form-control" id="tipoUsuario" name="tipoUsuario">
                   <option>--Tipo--</option>
                   <option>Doctor</option>
                   <option>Personal</option>
@@ -253,7 +258,7 @@
                 </select>
               </div>
               <div class="btn_box">
-                <button type="submit" name="guardar" id="gusrdar" value="Guardar">
+                <button type="submit" name="submit" id="submit" value="Registrarse">
                   Guardar
                 </button>
               </div>
@@ -287,7 +292,7 @@
                 </span>
               </a>
               <a href="mailto:oscaardanielqc@outlook.es">
-              
+
                 <span>
                   oscaardanielqc@outlook.es
                 </span>
@@ -298,7 +303,7 @@
                   https://github.com/ODQC
                 </span>
               </a>
-              
+
             </div>
           </div>
 
@@ -404,9 +409,8 @@
   <!-- jQery -->
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
   <!-- bootstrap js -->
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <!-- owl slider -->
@@ -419,11 +423,14 @@
   </script>
   <!-- End Google Map -->
   <?php
-  if (isset($_POST["guardar"])) {
-    $radio = $_POST["radio"];
-    $Pi = 3.1416;
-    $a = $Pi * $radio * $radio;
-    echo "El area del circulo es:<h2> $a</h2><br/>";
+  if ($_POST['password'] == $_POST['password2']) {
+    if (isset($_POST['submit'])) {
+      require_once "/CRUD_PHP/procesos/guardarUsuarios.php";
+    }
+  } else {
+    echo '<script type="text/JavaScript"> 
+     				alert("Las contraseñas no coinciden");
+     			</script>';
   }
   ?>
 </body>

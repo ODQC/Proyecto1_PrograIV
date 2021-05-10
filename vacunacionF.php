@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!$_SESSION['verificar']) {
+  header("Location: logIn.php");
+}
+echo $_SESSION['user'];
+?>
 <!DOCTYPE html>
 <html>
 
@@ -101,36 +108,32 @@
               <div class="form-group">
                 <label for="sel1">Seleccione el tipo de Vacuna:</label>
                 <select class="form-control" id="sel1">
-                  <option>--Seleccionar--</option>
-                  <option>Una dosis</option>
-                  <option>Dos dosis</option>
+                  <option value="">--Seleccionar--</option>
+                  <option value="Una dosis">Una dosis</option>
+                  <option value="Dos dosis">Dos dosis</option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="sel1">Indique la marca de la vacuna:</label>
                 <select class="form-control" id="sel1">
-                  <option>--Seleccionar--</option>
-                  <option>BioNTech-Pfizer</option>
-                  <option>Oxford-AstraZeneca</option>
+                  <option value="">--Seleccionar--</option>
+                  <option value="BioNTech-Pfizer">BioNTech-Pfizer</option>
+                  <option value="Oxford-AstraZeneca">Oxford-AstraZeneca</option>
                 </select>
               </div>
               <div class="form-group">
                 <label for="sel1">Indique el tipo de Paciente</label>
                 <select class="form-control" id="sel1">
                   <option>--Seleccionar--</option>
-                  <option>Sin riesgo</option>
-                  <option>De riesgo</option>
-                  <option>Adulto Mayor</option>
+                  <option value="Sin Riesgo">Sin riesgo</option>
+                  <option value="De riesgo">De riesgo</option>
+                  <option value="Adulto mayor">Adulto Mayor</option>
                 </select>
               </div>
 
-              <div class="form-group pmd-textfield pmd-textfield-floating-label">
-                <label class="control-label" for="regular1">Select Date and Time</label>
-                <input type="text" class="form-control" data-header-left="true" id="datepicker-left-header">
-              </div>
-
+             
               <div class="btn_box">
-                <button type="submit" name="guardar" id="gusrdar" value="Guardar">
+                <button type="submit" name="submit" id="submit" value="Guardar">
                   Guardar
                 </button>
               </div>
@@ -295,11 +298,8 @@
   </script>
   <!-- End Google Map -->
   <?php
-  if (isset($_POST["guardar"])) {
-    $radio = $_POST["radio"];
-    $Pi = 3.1416;
-    $a = $Pi * $radio * $radio;
-    echo "El area del circulo es:<h2> $a</h2><br/>";
+  if (isset($_POST['submit'])) {
+    require_once "/CRUD_PHP/procesos/guardarRegistros.php";
   }
   ?>
 </body>

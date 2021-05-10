@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!$_SESSION['verificar']) {
+  header("Location: logIn.php");
+}
+echo $_SESSION['user'];
+?>
 <!DOCTYPE html>
 <html>
 
