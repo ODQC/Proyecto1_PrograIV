@@ -191,7 +191,7 @@
                         </div>
                     </form>
                     <p class="loginhere">
-                        Ya tienes una cuenta? <a href="logIn.html" class="loginhere-link">Accesa aquí</a>
+                        Ya tienes una cuenta? <a href="logIn.php" class="loginhere-link">Accesa aquí</a>
                         <br> Esta plantilla fue tomada de (https://colorlib.com)
                         <br>Rediseñada por Oscar Quesada.
                         <br>Con fines académicos.

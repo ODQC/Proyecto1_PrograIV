@@ -68,19 +68,19 @@ echo $_SESSION['user'];
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="registros.html">Registros</a>
+                <a class="nav-link" href="registros.php">Registros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="vacunacionF.html">Vacunación</a>
+                <a class="nav-link" href="vacunacionF.php">Vacunación</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="informes.html">Informes</a>
+                <a class="nav-link" href="informes.php">Informes</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="signUp.html">Usuarios</a>
+                <a class="nav-link" href="usuariosF.php">Usuarios</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./CRUD_PHP/procesos/logout.php">Salir</a>
@@ -108,7 +108,7 @@ echo $_SESSION['user'];
                       Consulte su historial de vacunación, Información gneral acerca de la vacuna.
                     </p>
                     <div class="btn-box">
-                      <a href="informes.html" class="btn1">
+                      <a href="informes.php" class="btn1">
                         Más información
                       </a>
                     </div>
@@ -318,7 +318,7 @@ echo $_SESSION['user'];
               Contactos:
             </h4>
             <div class="contact_link_box">
-              <a href="mailto:oscar.quesda.calderon@est.una.cr">Send email</a>
+              <a href="mailto:oscar.quesda.calderon@est.una.cr">
 
 
               <span>
@@ -331,7 +331,7 @@ echo $_SESSION['user'];
                   https://github.com/ODQC
                 </span>
               </a>
-              <a href="mailto:oscaardanielqc@outlook.es">Send email</a>
+              <a href="mailto:oscaardanielqc@outlook.es">
 
               <span>
                 oscaardanielqc@outlook.es
@@ -362,22 +362,22 @@ echo $_SESSION['user'];
               Links
             </h4>
             <div class="footer_links">
-              <a class="active" href="index.html">
+              <a class="active" href="index.php">
                 Inicio <br>
               </a>
-              <a class="" href="pacientes.html">
+              <a class="" href="pacientes.php">
                 Ingreso Pacientes
               </a>
-              <a class="" href="vacunacion.html">
+              <a class="" href="vacunacion.php">
                 Registro de Vacunación
               </a>
-              <a class="" href="informes.html">
+              <a class="" href="informes.php">
                 Informes de vacunación
               </a>
-              <a class="" href="signUp.html">
+              <a class="" href="usuariosF.php">
                 Registro Usuarios
               </a>
-              <a class="" href="actividad.html">
+              <a class="" href="actividad.php">
                 Actividad de Usuarios
               </a>
             </div>

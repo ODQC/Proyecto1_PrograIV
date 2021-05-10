@@ -13,7 +13,7 @@
   <meta name="author" content="" />
   <link rel="shortcut icon" href="images/favicon.png" type="">
 
-  <title> Registrar vacunados </title>
+  <title> Registrar Usuarios </title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -22,7 +22,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -49,7 +50,8 @@
             </span>
           </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
           </button>
 
@@ -87,7 +89,7 @@
     <div class="container">
       <div class="heading_container">
         <h2>
-          Formulario de Vacunación
+          Formulario para registro de Usuarios
         </h2>
       </div>
       <div class="row">
@@ -95,40 +97,161 @@
           <div class="form_container contact-form">
             <form method="$_POST" action="vacunacionF.php">
               <div>
-                <label for="sel1">Ingrese el número de cédula del paciente:</label>
+                <label for="sel1">Ingrese el número de cédula:</label>
                 <input type="text" placeholder="Número de cédula" />
               </div>
+              <div>
+                <label for="sel1">Ingrese el nombre :</label>
+                <input type="text" placeholder="Nombre" />
+              </div>
+              <div>
+                <label for="sel1">Ingrese el primer apellido :</label>
+                <input type="text" placeholder="Apellido 1" />
+              </div>
+              <div>
+                <label for="sel1">Ingrese el segundo apellido:</label>
+                <input type="text" placeholder="Apellido 2" />
+              </div>
               <div class="form-group">
-                <label for="sel1">Seleccione el tipo de Vacuna:</label>
+                <label for="sel1">Indique el genero:</label>
                 <select class="form-control" id="sel1">
-                  <option>--Seleccionar--</option>
-                  <option>Una dosis</option>
-                  <option>Dos dosis</option>
+                  <option>--Genero--</option>
+                  <option>Hombre</option>
+                  <option>Mujer</option>
+                  <option>No quiero indicar</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="sel1">Indique la marca de la vacuna:</label>
+                <label for="sel1">Indique la edad:</label>
                 <select class="form-control" id="sel1">
-                  <option>--Seleccionar--</option>
-                  <option>BioNTech-Pfizer</option>
-                  <option>Oxford-AstraZeneca</option>
+                  <option>--Edad--</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                  <option>13</option>
+                  <option>14</option>
+                  <option>15</option>
+                  <option>16</option>
+                  <option>17</option>
+                  <option>18</option>
+                  <option>19</option>
+                  <option>20</option>
+                  <option>21</option>
+                  <option>22</option>
+                  <option>23</option>
+                  <option>24</option>
+                  <option>25</option>
+                  <option>26</option>
+                  <option>27</option>
+                  <option>28</option>
+                  <option>29</option>
+                  <option>30</option>
+                  <option>31</option>
+                  <option>32</option>
+                  <option>33</option>
+                  <option>34</option>
+                  <option>35</option>
+                  <option>36</option>
+                  <option>37</option>
+                  <option>38</option>
+                  <option>39</option>
+                  <option>40</option>
+                  <option>41</option>
+                  <option>42</option>
+                  <option>43</option>
+                  <option>44</option>
+                  <option>45</option>
+                  <option>46</option>
+                  <option>47</option>
+                  <option>48</option>
+                  <option>49</option>
+                  <option>50</option>
+                  <option>51</option>
+                  <option>52</option>
+                  <option>53</option>
+                  <option>54</option>
+                  <option>55</option>
+                  <option>56</option>
+                  <option>57</option>
+                  <option>58</option>
+                  <option>59</option>
+                  <option>50</option>
+                  <option>61</option>
+                  <option>62</option>
+                  <option>63</option>
+                  <option>64</option>
+                  <option>65</option>
+                  <option>66</option>
+                  <option>67</option>
+                  <option>68</option>
+                  <option>69</option>
+                  <option>70</option>
+                  <option>71</option>
+                  <option>72</option>
+                  <option>73</option>
+                  <option>74</option>
+                  <option>75</option>
+                  <option>76</option>
+                  <option>77</option>
+                  <option>78</option>
+                  <option>79</option>
+                  <option>80</option>
+                  <option>81</option>
+                  <option>82</option>
+                  <option>83</option>
+                  <option>84</option>
+                  <option>85</option>
+                  <option>86</option>
+                  <option>87</option>
+                  <option>88</option>
+                  <option>89</option>
+                  <option>90</option>
+                  <option>91</option>
+                  <option>92</option>
+                  <option>93</option>
+                  <option>94</option>
+                  <option>95</option>
+                  <option>96</option>
+                  <option>97</option>
+                  <option>98</option>
+                  <option>99</option>
+                  <option>100</option>
                 </select>
+              </div>
+              <div>
+                <label for="sel1">Ingrese su correo elctrónico :</label>
+                <input type="email" placeholder="Correo electrónico" />
+              </div>
+              <div>
+                <label for="sel1">Ingrese el número de teléfono :</label>
+                <input type="text" placeholder="Teléfono" />
+              </div>
+              <div>
+                <label for="sel1">Ingrese la contraseña :</label>
+                <input type="password" placeholder="Contraseña" />
+              </div>
+              <div>
+                <label for="sel1">Ingrese la contraseña de nuevo:</label>
+                <input type="password" placeholder="Contraseña" />
               </div>
               <div class="form-group">
-                <label for="sel1">Indique el tipo de Paciente</label>
+                <label for="sel1">Indique el tipo de usuario:</label>
                 <select class="form-control" id="sel1">
-                  <option>--Seleccionar--</option>
-                  <option>Sin riesgo</option>
-                  <option>De riesgo</option>
-                  <option>Adulto Mayor</option>
+                  <option>--Tipo--</option>
+                  <option>Doctor</option>
+                  <option>Personal</option>
+                  <option>Paciente</option>
                 </select>
               </div>
-
-              <div class="form-group pmd-textfield pmd-textfield-floating-label">
-                <label class="control-label" for="regular1">Select Date and Time</label>
-                <input type="text" class="form-control" data-header-left="true" id="datepicker-left-header">
-              </div>
-
               <div class="btn_box">
                 <button type="submit" name="guardar" id="gusrdar" value="Guardar">
                   Guardar
@@ -139,7 +262,7 @@
         </div>
         <div class="col-md-6 ">
           <div class="img-box">
-            <img src="images/Vacunacion2.jpeg" alt="">
+            <img src="images/Usuarios.jpeg" alt="">
           </div>
         </div>
       </div>
@@ -164,7 +287,7 @@
                 </span>
               </a>
               <a href="mailto:oscaardanielqc@outlook.es">
-
+              
                 <span>
                   oscaardanielqc@outlook.es
                 </span>
@@ -175,7 +298,7 @@
                   https://github.com/ODQC
                 </span>
               </a>
-
+              
             </div>
           </div>
 
@@ -281,8 +404,9 @@
   <!-- jQery -->
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
   <!-- bootstrap js -->
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <!-- owl slider -->

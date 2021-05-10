@@ -38,7 +38,7 @@
                         </div>
                     </form>
                     <p class="loginhere">
-                        Aún no tienes una cuenta? <a href="signUp.html" class="loginhere-link">Crear una</a>
+                        Aún no tienes una cuenta? <a href="signUp.php" class="loginhere-link">Crear una</a>
                         <br> Esta plantilla fue tomada de (https://colorlib.com)
                         <br>Rediseñada por Oscar Quesada.
                         <br>Con fines académicos.

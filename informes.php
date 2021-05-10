@@ -60,19 +60,19 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Inicio </a>
+                <a class="nav-link" href="index.php">Inicio </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="registros.html">Registros</a>
+                <a class="nav-link" href="registros.php">Registros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="vacunacionF.html">Vacunación</a>
+                <a class="nav-link" href="vacunacionF.php">Vacunación</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="informes.html">Informes</a>
+                <a class="nav-link" href="informes.php">Informes</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="signUp.html">Usuarios<span class="sr-only">(current)</span> </a>
+                <a class="nav-link" href="usuariosF.php">Usuarios<span class="sr-only">(current)</span> </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./CRUD_PHP/procesos/logout.php">Salir</a>
@@ -110,10 +110,16 @@
               Contactos:
             </h4>
             <div class="contact_link_box">
-              <a href="">
+              <a href="mailto:oscar.quesda.calderon@est.una.cr">
 
                 <span>
                   oscar.quesda.calderon@est.una.cr
+                </span>
+              </a>
+              <a href="mailto:oscaardanielqc@outlook.es">
+
+                <span>
+                  oscaardanielqc@outlook.es
                 </span>
               </a>
               <a href="https://github.com/ODQC" target="_blank">
@@ -122,12 +128,7 @@
                   https://github.com/ODQC
                 </span>
               </a>
-              <a href="">
 
-                <span>
-                  oscaardanielqc@outlook.es
-                </span>
-              </a>
             </div>
           </div>
 
@@ -153,23 +154,23 @@
               Links
             </h4>
             <div class="footer_links">
-              <a class="active" href="index.html">
+              <a class="active" href="index.php">
                 Inicio <br>
               </a>
-              <a class="" href="pacientes.html">
-                Ingreso Pacientes
+              <a class="" href="pacientes.php">
+                Registro
               </a>
-              <a class="" href="vacunacion.html">
-                Registro de Vacunación
+              <a class="" href="vacunacion.php">
+                Vacunación
               </a>
-              <a class="" href="informes.html">
-                Informes de vacunación
+              <a class="" href="informes.php">
+                Informes
               </a>
-              <a class="" href="signUp.html">
-                Registro Usuarios
+              <a class="" href="logIn.php">
+                Usuarios
               </a>
-              <a class="" href="actividad.html">
-                Actividad de Usuarios
+              <a class="" href="./CRUD_PHP/procesos/logout.php">
+                Salir
               </a>
             </div>
           </div>
