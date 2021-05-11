@@ -36,7 +36,7 @@
                     <form method="POST" id="signup-form" class="signup-form" action="signUp.php">
                         <h2 class="form-title">Registro de Usuarios</h2>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="cedula" id="cedula" placeholder="Cédula de indentidad" />
+                            <input type="text" class="form-input" name="idUsuario" id="idUsuario" placeholder="Cédula de indentidad" />
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-input" name="name" id="name" placeholder="Nombre" />

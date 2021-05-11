@@ -1,6 +1,6 @@
 <?php
 	require_once "../php/connect.php";
-	$idUsuario=$_POST['cedula'];
+	$idUsuario=$_POST['idUsuario'];
 	$nombre=$_POST['nombre'];
 	$apellido1 = $_POST['apellido1'];
 	$apellido2=$_POST['apellido2'];
@@ -10,11 +10,11 @@
 	$genero = $_POST['genero'];
 	$telefono = $_POST['telefono'];
 	$edad = $_POST['edad'];
-	$estadoUsuario = $_POST['estadoUsuario'];
+	
 	
 	try{
 		$query="INSERT INTO RegistroCovid19.Usuarios(idUsuario,nombre,apellido1,apellido2,email,contrasenia,tipoUsuario,genero,telefono,edad,estadoUsuario) 
-		VALUES('$idUsuario','$nombre','$apellido1','$apellido2','$email','$password','$tipoUsuario','$genero','$telefono','$edad','$estadoUsuario')";
+		VALUES('$idUsuario','$nombre','$apellido1','$apellido2','$email','$password','$tipoUsuario','$genero','$telefono','$edad','Activo')";
 		if($mysqli->query($query)){
 			
 			echo '<script type="text/JavaScript"> 
