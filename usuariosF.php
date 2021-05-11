@@ -100,7 +100,7 @@ echo $_SESSION['user'];
       <div class="row">
         <div class="col-md-6">
           <div class="form_container contact-form">
-            <form method="$_POST" action="usuariosF.php">
+            <form method="$_POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">>
               <div>
                 <label for="sel1">Ingrese el número de cédula:</label>
                 <input type="text" placeholder="Número de cédula" id="idUsuario" name="idUsuario" />
@@ -424,7 +424,7 @@ echo $_SESSION['user'];
   <!-- End Google Map -->
   <?php
   if ($_POST['password'] == $_POST['password2']) {
-    if (isset($_POST['submit'])) {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
       require_once "../Proyecto1_PrograIV/CRUD_PHP/procesos/guardarUsuarios.php";
       echo '<script type="text/JavaScript"> 
      				alert("Procesando..");
@@ -435,7 +435,7 @@ echo $_SESSION['user'];
      				alert("Las contraseñas no coinciden");
      			</script>';
   }
-  ?>    
+  ?>
 </body>
 
 </html>
