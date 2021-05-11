@@ -96,6 +96,7 @@ echo $_SESSION['user'];
       <div class="container">
         <h2>Registros de pacientes vacunados contra COVID-19</h2>
         <p>Acontiniacion se mostrara los registros de las personas vacunadas con el SARS-COV-2 y el tipo de vacuna que recibieron.</p>
+
         <table class="table table-hover">
           <thead>
             <tr>
@@ -105,21 +106,39 @@ echo $_SESSION['user'];
               <th>Marca vacuna </th>
               <th>Tipo Paciente</th>
               <th>fecha</th>
+              <th>Actualizar</th>
+              <th>Eliminar</th>
 
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>207460988</td>
-              <td>Dos dosis</td>
-              <td>BioNTech-Pfizer</td>
-              <td>Sin riesgo</td>
-              <td>08/05/2021</td>
-            </tr>
+            <?php
+              require_once "php/connect.php";
+              $idsuario = $_POST['IdUsuario'];
+              $query = "SELECT * FROM RegistroCovid19.Registro_Vacunados";
+              $consulta3 = $mysqli->query($query);
 
+              if ($consulta3->num_rows >= 1) {
+
+                while ($fila = $consulta3->fetch_array(MYSQLI_ASSOC)) {
+                  echo "<tr>
+                      <td>" . $fila['IdRegistro'] . "</td>
+                      <td>" . $fila['Usuarios_idUsuario'] . "</td>
+                      <td>" . $fila['tipoVacuna'] . "</td>
+                      <td>" . $fila['marcaVacuna'] . "</td>
+                      <td>" . $fila['tipoPaciente'] . "</td>
+                      <td>" . $fila['fechaAplicacion'] . "</td>
+                      <td><a href='#!'>Actualizar</a></td>
+                      <td><a href='#!'>Eliminar</a></td>
+                      </tr>";
+                }
+              } else {
+                echo "No hemos encotrado ningun registro con la palabra " . $palabra;
+              }
+            ?>
           </tbody>
         </table>
+
       </div>
 
     </div>
