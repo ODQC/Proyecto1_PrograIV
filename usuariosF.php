@@ -425,14 +425,17 @@ echo $_SESSION['user'];
   <?php
   if ($_POST['password'] == $_POST['password2']) {
     if (isset($_POST['submit'])) {
-      require_once "/CRUD_PHP/procesos/guardarUsuarios.php";
+      require_once "../Proyecto1_PrograIV/CRUD_PHP/procesos/guardarUsuarios.php";
+      echo '<script type="text/JavaScript"> 
+     				alert("Procesando..");
+     			</script>';
     }
   } else {
     echo '<script type="text/JavaScript"> 
      				alert("Las contraseñas no coinciden");
      			</script>';
   }
-  ?>
+  ?>    
 </body>
 
 </html>
