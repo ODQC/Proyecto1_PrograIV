@@ -113,7 +113,7 @@ echo $_SESSION['user'];
           </thead>
           <tbody>
             <?php
-              require_once "php/connect.php";
+              require_once "Proyecto1_PrograIV/CRUD_PHP/php/connect.php";
               $idsuario = $_POST['IdUsuario'];
               $query = "SELECT * FROM RegistroCovid19.Registro_Vacunados";
               $consulta3 = $mysqli->query($query);
