@@ -96,58 +96,52 @@ echo $_SESSION['user'];
       <div class="container">
         <h2>Registros de pacientes vacunados contra COVID-19</h2>
         <p>Acontiniacion se mostrara los registros de las personas vacunadas con el SARS-COV-2 y el tipo de vacuna que recibieron.</p>
+        <?php
+        try {
+          require_once "./Proyecto1_PrograIV/CRUD_PHP/php/connect.php";
+          $idsuario = $_POST['IdUsuario'];
+          $query = "SELECT * FROM RegistroCovid19.Registro_Vacunados";
+          $consulta3 = $mysqli->query($query);
+          if ($consulta3->num_rows >= 1) {
+            echo '<table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>Num Registro</th>
+                            <th>Cédula</th>
+                            <th>Tipo vacuna</th>
+                            <th>Marca vacuna </th>
+                            <th>Tipo Paciente</th>
+                            <th>fecha</th>
+                            <th>Actualizar</th>
+                            <th>Eliminar</th>
+                          </tr>
+                        </thead>
+                        <tbody>';
 
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Num Registro</th>
-              <th>Cédula</th>
-              <th>Tipo vacuna</th>
-              <th>Marca vacuna </th>
-              <th>Tipo Paciente</th>
-              <th>fecha</th>
-              <th>Actualizar</th>
-              <th>Eliminar</th>
-
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-              try{
-                require_once "./Proyecto1_PrograIV/CRUD_PHP/php/connect.php";
-                $idsuario = $_POST['IdUsuario'];
-                $query = "SELECT * FROM RegistroCovid19.Registro_Vacunados";
-                $consulta3 = $mysqli->query($query);
-
-                if ($consulta3->num_rows >= 1) {
-
-                  while ($fila = $consulta3->fetch_array(MYSQLI_ASSOC)) {
-                    echo "<tr>
-                        <td>" .$fila['IdRegistro'] . "</td>
-                        <td>" .$fila['Usuarios_idUsuario'] . "</td>
-                        <td>" .$fila['tipoVacuna'] . "</td>
-                        <td>" .$fila['marcaVacuna'] . "</td>
-                        <td>" .$fila['tipoPaciente'] . "</td>
-                        <td>" .$fila['fechaAplicacion'] . "</td>
-                        <td><a href='#!'>Actualizar</a></td>
-                        <td><a href='#!'>Eliminar</a></td>
-                        </tr>";
-                  }
-                } else {
-                  echo "No hemos encotrado ningun registro con la palabra " . $palabra;
-                }
-              } catch (PDOException $e) {
-                echo "Connection failed: " . $e->getMessage();
-              }
-            ?>
-          </tbody>
-        </table>
-
+            while ($fila = $consulta3->fetch_array(MYSQLI_ASSOC)) {
+              echo "<tr>
+                              <td>" . $fila['IdRegistro'] . "</td>
+                              <td>" . $fila['Usuarios_idUsuario'] . "</td>
+                              <td>" . $fila['tipoVacuna'] . "</td>
+                              <td>" . $fila['marcaVacuna'] . "</td>
+                              <td>" . $fila['tipoPaciente'] . "</td>
+                              <td>" . $fila['fechaAplicacion'] . "</td>
+                              <td><a href='#!'>Actualizar</a></td>
+                              <td><a href='#!'>Eliminar</a></td>
+                          </tr>";
+            }
+            echo "</tbody>
+                  </table>";
+          } else {
+            echo "No hemos encotrado ningun registro con la palabra " . $palabra;
+          }
+        } catch (PDOException $e) {
+          echo "Connection failed: " . $e->getMessage();
+        }
+        ?>
       </div>
 
     </div>
-
-
     </div>
     </div>
     </div>
