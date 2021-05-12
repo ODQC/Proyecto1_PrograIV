@@ -10,7 +10,7 @@
 				<th>id</th>
 				<th>Nombre</th>
 				<th>Apellido</th>
-				<th>Email</th>
+				<th>Email</th>2
 				<th>Actualizar</th>
 				<th>Eliminar</th>
 			</tr>

@@ -113,27 +113,31 @@ echo $_SESSION['user'];
           </thead>
           <tbody>
             <?php
-              require_once "Proyecto1_PrograIV/CRUD_PHP/php/connect.php";
-              $idsuario = $_POST['IdUsuario'];
-              $query = "SELECT * FROM RegistroCovid19.Registro_Vacunados";
-              $consulta3 = $mysqli->query($query);
+              try{
+                require_once "./Proyecto1_PrograIV/CRUD_PHP/php/connect.php";
+                $idsuario = $_POST['IdUsuario'];
+                $query = "SELECT * FROM RegistroCovid19.Registro_Vacunados";
+                $consulta3 = $mysqli->query($query);
 
-              if ($consulta3->num_rows >= 1) {
+                if ($consulta3->num_rows >= 1) {
 
-                while ($fila = $consulta3->fetch_array(MYSQLI_ASSOC)) {
-                  echo "<tr>
-                      <td>" . $fila['IdRegistro'] . "</td>
-                      <td>" . $fila['Usuarios_idUsuario'] . "</td>
-                      <td>" . $fila['tipoVacuna'] . "</td>
-                      <td>" . $fila['marcaVacuna'] . "</td>
-                      <td>" . $fila['tipoPaciente'] . "</td>
-                      <td>" . $fila['fechaAplicacion'] . "</td>
-                      <td><a href='#!'>Actualizar</a></td>
-                      <td><a href='#!'>Eliminar</a></td>
-                      </tr>";
+                  while ($fila = $consulta3->fetch_array(MYSQLI_ASSOC)) {
+                    echo "<tr>
+                        <td>" .$fila['IdRegistro'] . "</td>
+                        <td>" .$fila['Usuarios_idUsuario'] . "</td>
+                        <td>" .$fila['tipoVacuna'] . "</td>
+                        <td>" .$fila['marcaVacuna'] . "</td>
+                        <td>" .$fila['tipoPaciente'] . "</td>
+                        <td>" .$fila['fechaAplicacion'] . "</td>
+                        <td><a href='#!'>Actualizar</a></td>
+                        <td><a href='#!'>Eliminar</a></td>
+                        </tr>";
+                  }
+                } else {
+                  echo "No hemos encotrado ningun registro con la palabra " . $palabra;
                 }
-              } else {
-                echo "No hemos encotrado ningun registro con la palabra " . $palabra;
+              } catch (PDOException $e) {
+                echo "Connection failed: " . $e->getMessage();
               }
             ?>
           </tbody>
