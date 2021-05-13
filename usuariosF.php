@@ -100,7 +100,7 @@ echo $_SESSION['user'];
       <div class="row">
         <div class="col-md-6">
           <div class="form_container contact-form">
-            <form method="$_POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">>
+            <form method="$_POST" action="usuariosF.php">>
               <div>
                 <label for="sel1">Ingrese el número de cédula:</label>
                 <input type="text" placeholder="Número de cédula" id="idUsuario" name="idUsuario" />
@@ -258,7 +258,7 @@ echo $_SESSION['user'];
                 </select>
               </div>
               <div class="btn_box">
-                <button type="submit" name="submit" id="submit" value="Registrarse">
+                <button type="submit" name="registrarse" id="registrarse" value="Registrarse">
                   Guardar
                 </button>
               </div>
@@ -423,18 +423,18 @@ echo $_SESSION['user'];
   </script>
   <!-- End Google Map -->
   <?php
-  if ($_POST['password'] == $_POST['password2']) {
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      require_once "../Proyecto1_PrograIV/CRUD_PHP/procesos/guardarUsuarios.php";
+    if ($_POST['password'] == $_POST['password2']) {
+      if (isset($_POST["registrarse"])) {
+        require_once "../Proyecto1_PrograIV/CRUD_PHP/procesos/guardarUsuarios.php";
+        echo '<script type="text/JavaScript"> 
+              alert("Procesando..");
+            </script>';
+      }
+    } else {
       echo '<script type="text/JavaScript"> 
-     				alert("Procesando..");
-     			</script>';
+              alert("Las contraseñas no coinciden");
+            </script>';
     }
-  } else {
-    echo '<script type="text/JavaScript"> 
-     				alert("Las contraseñas no coinciden");
-     			</script>';
-  }
   ?>
 </body>
 
