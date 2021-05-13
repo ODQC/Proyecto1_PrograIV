@@ -10,11 +10,12 @@
 	$genero = $_POST['genero'];
 	$telefono = $_POST['telefono'];
 	$edad = $_POST['edad'];
+	$estadoU = 'Activo';
 	
 	
 	try{
 		$query="INSERT INTO RegistroCovid19.Usuarios(idUsuario,nombre,apellido1,apellido2,email,contrasenia,tipoUsuario,genero,telefono,edad,estadoUsuario) 
-		VALUES('$idUsuario','$nombre','$apellido1','$apellido2','$email','$password','$tipoUsuario','$genero','$telefono','$edad','Activo')";
+		VALUES('$idUsuario','$nombre','$apellido1','$apellido2','$email','$password','$tipoUsuario','$genero','$telefono','$edad',$estadoU)";
 		if($mysqli->query($query)){
 			
 			echo '<script type="text/JavaScript"> 
@@ -29,4 +30,4 @@
 	} catch (Exception $e) {
 		echo $e->getMessage();
 	}
-	?>
+?>

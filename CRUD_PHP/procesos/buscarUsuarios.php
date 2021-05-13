@@ -30,12 +30,12 @@
 				<td>".$fila['apellido1']."</td>
 				<td>" . $fila['apellido2']."</td>
 				<td>".$fila['email']."</td>
-				<td>" . $fila['password']."</td>
-				<td>" . $fila['tipoUsuario']."</td>
-				<td>" . $fila['genero']."</td>
-				<td>" . $fila['telefono']."</td>
-				<td>" . $fila['edad']. "</td>
-				<td>" . $fila['estadoUsuario'] . "</td>
+				<td>" .$fila['password']."</td>
+				<td>" .$fila['tipoUsuario']."</td>
+				<td>" .$fila['genero']."</td>
+				<td>" .$fila['telefono']."</td>
+				<td>" .$fila['edad']. "</td>
+				<td>" .$fila['estadoUsuario'] . "</td>
 				<td><a href='#!'>Actualizar</a></td>
 				<td><a href='#!'>Eliminar</a></td>
 			</tr>";

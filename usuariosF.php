@@ -100,7 +100,7 @@ echo $_SESSION['user'];
       <div class="row">
         <div class="col-md-6">
           <div class="form_container contact-form">
-            <form method="$_POST" action="usuariosF.php">>
+            <form method="$_POST" action="usuariosF.php">
               <div>
                 <label for="sel1">Ingrese el número de cédula:</label>
                 <input type="text" placeholder="Número de cédula" id="idUsuario" name="idUsuario" />
