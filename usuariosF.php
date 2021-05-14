@@ -258,7 +258,7 @@ echo $_SESSION['user'];
                 </select>
               </div>
               <div class="btn_box">
-                <button type="submit" name="registrarse" id="registrarse" value="Registrarse">
+                <button onclick="Proyecto1_PrograIV/CRUD_PHP/procesos/guardarUsuarios.php" type="submit" name="registrarse" id="registrarse" value="Registrarse">
                   Guardar
                 </button>
               </div>
@@ -422,20 +422,7 @@ echo $_SESSION['user'];
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
-  <?php
-    if ($_POST['password'] == $_POST['password2']) {
-      if (isset($_POST["registrarse"])) {
-        require_once "../Proyecto1_PrograIV/CRUD_PHP/procesos/guardarUsuarios.php";
-        echo '<script type="text/JavaScript"> 
-              alert("Procesando..");
-            </script>';
-      }
-    } else {
-      echo '<script type="text/JavaScript"> 
-              alert("Las contraseñas no coinciden");
-            </script>';
-    }
-  ?>
+  
 </body>
 
 </html>
