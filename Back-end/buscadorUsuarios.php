@@ -8,7 +8,7 @@
 </head>
 
 <body>
-	<form action="buscador.php" method="POST" autocomplete="off">
+	<form action="buscadorUsuarios.php" method="POST" autocomplete="off">
 		
 		<input name="buscar" type="submit" value="Buscar">
 	</form>
