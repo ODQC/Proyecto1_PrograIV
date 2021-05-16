@@ -55,8 +55,8 @@
      
     <?php
         if (isset($_POST['email']) && isset($_POST['password'])) {
-            require_once "CRUD_PHP/php/connect.php";
-            require_once "CRUD_PHP/procesos/login.php";
+            require_once "../Back-end/php/connect.php";
+            require_once "../Back-end/procesos/login.php";
         }
     ?>
     

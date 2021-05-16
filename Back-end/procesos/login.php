@@ -12,7 +12,7 @@ session_start();
 		$password = md5($_POST['contrasenia']);
 
 
-		$sql = "SELECT * FROM RegistroCovid19.Usuarios WHERE email = '$email'";
+		$sql = "SELECT * FROM RegistroCovid19.Usuarios WHERE email='$email' AND contrasenia='$password'";
 
 		$result = $conexion->query($sql);
 
