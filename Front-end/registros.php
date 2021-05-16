@@ -108,15 +108,24 @@ echo $_SESSION['user'];
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>207460988</td>
-              <td>Dos dosis</td>
-              <td>BioNTech-Pfizer</td>
-              <td>Sin riesgo</td>
-              <td>08/05/2021</td>
-            </tr>
+            <?php
+            require_once "../Back-end/php/connect.php";
+            $sql = "SELECT * FROM  `RegistroCovid19`.`Registro_Vacunados`;";
+            $result = mysqli_query($conexion, $sql);
 
+            while ($mostrar = mysqli_fetch_array($result)) {
+            ?>
+              <tr>
+                <td><?php echo $mostrar['idRegistro'] ?></td>
+                <td><?php echo $mostrar['Usuarios_idUsuario'] ?></td>
+                <td><?php echo $mostrar['tipoVacuna'] ?></td>
+                <td><?php echo $mostrar['marcaVacuna'] ?></td>
+                <td><?php echo $mostrar['tipoPaciente'] ?></td>
+                <td><?php echo $mostrar['fechaAplicacion'] ?></td>
+              </tr>
+            <?php
+            }
+            ?>
           </tbody>
         </table>
       </div>

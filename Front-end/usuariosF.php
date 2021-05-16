@@ -100,7 +100,7 @@ echo $_SESSION['user'];
       <div class="row">
         <div class="col-md-6">
           <div class="form_container contact-form">
-            <form method="$_POST" action="usuariosF.php">
+            <form method="$_POST" action="../Back-end/procesos/guardarUsuarios.php">
               <div>
                 <label for="sel1">Ingrese el número de cédula:</label>
                 <input type="text" placeholder="Número de cédula" id="idUsuario" name="idUsuario" />
@@ -242,11 +242,11 @@ echo $_SESSION['user'];
               </div>
               <div>
                 <label for="sel1">Ingrese la contraseña :</label>
-                <input type="password" placeholder="Contraseña" id="password" name="password" />
+                <input type="password" placeholder="Contraseña" id="contrasenia" name="contrasenia" />
               </div>
               <div>
                 <label for="sel1">Ingrese la contraseña de nuevo:</label>
-                <input type="password" placeholder="Contraseña" id="password2" name="password2" />
+                <input type="password" placeholder="Contraseña" id="contrasenia2" name="contrasenia2" />
               </div>
               <div class="form-group">
                 <label for="sel1">Indique el tipo de usuario:</label>
@@ -258,7 +258,7 @@ echo $_SESSION['user'];
                 </select>
               </div>
               <div>
-              <input type="submit" name="registrarse" id="registrarse" class="form-group" value="Registrarse" />
+                <input type="submit" name="registrarse" id="registrarse" class="form-group" value="Registrarse" />
               </div>
             </form>
           </div>

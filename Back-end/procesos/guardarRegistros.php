@@ -7,7 +7,7 @@ $idRegistro = $_POST['idRegistro'];
 $tipoVacuna = $_POST['tipoVacuna'];
 $marcaVacuna = $_POST['marcaVacuna'];
 $tipoPaciente = $_POST['tipoPaciente'];
-$fechaAplicacion = $_POST['fechaAplicacion'];
+$fechaAplicacion = date('d-m-y h:i:s');
 $Usuarios_idUsuario = $_POST['Usuarios_idUsuario'];
 
 try {

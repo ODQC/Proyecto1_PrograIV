@@ -100,7 +100,7 @@ echo $_SESSION['user'];
       <div class="row">
         <div class="col-md-6">
           <div class="form_container contact-form">
-            <form method="$_POST" action="vacunacionF.php">
+            <form method="$_POST" action="../Back-end/procesos/guardarRegistros.php">
               <div>
                 <label for="sel1">Ingrese el número de cédula del paciente:</label>
                 <input type="text" placeholder="Número de cédula" />
@@ -297,11 +297,7 @@ echo $_SESSION['user'];
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
-  <?php
-  if (isset($_POST['submit'])) {
-    require_once "/CRUD_PHP/procesos/guardarRegistros.php";
-  }
-  ?>
+  
 </body>
 
 </html>

@@ -33,7 +33,7 @@
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container">
                 <div class="signup-content">
-                    <form method="POST" id="signup-form" class="signup-form" action="signUp.php">
+                    <form method="POST" id="signup-form" class="signup-form" action="../Back-end/procesos/guardarUsuarios.php">
                         <h2 class="form-title">Registro de Usuarios</h2>
                         <div class="form-group">
                             <input type="text" class="form-input" name="idUsuario" id="idUsuario" placeholder="Cédula de indentidad" />
@@ -191,7 +191,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Registrase" />
+                            <input type="submit" name="registrase" id="registrase" class="form-submit" value="Registrase" />
                         </div>
                     </form>
                     <p class="loginhere">
@@ -209,17 +209,7 @@
     <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/main.js"></script>
-    <?php
-    if ($_POST['password'] == $_POST['password2']) {
-        if (isset($_POST['submit'])) {
-            require_once "/CRUD_PHP/procesos/guardarUsuarios.php";
-        }
-    } else {
-        echo '<script type="text/JavaScript"> 
-     				alert("Las contraseñas no coinciden");
-     			</script>';
-    }
-    ?>
+    
 </body><!-- La plantilla fue tomada de  Colorlib (https://colorlib.com) -->
 
 </html>
