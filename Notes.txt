@@ -1,0 +1,12 @@
+try{
+
+	}catch (mysqli_sql_exception $e) {
+		throw $e;
+	}catch(Exception $e) {
+		echo 'Message: ' .$e->getMessage();
+	}
+
+
+echo '<script type="text/JavaScript"> 
+	alert("");
+</script>';
