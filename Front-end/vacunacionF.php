@@ -78,7 +78,7 @@ echo $_SESSION['user'];
                 <a class="nav-link" href="usuariosF.php">Usuarios<span class="sr-only">(current)</span> </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./CRUD_PHP/procesos/logout.php">Salir</a>
+                <a class="nav-link" href="../Back-end/logout.php">Salir</a>
               </li>
 
             </ul>
