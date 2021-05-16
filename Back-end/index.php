@@ -8,11 +8,11 @@
 <body>
 	<form action="index.php" method="POST">
 		<label>Email</label><input type="email" name="email"><br><br>
-		<label>Clave</label><input type="password" name="clave"><br><br>
+		<label>Clave</label><input type="password" name="contrasenia"><br><br>
 		<input type="submit" value="Ingresar">
 	</form>
 	<?php
-		if(isset($_POST['email']) && isset($_POST['clave'])){
+		if(isset($_POST['email']) && isset($_POST['contrasenia'])){
 			require_once "php/connect.php";
 			require_once "procesos/login.php";
 		}

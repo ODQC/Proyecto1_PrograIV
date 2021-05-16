@@ -1,8 +1,8 @@
 <?php
 
 	require_once "php/connect.php";
-	if(isset($_GET['id'])){
-		$id=$_GET['id'];
+	if(isset($_GET['idUsuario'])){
+		$id=$_GET['idUsuario'];
 		$query="DELETE FROM usuario WHERE id='$id'";
 		if($mysqli->query($query)){
 			echo "Registro eliminado";
