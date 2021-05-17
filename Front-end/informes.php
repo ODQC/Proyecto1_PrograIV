@@ -315,8 +315,8 @@ if ($con) {
                 ["Element", "Density", {
                   role: "style"
                 }],
-                ["BioNTech-Pfizer", BioNTech_Pfizer, "gold"],
-                ["Oxford-Astrazeneca", Oxford_Astrazeneca, "silver"],
+                ["BioNTech-Pfizer", 1, "gold"],
+                ["Oxford-Astrazeneca", 3, "silver"],
 
               ]);
 
