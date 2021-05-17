@@ -117,7 +117,7 @@ if ($con) {
             <div class="detail-box">
               <div id="piechartRiesgo"></div>
 
-              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
               
                <script type='text/javascript'>
@@ -256,9 +256,9 @@ if ($con) {
         <h3>
           <br>Porcentage de vacunados según el tipo de vacuna
         </h3>
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>' ?>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         
-        require_once "../Back-end/php/connect.php";
+        
 
         echo '<script type="text/javascript">
           google.charts.load("current", {
