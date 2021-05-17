@@ -3,7 +3,7 @@ session_start();
 if (!$_SESSION['verificar']) {
   header("Location: logIn.php");
 }
-echo $_SESSION['user'];
+$usuario = $_SESSION['user'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -85,7 +85,9 @@ echo $_SESSION['user'];
               <li class="nav-item">
                 <a class="nav-link" href="../Back-end/logout.php">Salir</a>
               </li>
-
+              <li class="nav-item">
+                <a class="nav-link" href="">$usuario</a>
+              </li>
             </ul>
           </div>
         </nav>

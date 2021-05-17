@@ -24,6 +24,7 @@ try {
 		echo '<script type="text/JavaScript"> 
 						alert("Datos actualizados");
 					</script>';
+		
 	} else {
 
 		echo '<script type="text/JavaScript"> 
