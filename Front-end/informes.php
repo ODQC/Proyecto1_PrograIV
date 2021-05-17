@@ -110,7 +110,7 @@ echo $_SESSION['user'];
             <div class="detail-box">
               <div id="piechartRiesgo"></div>
 
-              <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>';?>
+              <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'; ?>
 
               <?php echo " <script type='text/javascript'>
                       // Load google charts
@@ -182,7 +182,7 @@ echo $_SESSION['user'];
                       var chart = new google.visualization.PieChart(document.getElementById('piechartAge'));
                       chart.draw(data, options);
                     }
-                  </script>";?>
+                  </script>"; ?>
 
 
             </div>
@@ -196,7 +196,7 @@ echo $_SESSION['user'];
 
               <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'; ?>
 
-             <?php echo "<script type='text/javascript'>
+              <?php echo "<script type='text/javascript'>
                 // Load google charts
                 google.charts.load('current', {
                   'packages': ['corechart']
@@ -239,8 +239,53 @@ echo $_SESSION['user'];
     </div>
   </section>
 
-  <!-- end doctor section -->
-  <!-- end doctor section -->
+  <!--  fin Graficas pastel-->
+  <!-- Gaficas de barras -->
+  <section class="doctor_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h3>
+          Informes Estádisticos sobre los vacunados contra el COVID-19
+          <br>Porcentage de vacunados según el tipo de vacuna
+        </h3>
+        <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'; ?>
+
+        <?php echo "<script type='text/javascript'>
+                    // Load google charts
+                    google.charts.load('current', {
+                      'packages': ['corechart']
+                    });
+                    google.charts.setOnLoadCallback(drawChart);
+                    var Mas65 = 5;
+                    var Menos65 = 6;
+                    // Draw the chart and set the chart values
+                    function drawChart() {
+                      var data = google.visualization.arrayToDataTable([
+                      ['Element', 'Density', { role: 'style' }, { role: 'annotation' } ],
+                      ['Copper', 8.94, '#b87333', 'Cu' ],
+                      ['Silver', 10.49, 'silver', 'Ag' ],
+                      ['Gold', 19.30, 'gold', 'Au' ],
+                      ['Platinum', 21.45, 'color: #e5e4e2', 'Pt' ]
+                      ]);
+
+                      // Optional; add a title and set the width and height of the chart
+                      var options = {
+                        'title': 'Porcentage de vacunados Mayores de 65 años',
+                        'width': 400,
+                        'height': 400
+                      };
+
+                      // Display the chart inside the <div> element with id='piechart'
+                      var chart = new google.visualization.PieChart(document.getElementById('piechartAge'));
+                      chart.draw(data, options);
+                    }
+                  </script>"; ?>
+
+        
+      </div>
+    </div>
+  </section>
+  <!-- fin graficas de barras-->
 
   <!-- footer section -->
   <footer class="footer_section">
@@ -346,6 +391,7 @@ echo $_SESSION['user'];
       </div>
     </div>
   </footer>
+
   <!-- footer section -->
 
   <!-- jQery -->
