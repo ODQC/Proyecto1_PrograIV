@@ -249,7 +249,7 @@ echo $_SESSION['user'];
         </h3>
         <?php echo '<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'?>
         <?php
-        require_once "../php/connect.php";
+        require_once "../Back-end/php/connect.php";
         $query = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE marcaVacuna ='BioNTech-Pfizer'";
         $consulta3 = $mysqli->query($query);
         $fila = $consulta3->fetch_array(MYSQLI_ASSOC);
