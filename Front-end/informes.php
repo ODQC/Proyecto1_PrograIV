@@ -13,11 +13,22 @@ if ($con) {
 }
 ?>
 <?php
-$query = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE tipoPaciente = 'Sin Riesgo'";
-$qresult = mysqli_query($this->conn, $query);
-$row = mysqli_fetch_assoc($qresult);
-$count = $row["COUNT(*)"];
-echo $count;
+  try {
+  $query = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE tipoPaciente = 'Sin Riesgo'";
+  $qresult = mysqli_query($this->conn, $query);
+  $row = mysqli_fetch_assoc($qresult);
+  $count = $row["COUNT(*)"];
+  echo $count;
+  } catch (mysqli_sql_exception $e) {
+    throw $e;
+  } catch (Exception $e) {
+    echo 'Message: ' . $e->getMessage();
+  }
+  echo '<script type="text/JavaScript"> 
+	alert("");
+  </script>';
+
+
 ?>
 <!DOCTYPE html>
 <html>
