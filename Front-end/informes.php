@@ -12,6 +12,13 @@ if ($con) {
   echo "connected";
 }
 ?>
+<?php
+$query = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE tipoPaciente = 'Sin Riesgo'";
+$qresult = mysqli_query($this->conn, $query);
+$row = mysqli_fetch_assoc($qresult);
+$count = $row["COUNT(*)"];
+echo $count;
+?>
 <!DOCTYPE html>
 <html>
 
@@ -134,14 +141,6 @@ if ($con) {
                     ['Vacunados', 'Cantidad'],
                     ['Personas de Riesgo', De_Riesgo],
                     ['Personas sin Riesgo', Sin_Riesgo],
-
-                    <?php
-                    $query = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE tipoPaciente = 'Sin Riesgo'";
-                    $qresult = mysqli_query($this->conn, $query);
-                    $row = mysqli_fetch_assoc($qresult);
-                    $count = $row["COUNT(*)"];
-                    
-                    ?>
 
                   ]);
 
