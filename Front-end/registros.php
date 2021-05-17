@@ -175,12 +175,11 @@ echo $_SESSION['user'];
               <th>Nomble</th>
               <th>Apellido 1</th>
               <th>Apellido2</th>
-              <th>Email</th>
-              <th>Contraseña</th>
-              <th>Tipo de usuario</th>
               <th>Genero</th>
-              <th>Telefono</th>
               <th>Edad</th>
+              <th>Email</th>
+              <th>Telefono</th>
+              <th>Tipo de usuario</th>
               <th>Estado</th>
             </tr>
           </thead>
@@ -206,16 +205,15 @@ echo $_SESSION['user'];
               // output data of each row
               while ($row = $result->fetch_assoc()) {
                 echo "<tr>
-                        <td>" . $row["idUsuarios"] . "</td>
+                        <td>" . $row["idUsuario"] . "</td>
                         <td>" . $row["nombre"] . "</td>
                         <td>" . $row["apellido1"] . "</td>
                         <td>" . $row["apellido2"] . "</td>
-                        <td>" . $row["email"] . "</td>
-                        <td>" . $row["contrasenia"] . "</td>
-                        <td>" . $row["tipoUsuario"] . "</td>
                         <td>" . $row["genero"] . "</td>
-                        <td>" . $row["telefono"] . "</td>
                         <td>" . $row["edad"] . "</td>
+                        <td>" . $row["email"] . "</td>
+                        <td>" . $row["telefono"] . "</td>
+                        <td>" . $row["tipoUsuario"] . "</td>
                         <td>" . $row["estadoUsuario"] . "</td>
                         </tr>";
               }
