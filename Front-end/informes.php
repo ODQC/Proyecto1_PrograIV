@@ -244,44 +244,56 @@ echo $_SESSION['user'];
   <section class="doctor_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
-        <h3>
-          Informes Estádisticos sobre los vacunados contra el COVID-19
+        <h2>
           <br>Porcentage de vacunados según el tipo de vacuna
-        </h3>
-        <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'; ?>
+        </h2>
+        <?php echo'<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>';?>
+        <?php echo ' <script type="text/javascript">
+          google.charts.load("current", {
+            packages: ["corechart"]
+          });
+          google.charts.setOnLoadCallback(drawChart);
+          var BioNTech-Pfizer = 5;
+          var Oxford-Astrazeneca = 6;
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ["Element", "Density", {
+                role: "style"
+              }],
+              ["BioNTech-Pfizer", BioNTech-Pfizer, "gold"],
+              ["Oxford-Astrazeneca", Oxford-Astrazeneca, "silver"],
+              
+            ]);
 
-        <?php echo "<script type='text/javascript'>
-                    // Load google charts
-                    google.charts.load('current', {
-                      'packages': ['corechart']
-                    });
-                    google.charts.setOnLoadCallback(drawChart);
-                    var Mas65 = 5;
-                    var Menos65 = 6;
-                    // Draw the chart and set the chart values
-                    function drawChart() {
-                      var data = google.visualization.arrayToDataTable([
-                      ['Element', 'Density', { role: 'style' }, { role: 'annotation' } ],
-                      ['Copper', 8.94, '#b87333', 'Cu' ],
-                      ['Silver', 10.49, 'silver', 'Ag' ],
-                      ['Gold', 19.30, 'gold', 'Au' ],
-                      ['Platinum', 21.45, 'color: #e5e4e2', 'Pt' ]
-                      ]);
+            var view = new google.visualization.DataView(data);
+            view.setColumns([0, 1,
+              {
+                calc: "stringify",
+                sourceColumn: 1,
+                type: "string",
+                role: "annotation"
+              },
+              2
+            ]);
 
-                      // Optional; add a title and set the width and height of the chart
-                      var options = {
-                        'title': 'Porcentage de vacunados Mayores de 65 años',
-                        'width': 400,
-                        'height': 400
-                      };
+            var options = {
+              title: "Porcentaje de vacunados según el tipo de Vacuna",
+              width: 600,
+              height: 400,
+              bar: {
+                groupWidth: "95%"
+              },
+              legend: {
+                position: "none"
+              },
+            };
+            var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+            chart.draw(view, options);
+          }
+        </script> ';?>
+        <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
 
-                      // Display the chart inside the <div> element with id='piechart'
-                      var chart = new google.visualization.PieChart(document.getElementById('piechartAge'));
-                      chart.draw(data, options);
-                    }
-                  </script>"; ?>
 
-        
       </div>
     </div>
   </section>
