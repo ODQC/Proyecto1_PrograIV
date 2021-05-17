@@ -23,7 +23,7 @@ INSERT INTO `RegistroCovid19`.`Registro_Vacunados` (`tipoVacuna`, `marcaVacuna`,
 
 --> Modificar la fecha del registro
 
-SELECT COUNT(*) FROM RegistroCovid19.Registro_Vacunados WHERE tipoPaciente = 'Sin Riesgo';
-SELECT COUNT(*) FROM RegistroCovid19.Registro_Vacunados WHERE tipoPaciente = 'De Riesgo';
-SELECT COUNT(*) FROM RegistroCovid19.Registro_Vacunados WHERE marcaVacuna ='BioNTech-Pfizer';
-SELECT COUNT(*) FROM RegistroCovid19.Registro_Vacunados WHERE marcaVacuna ='Oxford-Astrazeneca';
+SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE tipoPaciente = 'Sin Riesgo';
+SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE tipoPaciente = 'De Riesgo';
+SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE marcaVacuna ='BioNTech-Pfizer';
+SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE marcaVacuna ='Oxford-Astrazeneca';

@@ -36,8 +36,7 @@ if ($con) {
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -68,8 +67,7 @@ if ($con) {
             </span>
           </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
           </button>
 
@@ -134,9 +132,18 @@ if ($con) {
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
                     ['Vacunados', 'Cantidad'],
-
                     ['Personas de Riesgo', De_Riesgo],
                     ['Personas sin Riesgo', Sin_Riesgo],
+
+                    <?php
+                    $query = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE tipoPaciente = 'Sin Riesgo'";
+                    $qresult = mysqli_query($this->conn, $query);
+                    $row = mysqli_fetch_assoc($qresult);
+                    $count = $row["COUNT(*)"];
+                    echo '<script type="text/JavaScript"> 
+                      alert("$count");
+                    </script>';
+                    ?>
 
                   ]);
 
@@ -179,7 +186,10 @@ if ($con) {
                     ['Vacunados', 'Cantidad'],
                     ['Mayores de 65', Mas65],
                     ['Menores de 65', Menos65],
+                    <?php
 
+
+                    ?>
                   ]);
 
                   // Optional; add a title and set the width and height of the chart
@@ -221,7 +231,10 @@ if ($con) {
                     ['Vacunados', 'Cantidad'],
                     ['Mujeres', Mujeres],
                     ['Hombres', Hombres],
+                    <?php
 
+
+                    ?>
 
                   ]);
 
@@ -271,15 +284,24 @@ if ($con) {
             <div class="box">
               <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
               <script type="text/javascript">
-                google.charts.load("current", { packages: ['corechart'] });
+                google.charts.load("current", {
+                  packages: ['corechart']
+                });
                 google.charts.setOnLoadCallback(drawChart);
+
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
-                    ["Element", "Density", { role: "style" }],
-                    
+                    ["Element", "Density", {
+                      role: "style"
+                    }],
+
                     ["BioNTech-Pfizer", 10, "silver"],
                     ["Oxford-Astrazeneca", 19, "gold"],
-                    
+                    <?php
+
+
+                    ?>
+
                   ]);
 
                   var view = new google.visualization.DataView(data);
@@ -290,14 +312,19 @@ if ($con) {
                       type: "string",
                       role: "annotation"
                     },
-                    2]);
+                    2
+                  ]);
 
                   var options = {
                     title: "Porcentaje de Vacuanas aplicadas según su marca",
                     width: 700,
                     height: 400,
-                    bar: { groupWidth: "95%" },
-                    legend: { position: "none" },
+                    bar: {
+                      groupWidth: "95%"
+                    },
+                    legend: {
+                      position: "none"
+                    },
                   };
                   var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
                   chart.draw(view, options);
@@ -438,9 +465,8 @@ if ($con) {
   <!-- jQery -->
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
   <!-- bootstrap js -->
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <!-- owl slider -->
