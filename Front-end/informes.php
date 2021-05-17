@@ -306,7 +306,9 @@ if ($con) {
             google.charts.setOnLoadCallback(drawChart);
 
             var BioNTech_Pfizer = <?php echo json_encode($Pfizer); ?>;
-            var $Oxford_Astrazeneca = <?php echo json_encode($Pfizer); ?>;
+            var Oxford_Astrazeneca = <?php echo json_encode($Pfizer); ?>;
+            alert(BioNTech_Pfizer,Oxford_Astrazeneca);
+
 
             function drawChart() {
               var data = google.visualization.arrayToDataTable([
@@ -314,7 +316,7 @@ if ($con) {
                   role: "style"
                 }],
                 ["BioNTech-Pfizer", BioNTech_Pfizer, "gold"],
-                ["Oxford-Astrazeneca", $Oxford_Astrazeneca, "silver"],
+                ["Oxford-Astrazeneca", Oxford_Astrazeneca, "silver"],
 
               ]);
 
