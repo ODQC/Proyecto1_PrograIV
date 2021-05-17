@@ -222,7 +222,7 @@ if ($con) {
                     <?php
                     $sql = "SELECT COUNT(*) FROM `RegistroCovid19` .` Usuarios`  WHERE `genero` = 'Masculino'";
                     $fire = mysqli_query($con, $sql);
-                    
+
 
                     ?>
 
@@ -264,9 +264,21 @@ if ($con) {
         </h3>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+        <?php
+        $servername = "localhost";
+        $username = "root";
+        $password = "207460988";
+        $db_name = "RegistroCovid19";
 
-
-        echo '<script type="text/javascript">
+        // Create connection
+        $conn = new mysqli($servername, $username,$password, $db_name);
+        $query = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE marcaVacuna ='BioNTech-Pfizer'";
+        $qresult = mysqli_query($this->conn, $query);
+        $row = mysqli_fetch_assoc($qresult);
+        $BioNTech_Pfizer = $row["COUNT(*)"];
+        echo $count;
+        ?>
+        <script type="text/javascript">
           google.charts.load("current", {
             packages: ["corechart"]
           });
