@@ -244,24 +244,24 @@ echo $_SESSION['user'];
   <section class="doctor_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
-        <h2>
+        <h3>
           <br>Porcentage de vacunados según el tipo de vacuna
-        </h2>
-        <?php echo'<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>';?>
-        <?php echo ' <script type="text/javascript">
+        </h3>
+        <?php echo '<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'?>
+        <?php echo '<script type="text/javascript">
           google.charts.load("current", {
             packages: ["corechart"]
           });
           google.charts.setOnLoadCallback(drawChart);
-          var BioNTech-Pfizer = 5;
-          var Oxford-Astrazeneca = 6;
+          var BioNTech_Pfizer = 5;
+          var Oxford_Astrazeneca = 6;
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
               ["Element", "Density", {
                 role: "style"
               }],
-              ["BioNTech-Pfizer", BioNTech-Pfizer, "gold"],
-              ["Oxford-Astrazeneca", Oxford-Astrazeneca, "silver"],
+              ["BioNTech-Pfizer", BioNTech_Pfizer, "gold"],
+              ["Oxford-Astrazeneca", Oxford_Astrazeneca, "silver"],
               
             ]);
 
@@ -278,10 +278,10 @@ echo $_SESSION['user'];
 
             var options = {
               title: "Porcentaje de vacunados según el tipo de Vacuna",
-              width: 600,
+              width: 700,
               height: 400,
               bar: {
-                groupWidth: "95%"
+                groupWidth: "50%"
               },
               legend: {
                 position: "none"
@@ -290,7 +290,7 @@ echo $_SESSION['user'];
             var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
             chart.draw(view, options);
           }
-        </script> ';?>
+        </script>';?>
         <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
 
 
