@@ -95,151 +95,151 @@ echo $_SESSION['user'];
 
   <!-- doctor section -->
 
-<section class="doctor_section layout_padding">
-  <div class="container">
-    <div class="heading_container heading_center">
-      <h3>
-        Informes Estádisticos sobre los vacunados contra el COVID-19
-      </h3>
-      
-    </div>
-    <div class="row">
-      <div class="col-sm-6 col-lg-4 mx-auto">
-        <div class="box">
-          
-          <div class="detail-box">
-            <div id="piechartRiesgo"></div>
-            
-            echo '<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>';
-            
-            echo '<script type="text/javascript">
-              // Load google charts
-              google.charts.load('current', {
-                'packages': ['corechart']
-              });
-              google.charts.setOnLoadCallback(drawChart);
-              var De_Riesgo = 5;
-              var Sin_Riesgo = 6;
-              // Draw the chart and set the chart values
-              function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                  ['Vacunados', 'Cantidad'],
-                  ['Personas de Riesgo', De_Riesgo],
-                  ['Personas sin Riesgo', Sin_Riesgo],
+  <section class="doctor_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h3>
+          Informes Estádisticos sobre los vacunados contra el COVID-19
+        </h3>
 
-                ]);
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-lg-4 mx-auto">
+          <div class="box">
 
-                // Optional; add a title and set the width and height of the chart
-                var options = {
-                  'title': 'Porcentage de vacunados por condición de riesgo debido otras patologías',
-                  'width': 400,
-                  'height': 400
-                };
+            <div class="detail-box">
+              <div id="piechartRiesgo"></div>
 
-                // Display the chart inside the <div> element with id="piechart"
-                var chart = new google.visualization.PieChart(document.getElementById('piechartRiesgo'));
-                chart.draw(data, options);
-              }
-            </script>';
+              <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>;' ?>
+
+              <?php echo " <script type='text/javascript'>
+                      // Load google charts
+                      google.charts.load('current', {
+                        'packages': ['corechart']
+                      });
+                      google.charts.setOnLoadCallback(drawChart);
+                      var De_Riesgo = 5;
+                      var Sin_Riesgo = 6;
+                      // Draw the chart and set the chart values
+                      function drawChart() {
+                        var data = google.visualization.arrayToDataTable([
+                          ['Vacunados', 'Cantidad'],
+                          ['Personas de Riesgo', De_Riesgo],
+                          ['Personas sin Riesgo', Sin_Riesgo],
+
+                        ]);
+
+                        // Optional; add a title and set the width and height of the chart
+                        var options = {
+                          'title': 'Porcentage de vacunados por condición de riesgo debido otras patologías',
+                          'width': 400,
+                          'height': 400
+                        };
+
+                        // Display the chart inside the <div> element with id='piechart'
+                        var chart = new google.visualization.PieChart(document.getElementById('piechartRiesgo'));
+                        chart.draw(data, options);
+                      }
+                    </script>;" ?>
 
 
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mx-auto">
+          <div class="box">
+
+            <div class="detail-box">
+              <div id="piechartAge"></div>
+
+              <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>;' ?>
+
+              <?php echo "<script type='text/javascript'>
+                    // Load google charts
+                    google.charts.load('current', {
+                      'packages': ['corechart']
+                    });
+                    google.charts.setOnLoadCallback(drawChart);
+                    var Mas65 = 5;
+                    var Menos65 = 6;
+                    // Draw the chart and set the chart values
+                    function drawChart() {
+                      var data = google.visualization.arrayToDataTable([
+                        ['Vacunados', 'Cantidad'],
+                        ['Mayores de 65', Mas65],
+                        ['Menores de 65', Menos65],
+
+                      ]);
+
+                      // Optional; add a title and set the width and height of the chart
+                      var options = {
+                        'title': 'Porcentage de vacunados Mayores de 65 años',
+                        'width': 400,
+                        'height': 400
+                      };
+
+                      // Display the chart inside the <div> element with id='piechart'
+                      var chart = new google.visualization.PieChart(document.getElementById('piechartAge'));
+                      chart.draw(data, options);
+                    }
+                  </script>" ?>
+
+
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mx-auto">
+          <div class="box">
+
+            <div class="detail-box">
+              <div id="piechart"></div>
+
+              <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>;' ?>
+
+             <?php echo "<script type='text/javascript'>
+                // Load google charts
+                google.charts.load('current', {
+                  'packages': ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+                var Hombres = 5;
+                var Mujeres = 6;
+                // Draw the chart and set the chart values
+                function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                    ['Vacunados', 'Cantidad'],
+                    ['Mujeres', Mujeres],
+                    ['Hombres', Hombres],
+
+                  ]);
+
+                  // Optional; add a title and set the width and height of the chart
+                  var options = {
+                    'title': 'Porcentage de vacunados según el sexo',
+                    'width': 400,
+                    'height': 400
+                  };
+
+                  // Display the chart inside the <div> element with id='piechart'
+                  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                  chart.draw(data, options);
+                }
+              </script>;" ?>
+
+
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-sm-6 col-lg-4 mx-auto">
-        <div class="box">
-          
-          <div class="detail-box">
-            <div id="piechartAge"></div>
-            
-            echo '<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>';
-            
-            echo '<script type="text/javascript">
-              // Load google charts
-              google.charts.load('current', {
-                'packages': ['corechart']
-              });
-              google.charts.setOnLoadCallback(drawChart);
-              var Mas65 = 5;
-              var Menos65 = 6;
-              // Draw the chart and set the chart values
-              function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                  ['Vacunados', 'Cantidad'],
-                  ['Mayores de 65', Mas65],
-                  ['Menores de 65', Menos65],
-
-                ]);
-
-                // Optional; add a title and set the width and height of the chart
-                var options = {
-                  'title': 'Porcentage de vacunados Mayores de 65 años',
-                  'width': 400,
-                  'height': 400
-                };
-
-                // Display the chart inside the <div> element with id="piechart"
-                var chart = new google.visualization.PieChart(document.getElementById('piechartAge'));
-                chart.draw(data, options);
-              }
-            </script>';
-
-
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-lg-4 mx-auto">
-        <div class="box">
-          
-          <div class="detail-box">
-            <div id="piechart"></div>
-            
-            echo '<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>';
-            
-            echo '<script type="text/javascript">
-              // Load google charts
-              google.charts.load('current', {
-                'packages': ['corechart']
-              });
-              google.charts.setOnLoadCallback(drawChart);
-              var Hombres = 5;
-              var Mujeres = 6;
-              // Draw the chart and set the chart values
-              function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                  ['Vacunados', 'Cantidad'],
-                  ['Mujeres', Mujeres],
-                  ['Hombres', Hombres],
-
-                ]);
-
-                // Optional; add a title and set the width and height of the chart
-                var options = {
-                  'title': 'Porcentage de vacunados según el sexo',
-                  'width': 400,
-                  'height': 400
-                };
-
-                // Display the chart inside the <div> element with id="piechart"
-                var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-                chart.draw(data, options);
-              }
-            </script>';
-
-
-          </div>
-        </div>
+      <div class="btn-box">
+        <a href="">
+          View All
+        </a>
       </div>
     </div>
-    <div class="btn-box">
-      <a href="">
-        View All
-      </a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- end doctor section -->
+  <!-- end doctor section -->
   <!-- end doctor section -->
 
   <!-- footer section -->
@@ -364,7 +364,7 @@ echo $_SESSION['user'];
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
-
+  <script type="text/javascript" src="js/controladorRegistro.js"></script>
 </body>
 
 </html>
