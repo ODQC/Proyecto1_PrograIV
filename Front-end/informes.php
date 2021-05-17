@@ -271,12 +271,18 @@ if ($con) {
         $db_name = "RegistroCovid19";
 
         // Create connection
-        $conn = new mysqli($servername, $username,$password, $db_name);
+        $conn = new mysqli($servername, $username, $password, $db_name);
         $query = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE marcaVacuna ='BioNTech-Pfizer'";
         $qresult = mysqli_query($this->conn, $query);
         $row = mysqli_fetch_assoc($qresult);
-        $BioNTech_Pfizer = $row["COUNT(*)"];
-        echo $count;
+        $Pfizer = $row["COUNT(*)"];
+
+        
+        $query2 = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE marcaVacuna ='Oxford_Astrazeneca'";
+        $qresult2 = mysqli_query($this->conn, $query2);
+        $row2 = mysqli_fetch_assoc($qresult2);
+        $Astrazeneca = $row["COUNT(*)"];
+
         ?>
         <script type="text/javascript">
           google.charts.load("current", {
@@ -284,14 +290,15 @@ if ($con) {
           });
           google.charts.setOnLoadCallback(drawChart);
 
-
+          var BioNTech_Pfizer = <?php echo json_encode($Pfizer); ?>;
+          var $Oxford_Astrazeneca = <?php echo json_encode($Pfizer); ?>;
 
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
               ["Element", "Density", {
                 role: "style"
               }],
-              ["BioNTech-Pfizer", $BioNTech_Pfizer, "gold"],
+              ["BioNTech-Pfizer", BioNTech_Pfizer, "gold"],
               ["Oxford-Astrazeneca", $Oxford_Astrazeneca, "silver"],
 
             ]);
