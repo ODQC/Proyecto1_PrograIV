@@ -145,8 +145,8 @@ echo $_SESSION['user'];
 
             $conn->close();
             ?>
-          
-        
+
+
 
 
       </div>
@@ -160,7 +160,86 @@ echo $_SESSION['user'];
   </section>
 
   <!-- end about section -->
+  <section class="about_section layout_padding">
+    <div class="container  ">
 
+      <div class="container">
+        <h2>Registros de Usuarios</h2>
+        <p>Acontiniacion se mostrara los registros de los usuarios ingresados en el sistema</p>
+        <table class="table table-hover">
+
+          <thead>
+            <tr>
+              <th></th>
+              <th>Cédula</th>
+              <th>Nomble</th>
+              <th>Apellido 1</th>
+              <th>Apellido2</th>
+              <th>Email</th>
+              <th>Contraseña</th>
+              <th>Tipo de usuario</th>
+              <th>Genero</th>
+              <th>Telefono</th>
+              <th>Edad</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "207460988";
+            $dbname = "RegistroCovid19";
+
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+            }
+
+            $sql = "SELECT * FROM `RegistroCovid19`.`Usuarios`";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+
+              // output data of each row
+              while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                        <td>" . $row["idUsuarios"] . "</td>
+                        <td>" . $row["nombre"] . "</td>
+                        <td>" . $row["apellido1"] . "</td>
+                        <td>" . $row["apellido2"] . "</td>
+                        <td>" . $row["email"] . "</td>
+                        <td>" . $row["contrasenia"] . "</td>
+                        <td>" . $row["tipoUsuario"] . "</td>
+                        <td>" . $row["genero"] . "</td>
+                        <td>" . $row["telefono"] . "</td>
+                        <td>" . $row["edad"] . "</td>
+                        <td>" . $row["estadoUsuario"] . "</td>
+                        </tr>";
+              }
+              echo "</tbody>
+              </table>";
+            } else {
+              echo "0 results";
+            }
+
+            $conn->close();
+            ?>
+
+
+
+
+      </div>
+
+    </div>
+
+
+    </div>
+    </div>
+    </div>
+  </section>
   <!-- footer section -->
   <footer class="footer_section">
     <div class="container">
