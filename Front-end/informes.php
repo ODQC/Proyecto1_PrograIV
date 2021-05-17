@@ -36,7 +36,8 @@ if ($con) {
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -67,7 +68,8 @@ if ($con) {
             </span>
           </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
           </button>
 
@@ -219,12 +221,7 @@ if ($con) {
                     ['Vacunados', 'Cantidad'],
                     ['Mujeres', Mujeres],
                     ['Hombres', Hombres],
-                    <?php
-                    $sql = "SELECT COUNT(*) FROM `RegistroCovid19` .` Usuarios`  WHERE `genero` = 'Masculino'";
-                    $fire = mysqli_query($con, $sql);
 
-
-                    ?>
 
                   ]);
 
@@ -262,100 +259,73 @@ if ($con) {
         <h3>
           <br>Porcentage de vacunados según el tipo de vacuna
         </h3>
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-        <?php
-        try {
-          $servername = "localhost";
-          $username = "root";
-          $password = "207460988";
-          $db_name = "RegistroCovid19";
-
-          // Create connection
-          $conn = new mysqli($servername, $username, $password, $db_name);
-          $query = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE marcaVacuna ='BioNTech-Pfizer'";
-          $qresult = mysqli_query($this->conn, $query);
-          $row = mysqli_fetch_assoc($qresult);
-          $Pfizer = $row["COUNT(*)"];
+        <div class="row">
+          <div class="col-sm-6 col-lg-4 mx-auto">
+            <div class="box">
 
 
-          $query2 = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE marcaVacuna ='Oxford_Astrazeneca'";
-          $qresult2 = mysqli_query($this->conn, $query2);
-          $row2 = mysqli_fetch_assoc($qresult2);
-          $Astrazeneca = $row["COUNT(*)"];
-        } catch (mysqli_sql_exception $e) {
-          throw $e;
-        } catch (Exception $e) {
-          echo 'Message: ' . $e->getMessage();
-        }
-        echo '<script type="text/JavaScript"> 
-              alert("");
-            </script>';
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 mx-auto">
+            <div class="box">
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+              <script type="text/javascript">
+                google.charts.load("current", { packages: ['corechart'] });
+                google.charts.setOnLoadCallback(drawChart);
+                function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                    ["Element", "Density", { role: "style" }],
+                    
+                    ["BioNTech-Pfizer", 10, "silver"],
+                    ["Oxford-Astrazeneca", 19, "gold"],
+                    
+                  ]);
+
+                  var view = new google.visualization.DataView(data);
+                  view.setColumns([0, 1,
+                    {
+                      calc: "stringify",
+                      sourceColumn: 1,
+                      type: "string",
+                      role: "annotation"
+                    },
+                    2]);
+
+                  var options = {
+                    title: "Porcentaje de Vacuanas aplicadas según su marca",
+                    width: 700,
+                    height: 400,
+                    bar: { groupWidth: "95%" },
+                    legend: { position: "none" },
+                  };
+                  var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+                  chart.draw(view, options);
+                }
+              </script>
+              <div id="columnchart_values" style="width: 2000px; height: 400px;"></div>
+
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 mx-auto">
+            <div class="box">
 
 
-        ?>
-        <p id="demo"></p>
 
-        <script type="text/javascript">
-          try {
-
-
-            google.charts.load("current", {
-              packages: ["corechart"]
-            });
-            google.charts.setOnLoadCallback(drawChart);
-
-            var BioNTech_Pfizer = <?php echo json_encode($Pfizer); ?>;
-            var Oxford_Astrazeneca = <?php echo json_encode($Pfizer); ?>;
-            alert(BioNTech_Pfizer,Oxford_Astrazeneca);
-
-
-            function drawChart() {
-              var data = google.visualization.arrayToDataTable([
-                ["Element", "Density", {
-                  role: "style"
-                }],
-                ["BioNTech-Pfizer", 1, "gold"],
-                ["Oxford-Astrazeneca", 3, "silver"],
-
-              ]);
-
-              var view = new google.visualization.DataView(data);
-              view.setColumns([0, 1,
-                {
-                  calc: "stringify",
-                  sourceColumn: 1,
-                  type: "string",
-                  role: "annotation"
-                },
-                2
-              ]);
-
-              var options = {
-                title: "Porcentaje de vacunados según el tipo de Vacuna",
-                width: 700,
-                height: 400,
-                bar: {
-                  groupWidth: "50%"
-                },
-                legend: {
-                  position: "none"
-                },
-              };
-              var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
-              chart.draw(view, options);
-            }
-
-          } catch (err) {
-            document.getElementById("demo").innerHTML = err.message;
-          }
-        </script>
-        <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
-
-
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href="">
+          View All
+        </a>
       </div>
     </div>
   </section>
+
+
+
   <!-- fin graficas de barras-->
 
   <!-- footer section -->
@@ -468,8 +438,9 @@ if ($con) {
   <!-- jQery -->
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
   <!-- bootstrap js -->
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <!-- owl slider -->
