@@ -38,8 +38,6 @@ UPDATE `RegistroCovid19`.`Usuarios` SET `estadoUsuario` = 'Inactivo' WHERE (`idU
 --> Modificar datos de usuario
 UPDATE `RegistroCovid19`.`Usuarios` SET `email` = 'Ruben@outlook.com', `tipoUsuario` = 'Paciente', `genero` = 'No especifica', `telefono` = '88907345', `edad` = '43' WHERE (`idUsuario` = '208670234');
 
-SELECT COUNT(*) FROM RegistroCovid19.Usuarios WHERE genero = 'Femenino';
-SELECT COUNT(*) FROM RegistroCovid19.Usuarios WHERE genero = 'Masculino';
-
-
-SELECT COUNT(*) FROM RegistroCovid19.Usuarios GROUP BY productVendor HAVING COUNT(*) >= 9 ORDER BY COUNT(*) DESC;
+SELECT COUNT(*) FROM `RegistroCovid19`.`Usuarios` WHERE genero = 'Femenino';
+SELECT COUNT(*) FROM `RegistroCovid19`.`Usuarios` WHERE genero = 'Masculino';
+SELECT COUNT(*) FROM `RegistroCovid19`.`Usuarios` GROUP BY productVendor HAVING COUNT(*) >= 9 ORDER BY COUNT(*) DESC;
