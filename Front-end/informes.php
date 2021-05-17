@@ -248,20 +248,32 @@ echo $_SESSION['user'];
           <br>Porcentage de vacunados según el tipo de vacuna
         </h3>
         <?php echo '<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'?>
-        <?php echo '<script type="text/javascript">
+        <?php
+        require_once "../php/connect.php";
+        $query = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE marcaVacuna ='BioNTech-Pfizer'";
+        $consulta3 = $mysqli->query($query);
+        $fila = $consulta3->fetch_array(MYSQLI_ASSOC);
+        $query2 = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE marcaVacuna ='Oxford-Astrazeneca'";
+        $consulta4 = $mysqli->query($query2);
+        $fila1 = $consulta4->fetch_array(MYSQLI_ASSOC);
+
+        $BioNTech_Pfizer =$fila['COUNT(*)'];
+        $Oxford_Astrazeneca= $fila1['COUNT(*)'];
+        echo '<script type="text/javascript">
           google.charts.load("current", {
             packages: ["corechart"]
           });
           google.charts.setOnLoadCallback(drawChart);
-          var BioNTech_Pfizer = 5;
-          var Oxford_Astrazeneca = 6;
+          
+          
+          
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
               ["Element", "Density", {
                 role: "style"
               }],
-              ["BioNTech-Pfizer", BioNTech_Pfizer, "gold"],
-              ["Oxford-Astrazeneca", Oxford_Astrazeneca, "silver"],
+              ["BioNTech-Pfizer", $BioNTech_Pfizer, "gold"],
+              ["Oxford-Astrazeneca", $Oxford_Astrazeneca, "silver"],
               
             ]);
 
