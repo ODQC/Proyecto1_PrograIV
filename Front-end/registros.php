@@ -170,10 +170,10 @@ echo $_SESSION['user'];
 
           <thead>
             <tr>
-              <th></th>
+              
               <th>Cédula</th>
               <th>Nomble</th>
-              <th>Apellido 1</th>
+              <th>Apellido1</th>
               <th>Apellido2</th>
               <th>Genero</th>
               <th>Edad</th>
