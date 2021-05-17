@@ -119,37 +119,37 @@ if ($con) {
 
               <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-              
-               <script type='text/javascript'>
-                      // Load google charts
-                      google.charts.load('current', {
-                        'packages': ['corechart']
-                      });
-                      google.charts.setOnLoadCallback(drawChart);
-                      var De_Riesgo = 5;
-                      var Sin_Riesgo = 6;
-                      // Draw the chart and set the chart values
-                      function drawChart() {
-                        var data = google.visualization.arrayToDataTable([
-                          ['Vacunados', 'Cantidad'],
-                         
-                          ['Personas de Riesgo', De_Riesgo],
-                          ['Personas sin Riesgo', Sin_Riesgo],
 
-                        ]);
+              <script type='text/javascript'>
+                // Load google charts
+                google.charts.load('current', {
+                  'packages': ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+                var De_Riesgo = 5;
+                var Sin_Riesgo = 6;
+                // Draw the chart and set the chart values
+                function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                    ['Vacunados', 'Cantidad'],
 
-                        // Optional; add a title and set the width and height of the chart
-                        var options = {
-                          'title': 'Porcentage de vacunados por condición de riesgo debido otras patologías',
-                          'width': 400,
-                          'height': 400
-                        };
+                    ['Personas de Riesgo', De_Riesgo],
+                    ['Personas sin Riesgo', Sin_Riesgo],
 
-                        // Display the chart inside the <div> element with id='piechart'
-                        var chart = new google.visualization.PieChart(document.getElementById('piechartRiesgo'));
-                        chart.draw(data, options);
-                      }
-                    </script>
+                  ]);
+
+                  // Optional; add a title and set the width and height of the chart
+                  var options = {
+                    'title': 'Porcentage de vacunados por condición de riesgo debido otras patologías',
+                    'width': 400,
+                    'height': 400
+                  };
+
+                  // Display the chart inside the <div> element with id='piechart'
+                  var chart = new google.visualization.PieChart(document.getElementById('piechartRiesgo'));
+                  chart.draw(data, options);
+                }
+              </script>
 
 
             </div>
@@ -161,37 +161,37 @@ if ($con) {
             <div class="detail-box">
               <div id="piechartAge"></div>
 
-               <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
               <script type='text/javascript'>
-                    // Load google charts
-                    google.charts.load('current', {
-                      'packages': ['corechart']
-                    });
-                    google.charts.setOnLoadCallback(drawChart);
-                    var Mas65 = 5;
-                    var Menos65 = 6;
-                    // Draw the chart and set the chart values
-                    function drawChart() {
-                      var data = google.visualization.arrayToDataTable([
-                        ['Vacunados', 'Cantidad'],
-                        ['Mayores de 65', Mas65],
-                        ['Menores de 65', Menos65],
+                // Load google charts
+                google.charts.load('current', {
+                  'packages': ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+                var Mas65 = 5;
+                var Menos65 = 6;
+                // Draw the chart and set the chart values
+                function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                    ['Vacunados', 'Cantidad'],
+                    ['Mayores de 65', Mas65],
+                    ['Menores de 65', Menos65],
 
-                      ]);
+                  ]);
 
-                      // Optional; add a title and set the width and height of the chart
-                      var options = {
-                        'title': 'Porcentage de vacunados Mayores de 65 años',
-                        'width': 400,
-                        'height': 400
-                      };
+                  // Optional; add a title and set the width and height of the chart
+                  var options = {
+                    'title': 'Porcentage de vacunados Mayores de 65 años',
+                    'width': 400,
+                    'height': 400
+                  };
 
-                      // Display the chart inside the <div> element with id='piechart'
-                      var chart = new google.visualization.PieChart(document.getElementById('piechartAge'));
-                      chart.draw(data, options);
-                    }
-                  </script>
+                  // Display the chart inside the <div> element with id='piechart'
+                  var chart = new google.visualization.PieChart(document.getElementById('piechartAge'));
+                  chart.draw(data, options);
+                }
+              </script>
 
 
             </div>
@@ -219,6 +219,12 @@ if ($con) {
                     ['Vacunados', 'Cantidad'],
                     ['Mujeres', Mujeres],
                     ['Hombres', Hombres],
+                    <?php
+                    $sql = "SELECT COUNT(*) FROM `RegistroCovid19` .` Usuarios`  WHERE `genero` = 'Masculino'";
+                    $fire = mysqli_query($con, $sql);
+                    
+
+                    ?>
 
                   ]);
 
@@ -257,17 +263,17 @@ if ($con) {
           <br>Porcentage de vacunados según el tipo de vacuna
         </h3>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        
-        
+
+
 
         echo '<script type="text/javascript">
           google.charts.load("current", {
             packages: ["corechart"]
           });
           google.charts.setOnLoadCallback(drawChart);
-          
-          
-          
+
+
+
           function drawChart() {
             var data = google.visualization.arrayToDataTable([
               ["Element", "Density", {
@@ -275,7 +281,7 @@ if ($con) {
               }],
               ["BioNTech-Pfizer", $BioNTech_Pfizer, "gold"],
               ["Oxford-Astrazeneca", $Oxford_Astrazeneca, "silver"],
-              
+
             ]);
 
             var view = new google.visualization.DataView(data);

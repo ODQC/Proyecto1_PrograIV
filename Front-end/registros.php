@@ -98,36 +98,48 @@ echo $_SESSION['user'];
         <table class="table table-hover">
           <thead>
             <tr>
-              <th>Num Registro</th>
-              <th>Cédula</th>
-              <th>Tipo vacuna</th>
-              <th>Marca vacuna </th>
-              <th>Tipo Paciente</th>
-              <th>fecha</th>
+              
 
             </tr>
           </thead>
           <tbody>
             <?php
-            require_once "../Front-end/connect.php";
-            $sql = "SELECT * FROM  `RegistroCovid19`.`Registro_Vacunados`;";
-            $result = mysqli_query($conexion, $sql);
-
-            while ($mostrar = mysqli_fetch_array($result)) {
-            ?>
-              <tr>
-                <td><?php echo $mostrar['idRegistro'] ?></td>
-                <td><?php echo $mostrar['Usuarios_idUsuario'] ?></td>
-                <td><?php echo $mostrar['tipoVacuna'] ?></td>
-                <td><?php echo $mostrar['marcaVacuna'] ?></td>
-                <td><?php echo $mostrar['tipoPaciente'] ?></td>
-                <td><?php echo $mostrar['fechaAplicacion'] ?></td>
-              </tr>
-            <?php
-            }
-            ?>
-          </tbody>
-        </table>
+            require_once "..Front-end/connect.php";
+              
+              $query= "SELECT * FROM `RegistroCovid19`.`Registro_Vacunados`";
+              $consulta3=$mysqli->query($query);
+              
+              if($consulta3->num_rows>=1){
+                echo "<table>
+                <thead>
+                  <tr>
+                    <th>Num Registro</th>
+                    <th>Cédula</th>
+                    <th>Tipo vacuna</th>
+                    <th>Marca vacuna </th>
+                    <th>Tipo Paciente</th>
+                    <th>fecha</th>
+                  </tr>
+                </thead>
+                <tbody>";
+                while($fila=$consulta3->fetch_array(MYSQLI_ASSOC)){
+                  echo "<tr>
+                    <td>".$fila['IdRegistro']."</td>
+                    <td>".$fila['Usuarios_idUsuario']."</td>
+                    <td>".$fila['tipoVacuna']."</td>
+                    <td>".$fila['marcaVacuna']."</td>
+                    <td>" .$fila['tipoPaciente']."</td>
+                    </tr>";
+                }
+                echo "</tbody>
+              </table>";
+              }else{
+                echo "No hemos encotrado ningun registro con la palabra ".$palabra;
+              }
+              mysqli_close( $conexion);
+              
+            ?>       
+        
       </div>
 
     </div>

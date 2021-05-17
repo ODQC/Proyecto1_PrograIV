@@ -22,7 +22,6 @@ SELECT * FROM RegistroCovid19.Registro_Vacunados WHERE fechaAplicacion >= '2011-
 INSERT INTO `RegistroCovid19`.`Registro_Vacunados` (`tipoVacuna`, `marcaVacuna`, `tipoPaciente`, `fechaAplicacion`, `Usuarios_idUsuario`) VALUES ('Una Dosis', 'Oxford-Astrazeneca', 'Sin Riesgo', '2021-05-15 13:14:00', '208670234');
 
 --> Modificar la fecha del registro
-UPDATE `RegistroCovid19`.`Registro_Vacunados` SET `fechaAplicacion` = '2021-05-15 13:18:00' WHERE (`idRegistro` = '3') and (`Usuarios_idUsuario` = '208670234');
 
 SELECT COUNT(*) FROM RegistroCovid19.Registro_Vacunados WHERE tipoPaciente = 'Sin Riesgo';
 SELECT COUNT(*) FROM RegistroCovid19.Registro_Vacunados WHERE tipoPaciente = 'De Riesgo';
