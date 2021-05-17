@@ -117,7 +117,7 @@ if ($con) {
             <div class="detail-box">
               <div id="piechartRiesgo"></div>
 
-              <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'; ?>
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'
 
               
                <script type='text/javascript'>
@@ -161,7 +161,7 @@ if ($con) {
             <div class="detail-box">
               <div id="piechartAge"></div>
 
-               <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>;
+               <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
               <script type='text/javascript'>
                     // Load google charts
@@ -233,7 +233,7 @@ if ($con) {
                   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
                   chart.draw(data, options);
                 }
-              </script>"
+              </script>
 
 
             </div>
@@ -303,7 +303,7 @@ if ($con) {
             var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
             chart.draw(view, options);
           }
-        </script>'
+        </script>
         <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
 
 
