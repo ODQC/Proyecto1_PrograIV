@@ -110,7 +110,7 @@ echo $_SESSION['user'];
             <div class="detail-box">
               <div id="piechartRiesgo"></div>
 
-              <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>;' ?>
+              <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>';?>
 
               <?php echo " <script type='text/javascript'>
                       // Load google charts
@@ -140,7 +140,7 @@ echo $_SESSION['user'];
                         var chart = new google.visualization.PieChart(document.getElementById('piechartRiesgo'));
                         chart.draw(data, options);
                       }
-                    </script>;" ?>
+                    </script>"; ?>
 
 
             </div>
@@ -152,7 +152,7 @@ echo $_SESSION['user'];
             <div class="detail-box">
               <div id="piechartAge"></div>
 
-              <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>;' ?>
+              <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'; ?>
 
               <?php echo "<script type='text/javascript'>
                     // Load google charts
@@ -182,7 +182,7 @@ echo $_SESSION['user'];
                       var chart = new google.visualization.PieChart(document.getElementById('piechartAge'));
                       chart.draw(data, options);
                     }
-                  </script>" ?>
+                  </script>";?>
 
 
             </div>
@@ -194,7 +194,7 @@ echo $_SESSION['user'];
             <div class="detail-box">
               <div id="piechart"></div>
 
-              <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>;' ?>
+              <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'; ?>
 
              <?php echo "<script type='text/javascript'>
                 // Load google charts
@@ -224,7 +224,7 @@ echo $_SESSION['user'];
                   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
                   chart.draw(data, options);
                 }
-              </script>;" ?>
+              </script>"; ?>
 
 
             </div>
