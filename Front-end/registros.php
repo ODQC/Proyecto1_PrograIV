@@ -96,21 +96,7 @@ echo $_SESSION['user'];
         <h2>Registros de pacientes vacunados contra COVID-19</h2>
         <p>Acontiniacion se mostrara los registros de las personas vacunadas con el SARS-COV-2 y el tipo de vacuna que recibieron.</p>
         <table class="table table-hover">
-          <thead>
-            <tr>
-              
-
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            require_once "..Front-end/connect.php";
-              
-              $query= "SELECT * FROM `RegistroCovid19`.`Registro_Vacunados`";
-              $consulta3=$mysqli->query($query);
-              
-              if($consulta3->num_rows>=1){
-                echo "<table>
+                <table>
                 <thead>
                   <tr>
                     <th>Num Registro</th>
@@ -121,24 +107,46 @@ echo $_SESSION['user'];
                     <th>fecha</th>
                   </tr>
                 </thead>
-                <tbody>";
-                while($fila=$consulta3->fetch_array(MYSQLI_ASSOC)){
-                  echo "<tr>
-                    <td>".$fila['IdRegistro']."</td>
-                    <td>".$fila['Usuarios_idUsuario']."</td>
-                    <td>".$fila['tipoVacuna']."</td>
-                    <td>".$fila['marcaVacuna']."</td>
-                    <td>" .$fila['tipoPaciente']."</td>
-                    </tr>";
+                <tbody>
+           
+              </tbody>
+              </table>
+              <?php
+                $servername = "localhost";
+                $username = "root";
+                $password = "207460988";
+                $dbname = "RegistroCovid19";
+
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
                 }
-                echo "</tbody>
-              </table>";
-              }else{
-                echo "No hemos encotrado ningun registro con la palabra ".$palabra;
-              }
-              mysqli_close( $conexion);
-              
-            ?>       
+
+                $sql = "SELECT * FROM `RegistroCovid19`.`Registro_Vacunados`";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo "<tr>
+                        <td>" . $row["idRegistro"]. "</td>
+                        <td>" . $row["Usuarios_idUsuario"] . "</td>
+                        <td>" . $row["tipoVacuna"] . "</td>
+                        <td>" . $row["marcaVacuna"] . "</td>
+                        <td>" . $row["tipoPaciente"] . "</td>
+                        <td>" . $row["fechaAplicacion"] . "</td>
+                        </tr>";
+                    }
+                    echo "</table>";
+                } else {
+                    echo "0 results";
+                }
+
+                $conn->close();
+              ?>    
         
       </div>
 
