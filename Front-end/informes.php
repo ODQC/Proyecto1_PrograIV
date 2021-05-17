@@ -265,68 +265,87 @@ if ($con) {
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
         <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "207460988";
-        $db_name = "RegistroCovid19";
+        try {
+          $servername = "localhost";
+          $username = "root";
+          $password = "207460988";
+          $db_name = "RegistroCovid19";
 
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $db_name);
-        $query = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE marcaVacuna ='BioNTech-Pfizer'";
-        $qresult = mysqli_query($this->conn, $query);
-        $row = mysqli_fetch_assoc($qresult);
-        $Pfizer = $row["COUNT(*)"];
+          // Create connection
+          $conn = new mysqli($servername, $username, $password, $db_name);
+          $query = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE marcaVacuna ='BioNTech-Pfizer'";
+          $qresult = mysqli_query($this->conn, $query);
+          $row = mysqli_fetch_assoc($qresult);
+          $Pfizer = $row["COUNT(*)"];
 
-        
-        $query2 = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE marcaVacuna ='Oxford_Astrazeneca'";
-        $qresult2 = mysqli_query($this->conn, $query2);
-        $row2 = mysqli_fetch_assoc($qresult2);
-        $Astrazeneca = $row["COUNT(*)"];
+
+          $query2 = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE marcaVacuna ='Oxford_Astrazeneca'";
+          $qresult2 = mysqli_query($this->conn, $query2);
+          $row2 = mysqli_fetch_assoc($qresult2);
+          $Astrazeneca = $row["COUNT(*)"];
+        } catch (mysqli_sql_exception $e) {
+          throw $e;
+        } catch (Exception $e) {
+          echo 'Message: ' . $e->getMessage();
+        }
+        echo '<script type="text/JavaScript"> 
+              alert("");
+            </script>';
+
 
         ?>
+        <p id="demo"></p>
+
         <script type="text/javascript">
-          google.charts.load("current", {
-            packages: ["corechart"]
-          });
-          google.charts.setOnLoadCallback(drawChart);
+          try {
 
-          var BioNTech_Pfizer = <?php echo json_encode($Pfizer); ?>;
-          var $Oxford_Astrazeneca = <?php echo json_encode($Pfizer); ?>;
 
-          function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-              ["Element", "Density", {
-                role: "style"
-              }],
-              ["BioNTech-Pfizer", BioNTech_Pfizer, "gold"],
-              ["Oxford-Astrazeneca", $Oxford_Astrazeneca, "silver"],
+            google.charts.load("current", {
+              packages: ["corechart"]
+            });
+            google.charts.setOnLoadCallback(drawChart);
 
-            ]);
+            var BioNTech_Pfizer = <?php echo json_encode($Pfizer); ?>;
+            var $Oxford_Astrazeneca = <?php echo json_encode($Pfizer); ?>;
 
-            var view = new google.visualization.DataView(data);
-            view.setColumns([0, 1,
-              {
-                calc: "stringify",
-                sourceColumn: 1,
-                type: "string",
-                role: "annotation"
-              },
-              2
-            ]);
+            function drawChart() {
+              var data = google.visualization.arrayToDataTable([
+                ["Element", "Density", {
+                  role: "style"
+                }],
+                ["BioNTech-Pfizer", BioNTech_Pfizer, "gold"],
+                ["Oxford-Astrazeneca", $Oxford_Astrazeneca, "silver"],
 
-            var options = {
-              title: "Porcentaje de vacunados según el tipo de Vacuna",
-              width: 700,
-              height: 400,
-              bar: {
-                groupWidth: "50%"
-              },
-              legend: {
-                position: "none"
-              },
-            };
-            var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
-            chart.draw(view, options);
+              ]);
+
+              var view = new google.visualization.DataView(data);
+              view.setColumns([0, 1,
+                {
+                  calc: "stringify",
+                  sourceColumn: 1,
+                  type: "string",
+                  role: "annotation"
+                },
+                2
+              ]);
+
+              var options = {
+                title: "Porcentaje de vacunados según el tipo de Vacuna",
+                width: 700,
+                height: 400,
+                bar: {
+                  groupWidth: "50%"
+                },
+                legend: {
+                  position: "none"
+                },
+              };
+              var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+              chart.draw(view, options);
+            }
+
+          } catch (err) {
+            document.getElementById("demo").innerHTML = err.message;
           }
         </script>
         <div id="columnchart_values" style="width: 900px; height: 300px;"></div>

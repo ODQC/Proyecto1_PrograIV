@@ -12,6 +12,18 @@ echo '<script type="text/JavaScript">
 </script>';
 
 
+<p id="demo"></p>
+
+<script>
+try {
+  adddlert("Welcome guest!");
+}
+catch(err) {
+  document.getElementById("demo").innerHTML = err.message;
+}
+</script>
+
+
 18.222.153.132/Proyecto1_PrograIV
 
 
