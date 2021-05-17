@@ -86,7 +86,7 @@ $usuario = $_SESSION['user'];
                 <a class="nav-link" href="../Back-end/logout.php">Salir</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="">$usuario</a>
+                <a class="nav-link" href="">$<?php $usuario?></a>
               </li>
             </ul>
           </div>

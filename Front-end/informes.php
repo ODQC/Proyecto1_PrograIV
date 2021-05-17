@@ -5,6 +5,13 @@ if (!$_SESSION['verificar']) {
 }
 echo $_SESSION['user'];
 ?>
+
+<?php
+$con = mysqli_connect("localhost", "root", "207460988", "RegistroCovid19");
+if ($con) {
+  echo "connected";
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -112,7 +119,8 @@ echo $_SESSION['user'];
 
               <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'; ?>
 
-              <?php echo " <script type='text/javascript'>
+              
+               <script type='text/javascript'>
                       // Load google charts
                       google.charts.load('current', {
                         'packages': ['corechart']
@@ -124,6 +132,7 @@ echo $_SESSION['user'];
                       function drawChart() {
                         var data = google.visualization.arrayToDataTable([
                           ['Vacunados', 'Cantidad'],
+                         
                           ['Personas de Riesgo', De_Riesgo],
                           ['Personas sin Riesgo', Sin_Riesgo],
 
@@ -140,7 +149,7 @@ echo $_SESSION['user'];
                         var chart = new google.visualization.PieChart(document.getElementById('piechartRiesgo'));
                         chart.draw(data, options);
                       }
-                    </script>"; ?>
+                    </script>"; 
 
 
             </div>
@@ -247,18 +256,10 @@ echo $_SESSION['user'];
         <h3>
           <br>Porcentage de vacunados según el tipo de vacuna
         </h3>
-        <?php echo '<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'?>
+        <?php echo '<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>' ?>
         <?php
         require_once "../Back-end/php/connect.php";
-        $query = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE marcaVacuna ='BioNTech-Pfizer'";
-        $consulta3 = $mysqli->query($query);
-        $fila = $consulta3->fetch_array(MYSQLI_ASSOC);
-        $query2 = "SELECT COUNT(*) FROM `RegistroCovid19`.`Registro_Vacunados` WHERE marcaVacuna ='Oxford-Astrazeneca'";
-        $consulta4 = $mysqli->query($query2);
-        $fila1 = $consulta4->fetch_array(MYSQLI_ASSOC);
 
-        $BioNTech_Pfizer =$fila['COUNT(*)'];
-        $Oxford_Astrazeneca= $fila1['COUNT(*)'];
         echo '<script type="text/javascript">
           google.charts.load("current", {
             packages: ["corechart"]
@@ -302,7 +303,7 @@ echo $_SESSION['user'];
             var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
             chart.draw(view, options);
           }
-        </script>';?>
+        </script>'; ?>
         <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
 
 
