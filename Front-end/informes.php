@@ -140,9 +140,7 @@ if ($con) {
                     $qresult = mysqli_query($this->conn, $query);
                     $row = mysqli_fetch_assoc($qresult);
                     $count = $row["COUNT(*)"];
-                    echo '<script type="text/JavaScript"> 
-                      alert("$count");
-                    </script>';
+                    
                     ?>
 
                   ]);
