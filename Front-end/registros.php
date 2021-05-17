@@ -109,7 +109,7 @@ echo $_SESSION['user'];
           </thead>
           <tbody>
             <?php
-            require_once "../Back-end/php/connect.php";
+            require_once "../Front-end/connect.php";
             $sql = "SELECT * FROM  `RegistroCovid19`.`Registro_Vacunados`;";
             $result = mysqli_query($conexion, $sql);
 

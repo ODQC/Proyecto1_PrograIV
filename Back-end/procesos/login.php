@@ -16,7 +16,7 @@ try {
 		$_SESSION['verificar'] = true;
 		$_SESSION['start'] = time();
 		$_SESSION['expire'] = $_SESSION['start'] + (15 * 60);
-		header("Location: index.php");
+		header("Location: ../Front-end/logIn.php ");
 	} else {
 		echo '<script type="text/JavaScript"> 
 							alert("La el email o contraseña son incorrectos");
