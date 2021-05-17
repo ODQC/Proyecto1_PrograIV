@@ -149,7 +149,7 @@ if ($con) {
                         var chart = new google.visualization.PieChart(document.getElementById('piechartRiesgo'));
                         chart.draw(data, options);
                       }
-                    </script>"; 
+                    </script>
 
 
             </div>
@@ -161,9 +161,9 @@ if ($con) {
             <div class="detail-box">
               <div id="piechartAge"></div>
 
-              <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'; ?>
+               <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>;
 
-              <?php echo "<script type='text/javascript'>
+              <script type='text/javascript'>
                     // Load google charts
                     google.charts.load('current', {
                       'packages': ['corechart']
@@ -191,7 +191,7 @@ if ($con) {
                       var chart = new google.visualization.PieChart(document.getElementById('piechartAge'));
                       chart.draw(data, options);
                     }
-                  </script>"; ?>
+                  </script>
 
 
             </div>
@@ -203,9 +203,9 @@ if ($con) {
             <div class="detail-box">
               <div id="piechart"></div>
 
-              <?php echo ' <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'; ?>
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-              <?php echo "<script type='text/javascript'>
+              <script type='text/javascript'>
                 // Load google charts
                 google.charts.load('current', {
                   'packages': ['corechart']
@@ -233,7 +233,7 @@ if ($con) {
                   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
                   chart.draw(data, options);
                 }
-              </script>"; ?>
+              </script>"
 
 
             </div>
@@ -256,8 +256,8 @@ if ($con) {
         <h3>
           <br>Porcentage de vacunados según el tipo de vacuna
         </h3>
-        <?php echo '<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>' ?>
-        <?php
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>' ?>
+        
         require_once "../Back-end/php/connect.php";
 
         echo '<script type="text/javascript">
@@ -303,7 +303,7 @@ if ($con) {
             var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
             chart.draw(view, options);
           }
-        </script>'; ?>
+        </script>'
         <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
 
 
