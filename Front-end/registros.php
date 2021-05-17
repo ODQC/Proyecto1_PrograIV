@@ -96,58 +96,59 @@ echo $_SESSION['user'];
         <h2>Registros de pacientes vacunados contra COVID-19</h2>
         <p>Acontiniacion se mostrara los registros de las personas vacunadas con el SARS-COV-2 y el tipo de vacuna que recibieron.</p>
         <table class="table table-hover">
-                <table>
-                <thead>
-                  <tr>
-                    <th>Num Registro</th>
-                    <th>Cédula</th>
-                    <th>Tipo vacuna</th>
-                    <th>Marca vacuna </th>
-                    <th>Tipo Paciente</th>
-                    <th>fecha</th>
-                  </tr>
-                </thead>
-                <tbody>
-           
-              </tbody>
-              </table>
-              <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "207460988";
-                $dbname = "RegistroCovid19";
 
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
+          <thead>
+            <tr>
+              <th>Num Registro</th>
+              <th>Cédula</th>
+              <th>Tipo vacuna</th>
+              <th>Marca vacuna </th>
+              <th>Tipo Paciente</th>
+              <th>fecha</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "207460988";
+            $dbname = "RegistroCovid19";
 
-                $sql = "SELECT * FROM `RegistroCovid19`.`Registro_Vacunados`";
-                $result = $conn->query($sql);
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+            }
 
-                if ($result->num_rows > 0) {
-                    
-                    // output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        echo "<tr>
-                        <td>" . $row["idRegistro"]. "</td>
+            $sql = "SELECT * FROM `RegistroCovid19`.`Registro_Vacunados`";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+
+              // output data of each row
+              while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                        <td>" . $row["idRegistro"] . "</td>
                         <td>" . $row["Usuarios_idUsuario"] . "</td>
                         <td>" . $row["tipoVacuna"] . "</td>
                         <td>" . $row["marcaVacuna"] . "</td>
                         <td>" . $row["tipoPaciente"] . "</td>
                         <td>" . $row["fechaAplicacion"] . "</td>
                         </tr>";
-                    }
-                    echo "</table>";
-                } else {
-                    echo "0 results";
-                }
+              }
+              echo "</tbody>
+              </table>";
+            } else {
+              echo "0 results";
+            }
 
-                $conn->close();
-              ?>    
+            $conn->close();
+            ?>
+          
         
+
+
       </div>
 
     </div>
