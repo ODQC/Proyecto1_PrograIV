@@ -24,6 +24,7 @@ try {
 								alert("No se puedo guardar el registro correctamente");
 							</script>';
 	}
+	header("Location: ../Front-end/registros.php");
 } catch (mysqli_sql_exception $e) {
 	throw $e;
 } catch (Exception $e) {

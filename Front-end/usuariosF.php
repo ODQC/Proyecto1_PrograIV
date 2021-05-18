@@ -80,6 +80,9 @@ $usuario = implode(", ", $user);
                 <a class="nav-link" href="usuariosF.php">Usuarios<span class="sr-only">(current)</span> </a>
               </li>
               <li class="nav-item">
+                <a  class="nav-link" href="../Front-end/editUser.php">Editar</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="../Back-end/logout.php">Salir</a>
               </li>
               <li class="nav-item">
