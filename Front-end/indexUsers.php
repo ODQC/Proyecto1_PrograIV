@@ -4,7 +4,7 @@ if (!$_SESSION['verificar']) {
   header("Location: logIn.php");
 }
 $usuario = $_SESSION['user'];
-$idUsuario = $_SESSION['user'];
+$idUsuario = $_SESSION['idUsuario'];
 ?>
 <!DOCTYPE html>
 <html>
