@@ -7,10 +7,16 @@ echo $_SESSION['user'];
 ?>
 
 <?php
-$con = mysqli_connect("localhost", "root", "207460988", "RegistroCovid19");
-if ($con) {
-  echo "connected";
-}
+require_once("./Consultas.php");
+include __DIR__ . '/Consultas.php';
+
+$astra = CantAstra();
+$pfizer = CantPfizer();
+$hombres = CantHombres();
+$mujeres = CantMujeres();
+$deRiesgo = CantDeRiesgo();
+$sinRiesgo = CantSinRiesgo();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -126,8 +132,8 @@ if ($con) {
                   'packages': ['corechart']
                 });
                 google.charts.setOnLoadCallback(drawChart);
-                var De_Riesgo = 5;
-                var Sin_Riesgo = 6;
+                var De_Riesgo = '<?php (int)$deRiesgo ?>';
+                var Sin_Riesgo = '<?php (int)$sinRiesgo ?>';
                 // Draw the chart and set the chart values
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
@@ -168,7 +174,7 @@ if ($con) {
                   'packages': ['corechart']
                 });
                 google.charts.setOnLoadCallback(drawChart);
-                var Mas65 = 5;
+                var Mas65 = 7;
                 var Menos65 = 6;
                 // Draw the chart and set the chart values
                 function drawChart() {
@@ -213,18 +219,14 @@ if ($con) {
                   'packages': ['corechart']
                 });
                 google.charts.setOnLoadCallback(drawChart);
-                var Hombres = 5;
-                var Mujeres = 6;
+                var Hombres = '<?php (int)$hombres ?>';
+                var Mujeres = '<?php (int)$mujeres ?>';
                 // Draw the chart and set the chart values
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
                     ['Vacunados', 'Cantidad'],
                     ['Mujeres', Mujeres],
                     ['Hombres', Hombres],
-                    <?php
-
-
-                    ?>
 
                   ]);
 
@@ -285,8 +287,8 @@ if ($con) {
                       role: "style"
                     }],
 
-                    ["BioNTech-Pfizer", 10, "silver"],
-                    ["Oxford-Astrazeneca", 19, "gold"],
+                    ["BioNTech-Pfizer", '<?php (int)$pfizer ?>', "silver"],
+                    ["Oxford-Astrazeneca", '<?php (int)$astra ?>', "gold"],
                     <?php
 
 

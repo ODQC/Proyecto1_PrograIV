@@ -53,7 +53,7 @@
                                 <option value="">--Genero--</option>
                                 <option value="Masculino">Masculino</option>
                                 <option value="Femenino">Femenino</option>
-                                <option value="No indicado">No quiero indicar</option>
+                                
                             </select>
                         </div>
                         <div class="form-group">
