@@ -123,7 +123,7 @@ echo $_SESSION['user'];
                   <option value="">--Genero--</option>
                   <option value="Masculino">Masculino</option>
                   <option value="Femenino">Femenino</option>
-                  
+
                 </select>
               </div>
               <div class="form-group">
@@ -253,8 +253,15 @@ echo $_SESSION['user'];
                 <select class="form-control" id="tipoUsuario" name="tipoUsuario">
                   <option>--Tipo--</option>
                   <option>Doctor</option>
-                  <option>Personal</option>
                   <option>Paciente</option>
+                </select>
+              </div>
+              <div class="form-group">
+
+                <select class="form-control" id="estadoUsuario" name="estadoUsuario">
+                  <option value="">--Estado--</option>
+                  <option value="Activo">Activo</option>
+                  <option value="Inactivo">Inctivo</option>
                 </select>
               </div>
               <div>

@@ -39,7 +39,7 @@
                             <input type="text" class="form-input" name="idUsuario" id="idUsuario" placeholder="Cédula de indentidad" />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="name" id="name" placeholder="Nombre" />
+                            <input type="text" class="form-input" name="nombre" id="nombre" placeholder="Nombre" />
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-input" name="apellido1" id="apellido1" placeholder="Primer apellido" />
@@ -184,7 +184,7 @@
                         </div>
                         <div class="form-group">
 
-                            <select class="form-control" id="estadoUsuario" name="tipoUsuario">
+                            <select class="form-control" id="estadoUsuario" name="estadoUsuario">
                                 <option value="">--Estado--</option>
                                 <option value="Activo">Activo</option>
                                 <option value="Inactivo">Inctivo</option>
