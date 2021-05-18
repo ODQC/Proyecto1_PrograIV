@@ -98,15 +98,15 @@ echo $_SESSION['user'];
   <!-- doctor section -->
   <?php
   require_once("./Consultas.php");
-  include __DIR__ . '/Consultas.php';
+    $consult = new Consulta();
+    $astra = $consult->CantAstra();
+    $pfizer = $consult->CantPfizer();
+    $hombres = $consult->CantHombres();
+    $mujeres = $consult->CantMujeres();
+    $deRiesgo = $consult->CantDeRiesgo();
+    $sinRiesgo = $consult->CantSinRiesgo();
 
-  $astra = CantAstra();
-  $pfizer = CantPfizer();
-  $hombres = CantHombres();
-  $mujeres = CantMujeres();
-  $deRiesgo = CantDeRiesgo();
-  $sinRiesgo = CantSinRiesgo();
-
+ 
   ?>
   <section class="doctor_section layout_padding">
     <div class="container">
