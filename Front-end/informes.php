@@ -3,7 +3,8 @@ session_start();
 if (!$_SESSION['verificar']) {
   header("Location: logIn.php");
 }
-echo $_SESSION['user'];
+$user = $_SESSION['user'];
+$usuario = implode(", ", $user);
 ?>
 
 
@@ -86,7 +87,10 @@ echo $_SESSION['user'];
               <li class="nav-item">
                 <a class="nav-link" href="../Back-end/logout.php">Salir</a>
               </li>
-
+              <li class="nav-item">
+                <a class="nav-link" href="../Back-end/logout.php"><?php $usuario ?></a>
+              </li>
+              
             </ul>
           </div>
         </nav>
@@ -98,15 +102,15 @@ echo $_SESSION['user'];
   <!-- doctor section -->
   <?php
   require_once("./Consultas.php");
-    $consult = new Consulta();
-    $astra = $consult->CantAstra();
-    $pfizer = $consult->CantPfizer();
-    $hombres = $consult->CantHombres();
-    $mujeres = $consult->CantMujeres();
-    $deRiesgo = $consult->CantDeRiesgo();
-    $sinRiesgo = $consult->CantSinRiesgo();
+  $consult = new Consulta();
+  $astra = $consult->CantAstra();
+  $pfizer = $consult->CantPfizer();
+  $hombres = $consult->CantHombres();
+  $mujeres = $consult->CantMujeres();
+  $deRiesgo = $consult->CantDeRiesgo();
+  $sinRiesgo = $consult->CantSinRiesgo();
 
- 
+
   ?>
   <section class="doctor_section layout_padding">
     <div class="container">

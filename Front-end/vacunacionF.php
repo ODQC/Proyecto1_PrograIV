@@ -3,7 +3,8 @@ session_start();
 if (!$_SESSION['verificar']) {
   header("Location: logIn.php");
 }
-echo $_SESSION['user'];
+$user = $_SESSION['user'];
+$usuario = implode(", ", $user);
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,7 +64,7 @@ echo $_SESSION['user'];
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="index.php">Inicio </a>
+                <a class="nav-link" href="indexAdmin.php">Inicio </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="registros.php">Registros</a>
@@ -79,6 +80,9 @@ echo $_SESSION['user'];
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="../Back-end/logout.php">Salir</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""><?php $usuario ?></a>
               </li>
 
             </ul>
@@ -131,7 +135,7 @@ echo $_SESSION['user'];
                 </select>
               </div>
 
-             
+
               <div class="btn_box">
                 <button type="submit" name="submit" id="submit" value="Guardar">
                   Guardar
@@ -204,7 +208,7 @@ echo $_SESSION['user'];
               Links
             </h4>
             <div class="footer_links">
-              <a class="active" href="index.php">
+              <a class="active" href="indexAdmin.php">
                 Inicio <br>
               </a>
               <a class="" href="pacientes.php">
@@ -297,7 +301,7 @@ echo $_SESSION['user'];
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
-  
+
 </body>
 
 </html>

@@ -3,7 +3,8 @@ session_start();
 if (!$_SESSION['verificar']) {
   header("Location: logIn.php");
 }
-$usuario = $_SESSION['user'];
+$user = $_SESSION['user'];
+$usuario = implode(", ", $user);
 $idUsuario = $_SESSION['idUsuario'];
 ?>
 <!DOCTYPE html>
@@ -71,7 +72,7 @@ $idUsuario = $_SESSION['idUsuario'];
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="indexUsers.php">Inicio <span class="sr-only">(current)</span></a>
               </li>
 
 
@@ -82,9 +83,7 @@ $idUsuario = $_SESSION['idUsuario'];
                 <a class="nav-link" href="../Back-end/logout.php">Salir</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="">$
-                  <?php $usuario?>
-                </a>
+                <a class="nav-link" href=""><?php $usuario?></a>
               </li>
             </ul>
           </div>
@@ -513,7 +512,7 @@ $idUsuario = $_SESSION['idUsuario'];
               Links
             </h4>
             <div class="footer_links">
-              <a class="active" href="index.php">
+              <a class="active" href="indexUsers.php">
                 Inicio <br>
               </a>
               <a class="" href="pacientes.php">
