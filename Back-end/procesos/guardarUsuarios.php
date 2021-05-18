@@ -30,7 +30,7 @@ try {
 							alert("No se puedo guardar el usuario correctamente");
 						</script>';
 	}
-	header("Location: ../Proyecto1_PrograIV/Front-end/usuariosF.php");
+	header("Location: Proyecto1_PrograIV/Front-end/usuariosF.php");
 } catch (mysqli_sql_exception $e) {
 	throw $e;
 } catch (Exception $e) {
