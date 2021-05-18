@@ -21,9 +21,9 @@ try {
 		$_SESSION['start'] = time();
 		$_SESSION['expire'] = $_SESSION['start'] + (15 * 60);
 		if($fila['tipoUsuario']== $admin){
-			header("Location: ../indexAdmin.php");
+			header("Location: ../Front-end/indexAdmin.php");
 		} else if ($fila['tipoUsuario'] == $user) {
-			header("Location: ../indexUsers.php");
+			header("Location: ../Front-end/indexUsers.php");
 		}
 		
 	} else {
