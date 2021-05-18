@@ -144,17 +144,18 @@ echo $_SESSION['user'];
             }
 
             $conn->close();
-            ?>
+          ?>
+          
+        </div>
 
 
-
-
-      </div>
 
     </div>
 
+   
 
-    </div>
+
+
     </div>
     </div>
   </section>
@@ -170,7 +171,7 @@ echo $_SESSION['user'];
 
           <thead>
             <tr>
-              
+
               <th>Cédula</th>
               <th>Nomble</th>
               <th>Apellido1</th>

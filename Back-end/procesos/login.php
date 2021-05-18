@@ -13,10 +13,17 @@ try {
 		$fila = $consulta2->fetch_array(MYSQLI_ASSOC);
 		session_start();
 		$_SESSION['user'] = $fila['nombre'];
+		$_SESSION['idUsuario'] = $fila['idUsuario'];
+		$_SESSION['tipoUsuario'] = $fila['tipoUsuario'];
 		$_SESSION['verificar'] = true;
 		$_SESSION['start'] = time();
 		$_SESSION['expire'] = $_SESSION['start'] + (15 * 60);
-		header("Location: ../Front-end/index.php");
+		if($fila['idUsuario']=="Doctor"){
+			header("Location: ..Front-end/indexAdmin.php");
+		} else if ($fila['idUsuario'] == "Paciente") {
+			header("Location: ../Front-end/indexUsers.php");
+		}
+		
 	} else {
 		echo '<script type="text/JavaScript"> 
 							alert("La el email o contraseña son incorrectos");
