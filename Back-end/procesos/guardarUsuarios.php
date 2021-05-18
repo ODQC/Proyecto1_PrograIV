@@ -30,10 +30,12 @@ try {
 							alert("No se puedo guardar el usuario correctamente");
 						</script>';
 	}
-	require_once("../Proyecto1_PrograIV/Front-end/indexAdmin.php");
+	
 } catch (mysqli_sql_exception $e) {
 	throw $e;
 } catch (Exception $e) {
 	echo 'Message: ' . $e->getMessage();
 }
 mysqli_close($conexion);
+
+
