@@ -18,9 +18,9 @@ try {
 		$_SESSION['verificar'] = true;
 		$_SESSION['start'] = time();
 		$_SESSION['expire'] = $_SESSION['start'] + (15 * 60);
-		if($fila['idUsuario']=="Doctor"){
+		if($fila['tipoUsuario']=="Doctor"){
 			header("Location: ..Front-end/indexAdmin.php");
-		} else if ($fila['idUsuario'] == "Paciente") {
+		} else if ($fila['tipoUsuario'] == "Paciente") {
 			header("Location: ../Front-end/indexUsers.php");
 		}
 		
