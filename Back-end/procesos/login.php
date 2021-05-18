@@ -6,6 +6,8 @@ session_start();
 try {
 	$email = $_POST['email'];
 	$password = md5($_POST['password']);
+	$admin = 'Doctor';
+	$user = 'Paciente';
 	$query = "SELECT * FROM RegistroCovid19.Usuarios WHERE email='$email' AND contrasenia='$password'";
 	echo $query;
 	$consulta2 = $mysqli->query($query);
@@ -18,9 +20,9 @@ try {
 		$_SESSION['verificar'] = true;
 		$_SESSION['start'] = time();
 		$_SESSION['expire'] = $_SESSION['start'] + (15 * 60);
-		if($fila['tipoUsuario']=="Doctor"){
+		if($fila['tipoUsuario']== $admin){
 			header("Location: ..Front-end/indexAdmin.php");
-		} else if ($fila['tipoUsuario'] == "Paciente") {
+		} else if ($fila['tipoUsuario'] == $user) {
 			header("Location: ../Front-end/indexUsers.php");
 		}
 		
