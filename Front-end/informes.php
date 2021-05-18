@@ -6,18 +6,7 @@ if (!$_SESSION['verificar']) {
 echo $_SESSION['user'];
 ?>
 
-<?php
-require_once("./Consultas.php");
-include __DIR__ . '/Consultas.php';
 
-$astra = CantAstra();
-$pfizer = CantPfizer();
-$hombres = CantHombres();
-$mujeres = CantMujeres();
-$deRiesgo = CantDeRiesgo();
-$sinRiesgo = CantSinRiesgo();
-
-?>
 <!DOCTYPE html>
 <html>
 
@@ -107,7 +96,18 @@ $sinRiesgo = CantSinRiesgo();
   </div>
 
   <!-- doctor section -->
+  <?php
+  require_once("./Consultas.php");
+  include __DIR__ . '/Consultas.php';
 
+  $astra = CantAstra();
+  $pfizer = CantPfizer();
+  $hombres = CantHombres();
+  $mujeres = CantMujeres();
+  $deRiesgo = CantDeRiesgo();
+  $sinRiesgo = CantSinRiesgo();
+
+  ?>
   <section class="doctor_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
@@ -182,10 +182,7 @@ $sinRiesgo = CantSinRiesgo();
                     ['Vacunados', 'Cantidad'],
                     ['Mayores de 65', Mas65],
                     ['Menores de 65', Menos65],
-                    <?php
 
-
-                    ?>
                   ]);
 
                   // Optional; add a title and set the width and height of the chart
