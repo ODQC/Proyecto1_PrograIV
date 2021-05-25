@@ -141,6 +141,7 @@ $usuario = implode(", ", $user);
 
                 var one = Number(De_Riesgo);
                 var two = Number(Sin_Riesgo);
+                alert('<?php $sinRiesgo ?>');
                 alert(two);
                 // Draw the chart and set the chart values
                 function drawChart() {
