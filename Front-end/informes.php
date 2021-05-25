@@ -139,8 +139,8 @@ $usuario = implode(", ", $user);
                 var De_Riesgo = '<?php $deRiesgo ?>';
                 var Sin_Riesgo = 'hola';
                 alert("<?php echo $deRiesgo ?>");
-                var one = parseInt(De_Riesgo);
-                var two = parseInt(Sin_Riesgo);
+                var one = Number(De_Riesgo);
+                var two = Number(Sin_Riesgo);
                 // Draw the chart and set the chart values
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
