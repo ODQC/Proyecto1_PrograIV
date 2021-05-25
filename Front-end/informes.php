@@ -142,8 +142,8 @@ $usuario = implode(", ", $user);
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
                     ['Vacunados', 'Cantidad'],
-                    ['Personas de Riesgo', De_Riesgo],
-                    ['Personas sin Riesgo', Sin_Riesgo],
+                    ['Personas de Riesgo', '<?php $deRiesgo ?>'],
+                    ['Personas sin Riesgo', '5'],
 
                   ]);
 
