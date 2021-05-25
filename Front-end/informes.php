@@ -139,16 +139,16 @@ $usuario = implode(", ", $user);
                 var De_Riesgo = '<?php echo $deRiesgo ?>';
                 var Sin_Riesgo = '<?php echo $sinRiesgo ?>';
 
-                var one = Number(De_Riesgo);
-                var two = Number(Sin_Riesgo);
+
+
                 alert('<?php $sinRiesgo ?>');
                 alert(two);
                 // Draw the chart and set the chart values
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
                     ['Vacunados', 'Cantidad'],
-                    ['Personas de Riesgo', one],
-                    ['Personas sin Riesgo', two],
+                    ['Personas de Riesgo', Number(De_Riesgo)],
+                    ['Personas sin Riesgo', Number(Sin_Riesgo)],
 
                   ]);
 
@@ -189,8 +189,8 @@ $usuario = implode(", ", $user);
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
                     ['Vacunados', 'Cantidad'],
-                    ['Mayores de 65', Mas65],
-                    ['Menores de 65', Menos65],
+                    ['Mayores de 65', Number(Mas65)],
+                    ['Menores de 65', Number(Menos65)],
 
                   ]);
 
@@ -287,8 +287,8 @@ $usuario = implode(", ", $user);
                   packages: ['corechart']
                 });
                 google.charts.setOnLoadCallback(drawChart);
-                //alert("<?php echo $pfizer; ?>");
-                //alert("<?php echo $astra; ?>");
+                var P="<?php echo $pfizer; ?>";
+                var B="<?php echo $astra; ?>";
 
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
@@ -296,8 +296,8 @@ $usuario = implode(", ", $user);
                       role: "style"
                     }],
 
-                    ["BioNTech-Pfizer", '<?php $pfizer ?>', "silver"],
-                    ["Oxford-Astrazeneca", '<?php $astra ?>', "gold"],
+                    ["BioNTech-Pfizer",Number(P) , "silver"],
+                    ["Oxford-Astrazeneca", Number(B), "gold"],
 
                   ]);
 
