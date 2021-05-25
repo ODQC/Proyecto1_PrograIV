@@ -17,18 +17,31 @@ try {
 	$edad = $_POST['edad'];
 	$estadoUsuario = $_POST['estadoUsuario'];
 
-	$query = "INSERT INTO `RegistroCovid19`.`Usuarios`
+	$servername = "localhost";
+	$username = "root";
+	$password = "207460988";
+	$dbname = "HorariosBus";
+
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+
+	$sql= "INSERT INTO `RegistroCovid19`.`Usuarios`
 		(`idUsuario`, `nombre`, `apellido1`, `apellido2`, `email`, `contrasenia`, `tipoUsuario`, `genero`, `telefono`, `edad`,`estadoUsuario` ) 
 		VALUES ('$idUsuario', '$nombre', '$apellido1', '$apellido2', '$email', md5('$contrasenia'), '$tipoUsuario', '$genero', '$telefono', '$edad', '$estadoUsuario');";
-	if ($mysqli->query($query)) {
-
+	$result = mysqli_query($conn, $sql);
+	if ($result) {
 		echo '<script type="text/JavaScript"> 
-						alert("EL usuario se guardó correctamente");
-					</script>';
+			alert("El usuario se creó correctamente");
+		</script>';
+		header("Location: ../Front-end/login.php");
 	} else {
 		echo '<script type="text/JavaScript"> 
-							alert("No se puedo guardar el usuario correctamente");
-						</script>';
+			alert("No se pudo crear el usuario");
+		</script>';
+		header("Location: ../Front-end/registrar.php");
 	}
 	
 } catch (mysqli_sql_exception $e) {
@@ -36,6 +49,7 @@ try {
 } catch (Exception $e) {
 	echo 'Message: ' . $e->getMessage();
 }
+
 mysqli_close($conexion);
 
 

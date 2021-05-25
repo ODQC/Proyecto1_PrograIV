@@ -2,6 +2,17 @@
 session_start();
 ?>
 <?php
+
+$servername = "localhost";
+$username = "root";
+$password = "207460988";
+$dbname = "HorariosBus";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+	die("Connection failed: " . $conn->connect_error);
+}
 require_once "../php/connect.php";
 $idRegistro = $_POST['idRegistro'];
 $tipoVacuna = $_POST['tipoVacuna'];
@@ -11,20 +22,20 @@ $fechaAplicacion = date('d-m-y h:i:s');
 $Usuarios_idUsuario = $_POST['Usuarios_idUsuario'];
 
 try {
-	$query = "INSERT INTO `RegistroCovid19`.`Registro_Vacunados` (`tipoVacuna`, `marcaVacuna`, `tipoPaciente`, `fechaAplicacion`, `Usuarios_idUsuario`) 
+	$sql = "INSERT INTO `RegistroCovid19`.`Registro_Vacunados` (`tipoVacuna`, `marcaVacuna`, `tipoPaciente`, `fechaAplicacion`, `Usuarios_idUsuario`) 
 		VALUES ('$tipoVacuna', '$marcaVacuna', '$tipoPaciente', '$fechaAplicacion', '$Usuarios_idUsuario');";
-	if ($mysqli->query($query)) {
-
+	$result = mysqli_query($conn, $sql);
+	if ($result) {
 		echo '<script type="text/JavaScript"> 
-							alert("EL registro se guardó correctamente");
-						</script>';
+			alert("El usuario se creó correctamente");
+		</script>';
+		header("Location: ../Front-end/login.php");
 	} else {
-
 		echo '<script type="text/JavaScript"> 
-								alert("No se puedo guardar el registro correctamente");
-							</script>';
+			alert("No se pudo crear el usuario");
+		</script>';
+		header("Location: ../Front-end/registrar.php");
 	}
-	header("Location: ../Front-end/registros.php");
 } catch (mysqli_sql_exception $e) {
 	throw $e;
 } catch (Exception $e) {

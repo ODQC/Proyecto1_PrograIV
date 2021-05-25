@@ -80,7 +80,7 @@ $usuario = implode(", ", $user);
                 <a class="nav-link" href="usuariosF.php">Usuarios<span class="sr-only">(current)</span> </a>
               </li>
               <li class="nav-item">
-                <a  class="nav-link" href="../Front-end/editUser.php">Editar</a>
+                <a class="nav-link" href="../Front-end/editUser.php">Editar</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="../Back-end/logout.php">Salir</a>
@@ -104,7 +104,7 @@ $usuario = implode(", ", $user);
           Formulario para registro de Usuarios
         </h2>
       </div>
-      <div class="row">
+      <div class="row"> 
         <div class="col-md-6">
           <div class="form_container contact-form">
             <form method="$_POST" action="../Back-end/procesos/guardarUsuarios.php">
