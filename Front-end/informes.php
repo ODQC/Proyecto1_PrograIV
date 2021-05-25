@@ -136,8 +136,8 @@ $usuario = implode(", ", $user);
                   'packages': ['corechart']
                 });
                 google.charts.setOnLoadCallback(drawChart);
-                var De_Riesgo = '<?php $deRiesgo ?>';
-                var Sin_Riesgo = '<?php $sinRiesgo ?>';
+                var De_Riesgo = '<?php echo $deRiesgo ?>';
+                var Sin_Riesgo = '<?php echo $sinRiesgo ?>';
 
                 var one = Number(De_Riesgo);
                 var two = Number(Sin_Riesgo);
