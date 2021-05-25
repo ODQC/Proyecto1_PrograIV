@@ -137,7 +137,7 @@ $usuario = implode(", ", $user);
                 });
                 google.charts.setOnLoadCallback(drawChart);
                 var De_Riesgo = '<?php $deRiesgo ?>';
-                var Sin_Riesgo = '<?php $sinRiesgo ?>'';
+                var Sin_Riesgo = 'hola';
                 alert(Sin_Riesgo);
                 // Draw the chart and set the chart values
                 function drawChart() {
