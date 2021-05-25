@@ -31,17 +31,18 @@ try {
 	$sql= "INSERT INTO `RegistroCovid19`.`Usuarios`
 		(`idUsuario`, `nombre`, `apellido1`, `apellido2`, `email`, `contrasenia`, `tipoUsuario`, `genero`, `telefono`, `edad`,`estadoUsuario` ) 
 		VALUES ('$idUsuario', '$nombre', '$apellido1', '$apellido2', '$email', md5('$contrasenia'), '$tipoUsuario', '$genero', '$telefono', '$edad', '$estadoUsuario');";
+	echo $sql;
 	$result = mysqli_query($conn, $sql);
 	if ($result) {
 		echo '<script type="text/JavaScript"> 
 			alert("El usuario se creó correctamente");
 		</script>';
-		header("Location: ../Front-end/login.php");
+		
 	} else {
 		echo '<script type="text/JavaScript"> 
 			alert("No se pudo crear el usuario");
 		</script>';
-		header("Location: ../Front-end/registrar.php");
+		
 	}
 	
 } catch (mysqli_sql_exception $e) {
