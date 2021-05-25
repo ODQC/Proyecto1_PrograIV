@@ -25,16 +25,17 @@ try {
 	$sql = "INSERT INTO `RegistroCovid19`.`Registro_Vacunados` (`tipoVacuna`, `marcaVacuna`, `tipoPaciente`, `fechaAplicacion`, `Usuarios_idUsuario`) 
 		VALUES ('$tipoVacuna', '$marcaVacuna', '$tipoPaciente', '$fechaAplicacion', '$Usuarios_idUsuario');";
 	$result = mysqli_query($conn, $sql);
+	echo $sql;
 	if ($result) {
 		echo '<script type="text/JavaScript"> 
 			alert("El usuario se creó correctamente");
 		</script>';
-		header("Location: ../Front-end/login.php");
+		
 	} else {
 		echo '<script type="text/JavaScript"> 
 			alert("No se pudo crear el usuario");
 		</script>';
-		header("Location: ../Front-end/registrar.php");
+		
 	}
 } catch (mysqli_sql_exception $e) {
 	throw $e;
