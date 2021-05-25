@@ -255,49 +255,7 @@ $idUsuario = $_SESSION['idUsuario'];
 
   <!-- end department section -->
 
-  <!-- about section -->
 
-  <section class="about_section layout_margin-bottom">
-    <div class="container  ">
-      <div class="row">
-        <div class="col-md-6 ">
-          <div class="img-box">
-            <img src="images/Vacunacion.gif" alt="">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="detail-box">
-            <div class="heading_container">
-              <h2>
-                Campaña de Vacunación
-              </h2>
-            </div>
-            <p>
-              San José, 6 de abril de 2021 (OPS/OMS)- Costa Rica recibirá este miércoles 7 de abril 43.200 dosis de
-              vacunas COVID-19 a
-              través del Mecanismo COVAX, un esfuerzo global solidario entre la Coalición para la Promoción de
-              Innovaciones en pro de
-              la Preparación ante las Epidemias (CEPI), la Alianza Mundial para las Vacunas e Inmunización (Gavi), el
-              Fondo de las
-              Naciones Unidas para la Infancia (UNICEF), la Organización Panamericana de la Salud (OPS) y la
-              Organización Mundial de
-              la Salud (OMS).
-            </p>
-            <p>
-              La llegada marca un paso histórico hacia el objetivo de garantizar el acceso y la distribución equitativa
-              de las vacunas
-              COVID-19 a nivel mundial, en lo que es la mayor operación de adquisición y suministro de vacunas de la
-              historia. Esta
-              entrega es la primera de un total de 218 mil 400 dosis que recibirá Costa Rica en la primera ronda de
-              envíos.
-            </p>
-            <p>Extraido de: https://www.unicef.org/costarica/comunicados-prensa/CostaRica-recibe-vacunas-COVID-COVAX
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- end about section -->
 
@@ -495,8 +453,7 @@ $idUsuario = $_SESSION['idUsuario'];
 
 
 
-                alert('<?php $sinRiesgo ?>');
-                alert(two);
+               
                 // Draw the chart and set the chart values
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
@@ -704,7 +661,49 @@ $idUsuario = $_SESSION['idUsuario'];
 
 
   <!-- end client section -->
+  <!-- about section -->
 
+  <section class="about_section layout_margin-bottom">
+    <div class="container  ">
+      <div class="row">
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="images/Vacunacion.gif" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                Campaña de Vacunación
+              </h2>
+            </div>
+            <p>
+              San José, 6 de abril de 2021 (OPS/OMS)- Costa Rica recibirá este miércoles 7 de abril 43.200 dosis de
+              vacunas COVID-19 a
+              través del Mecanismo COVAX, un esfuerzo global solidario entre la Coalición para la Promoción de
+              Innovaciones en pro de
+              la Preparación ante las Epidemias (CEPI), la Alianza Mundial para las Vacunas e Inmunización (Gavi), el
+              Fondo de las
+              Naciones Unidas para la Infancia (UNICEF), la Organización Panamericana de la Salud (OPS) y la
+              Organización Mundial de
+              la Salud (OMS).
+            </p>
+            <p>
+              La llegada marca un paso histórico hacia el objetivo de garantizar el acceso y la distribución equitativa
+              de las vacunas
+              COVID-19 a nivel mundial, en lo que es la mayor operación de adquisición y suministro de vacunas de la
+              historia. Esta
+              entrega es la primera de un total de 218 mil 400 dosis que recibirá Costa Rica en la primera ronda de
+              envíos.
+            </p>
+            <p>Extraido de: https://www.unicef.org/costarica/comunicados-prensa/CostaRica-recibe-vacunas-COVID-COVAX
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- footer section -->
   <footer class="footer_section">
     <div class="container">
