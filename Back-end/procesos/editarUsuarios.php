@@ -19,7 +19,7 @@ try {
 	$edad = $_POST['edad'];
 	$estadoUsuario = $_POST['estadoUsuario'];
 
-	$sql = "UPDATE `RegistroCovid19`.`Usuarios` SET `email` = '$email', `tipoUsuario` = '$tipoUsuario', `genero` = '$genero', `telefono` = '$telefono', `edad` = '$edad' WHERE (`idUsuario` = '$idUsuario');";
+	$sql = "UPDATE `RegistroCovid19`.`Usuarios` SET `email` = '$email', `tipoUsuario` = '$tipoUsuario', `genero` = '$genero', `telefono` = '$telefono', `edad` = '$edad',`estadoUsuario`= '$estadoUsuario' WHERE (`idUsuario` = '$idUsuario');";
 	$result = mysqli_query($conn, $sql);
 	echo $sql;
 	if ($result) {
