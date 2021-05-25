@@ -136,8 +136,8 @@ $usuario = implode(", ", $user);
                   'packages': ['corechart']
                 });
                 google.charts.setOnLoadCallback(drawChart);
-                var De_Riesgo = '<?php (int)$deRiesgo ?>';
-                var Sin_Riesgo = '<?php (int)$sinRiesgo ?>';
+                var De_Riesgo = '<?php $deRiesgo ?>';
+                var Sin_Riesgo = '<?php $sinRiesgo ?>';
                 // Draw the chart and set the chart values
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
@@ -220,8 +220,8 @@ $usuario = implode(", ", $user);
                   'packages': ['corechart']
                 });
                 google.charts.setOnLoadCallback(drawChart);
-                var Hombres = '<?php (int)$hombres ?>';
-                var Mujeres = '<?php (int)$mujeres ?>';
+                var Hombres = '<?php $hombres ?>';
+                var Mujeres = '<?php $mujeres ?>';
                 // Draw the chart and set the chart values
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
@@ -281,6 +281,8 @@ $usuario = implode(", ", $user);
                   packages: ['corechart']
                 });
                 google.charts.setOnLoadCallback(drawChart);
+                alert("<?php echo $pfizer; ?>");
+                alert("<?php echo $astra; ?>");
 
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
@@ -288,12 +290,10 @@ $usuario = implode(", ", $user);
                       role: "style"
                     }],
 
-                    ["BioNTech-Pfizer", '<?php (int)$pfizer ?>', "silver"],
-                    ["Oxford-Astrazeneca", '<?php (int)$astra ?>', "gold"],
+                    ["BioNTech-Pfizer", '<?php $pfizer ?>', "silver"],
+                    ["Oxford-Astrazeneca", '<?php $astra ?>', "gold"],
 
                   ]);
-                  alert("<?php echo $pfizer; ?>");
-                  alert("<?php echo $astra; ?>");
 
                   var view = new google.visualization.DataView(data);
                   view.setColumns([0, 1,
