@@ -225,14 +225,15 @@ $usuario = implode(", ", $user);
                   'packages': ['corechart']
                 });
                 google.charts.setOnLoadCallback(drawChart);
-                var Hombres = '<?php $hombres ?>';
-                var Mujeres = '<?php $mujeres ?>';
+                var Hombres = '<?php echo $hombres ?>';
+                var Mujeres = '<?php echo $mujeres ?>';
+
                 // Draw the chart and set the chart values
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
                     ['Vacunados', 'Cantidad'],
-                    ['Mujeres', Mujeres],
-                    ['Hombres', Hombres],
+                    ['Mujeres', Number(Mujeres)],
+                    ['Hombres', Number(Hombres)],
 
                   ]);
 
