@@ -74,14 +74,12 @@ $idUsuario = $_SESSION['idUsuario'];
               </li>
 
 
-              <li class="nav-item">
-                <a class="nav-link" href="informes.php">Informes</a>
-              </li>
+            
               <li class="nav-item">
                 <a class="nav-link" href="../Back-end/logout.php">Salir</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href=""><?php $usuario ?></a>
+                <a class="nav-link" href=""><?php echo $usuario ?></a>
               </li>
             </ul>
           </div>
@@ -419,6 +417,90 @@ $idUsuario = $_SESSION['idUsuario'];
   </section>
 
   <!--  fin Graficas pastel-->
+  <!-- Gaficas de barras -->
+  <section class="doctor_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h3>
+          <br>Porcentage de vacunados según el tipo de vacuna
+        </h3>
+
+        <div class="row">
+          <div class="col-sm-6 col-lg-4 mx-auto">
+            <div class="box">
+
+
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 mx-auto">
+            <div class="box">
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+              <script type="text/javascript">
+                google.charts.load("current", {
+                  packages: ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+                var P = "<?php echo $pfizer; ?>";
+                var B = "<?php echo $astra; ?>";
+
+                function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                    ["Element", "Personas", {
+                      role: "style"
+                    }],
+
+                    ["BioNTech-Pfizer", Number(P), "silver"],
+                    ["Oxford-Astrazeneca", Number(B), "gold"],
+
+                  ]);
+
+                  var view = new google.visualization.DataView(data);
+                  view.setColumns([0, 1,
+                    {
+                      calc: "stringify",
+                      sourceColumn: 1,
+                      type: "string",
+                      role: "annotation"
+                    },
+                    2
+                  ]);
+
+                  var options = {
+                    title: "Porcentaje de Vacuanas aplicadas según su marca",
+                    width: 700,
+                    height: 400,
+                    bar: {
+                      groupWidth: "95%"
+                    },
+                    legend: {
+                      position: "none"
+                    },
+                  };
+                  var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+                  chart.draw(view, options);
+                }
+              </script>
+              <div id="columnchart_values" style="width: 2000px; height: 400px;"></div>
+
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 mx-auto">
+            <div class="box">
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href="">
+          View All
+        </a>
+      </div>
+    </div>
+  </section>
+
 
   <!-- end about section -->
 
@@ -574,90 +656,6 @@ $idUsuario = $_SESSION['idUsuario'];
   </section>
 
   <!-- end info2 section -->
-
-  <!-- Gaficas de barras -->
-  <section class="doctor_section layout_padding">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h3>
-          <br>Porcentage de vacunados según el tipo de vacuna
-        </h3>
-
-        <div class="row">
-          <div class="col-sm-6 col-lg-4 mx-auto">
-            <div class="box">
-
-
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 mx-auto">
-            <div class="box">
-              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-              <script type="text/javascript">
-                google.charts.load("current", {
-                  packages: ['corechart']
-                });
-                google.charts.setOnLoadCallback(drawChart);
-                var P = "<?php echo $pfizer; ?>";
-                var B = "<?php echo $astra; ?>";
-
-                function drawChart() {
-                  var data = google.visualization.arrayToDataTable([
-                    ["Element", "Personas", {
-                      role: "style"
-                    }],
-
-                    ["BioNTech-Pfizer", Number(P), "silver"],
-                    ["Oxford-Astrazeneca", Number(B), "gold"],
-
-                  ]);
-
-                  var view = new google.visualization.DataView(data);
-                  view.setColumns([0, 1,
-                    {
-                      calc: "stringify",
-                      sourceColumn: 1,
-                      type: "string",
-                      role: "annotation"
-                    },
-                    2
-                  ]);
-
-                  var options = {
-                    title: "Porcentaje de Vacuanas aplicadas según su marca",
-                    width: 700,
-                    height: 400,
-                    bar: {
-                      groupWidth: "95%"
-                    },
-                    legend: {
-                      position: "none"
-                    },
-                  };
-                  var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
-                  chart.draw(view, options);
-                }
-              </script>
-              <div id="columnchart_values" style="width: 2000px; height: 400px;"></div>
-
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 mx-auto">
-            <div class="box">
-
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="btn-box">
-        <a href="">
-          View All
-        </a>
-      </div>
-    </div>
-  </section>
 
 
   <!-- end client section -->
