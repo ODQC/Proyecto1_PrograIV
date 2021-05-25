@@ -107,11 +107,11 @@ $usuario = implode(", ", $user);
             <form method="post" action="../Back-end/procesos/guardarRegistros.php">
               <div>
                 <label for="sel1">Ingrese el número de cédula del paciente:</label>
-                <input type="text" placeholder="Número de cédula" />
+                <input type="text" placeholder="Número de cédula" id="Usuarios_idUsuario" name="Usuarios_idUsuario" />
               </div>
               <div class="form-group">
                 <label for="sel1">Seleccione el tipo de Vacuna:</label>
-                <select class="form-control" id="sel1">
+                <select class="form-control" id="tipoVacuna" name="tipoVacuna">
                   <option value="">--Seleccionar--</option>
                   <option value="Una dosis">Una dosis</option>
                   <option value="Dos dosis">Dos dosis</option>
@@ -119,7 +119,7 @@ $usuario = implode(", ", $user);
               </div>
               <div class="form-group">
                 <label for="sel1">Indique la marca de la vacuna:</label>
-                <select class="form-control" id="sel1">
+                <select class="form-control" id="marcaVacuna" name="marcaVacuna">
                   <option value="">--Seleccionar--</option>
                   <option value="BioNTech-Pfizer">BioNTech-Pfizer</option>
                   <option value="Oxford-AstraZeneca">Oxford-AstraZeneca</option>
@@ -127,7 +127,7 @@ $usuario = implode(", ", $user);
               </div>
               <div class="form-group">
                 <label for="sel1">Indique el tipo de Paciente</label>
-                <select class="form-control" id="sel1">
+                <select class="form-control" id="tipoPaciente" name="tipoPaciente">
                   <option>--Seleccionar--</option>
                   <option value="Sin Riesgo">Sin riesgo</option>
                   <option value="De riesgo">De riesgo</option>
