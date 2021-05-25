@@ -292,7 +292,7 @@ $usuario = implode(", ", $user);
 
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
-                    ["Element", "Density", {
+                    ["Element", "Personas", {
                       role: "style"
                     }],
 

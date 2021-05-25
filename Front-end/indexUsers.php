@@ -31,8 +31,7 @@ $idUsuario = $_SESSION['idUsuario'];
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
   <!-- font awesome style -->
   <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -64,8 +63,7 @@ $idUsuario = $_SESSION['idUsuario'];
             </span>
           </a>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
           </button>
 
@@ -83,7 +81,7 @@ $idUsuario = $_SESSION['idUsuario'];
                 <a class="nav-link" href="../Back-end/logout.php">Salir</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href=""><?php $usuario?></a>
+                <a class="nav-link" href=""><?php $usuario ?></a>
               </li>
             </ul>
           </div>
@@ -330,26 +328,26 @@ $idUsuario = $_SESSION['idUsuario'];
           </thead>
           <tbody>
             <?php
-                      $servername = "localhost";
-                      $username = "root";
-                      $password = "207460988";
-                      $dbname = "RegistroCovid19";
-          
-                      // Create connection
-                      $conn = new mysqli($servername, $username, $password, $dbname);
-                      // Check connection
-                      if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                      }
-          
-                      $sql = "SELECT * FROM `RegistroCovid19`.`Registro_Vacunados`WHERE `Usuarios_idUsuario` LIKE '$idUsuario'";
-                      $result = $conn->query($sql);
-          
-                      if ($result->num_rows > 0) {
-          
-                        // output data of each row
-                        while ($row = $result->fetch_assoc()) {
-                          echo "<tr>
+            $servername = "localhost";
+            $username = "root";
+            $password = "207460988";
+            $dbname = "RegistroCovid19";
+
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+            }
+
+            $sql = "SELECT * FROM `RegistroCovid19`.`Registro_Vacunados`WHERE `Usuarios_idUsuario` LIKE '$idUsuario'";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+
+              // output data of each row
+              while ($row = $result->fetch_assoc()) {
+                echo "<tr>
                                   <td>" . $row["idRegistro"] . "</td>
                                   <td>" . $row["Usuarios_idUsuario"] . "</td>
                                   <td>" . $row["tipoVacuna"] . "</td>
@@ -357,15 +355,15 @@ $idUsuario = $_SESSION['idUsuario'];
                                   <td>" . $row["tipoPaciente"] . "</td>
                                   <td>" . $row["fechaAplicacion"] . "</td>
                                   </tr>";
-                        }
-                        echo "</tbody>
+              }
+              echo "</tbody>
                         </table>";
-                      } else {
-                        echo "0 results";
-                      }
-          
-                      $conn->close();
-                    ?>
+            } else {
+              echo "0 results";
+            }
+
+            $conn->close();
+            ?>
 
       </div>
 
@@ -406,26 +404,26 @@ $idUsuario = $_SESSION['idUsuario'];
             </thead>
             <tbody>
               <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "207460988";
-            $dbname = "RegistroCovid19";
+              $servername = "localhost";
+              $username = "root";
+              $password = "207460988";
+              $dbname = "RegistroCovid19";
 
-            // Create connection
-            $conn = new mysqli($servername, $username, $password, $dbname);
-            // Check connection
-            if ($conn->connect_error) {
-              die("Connection failed: " . $conn->connect_error);
-            }
+              // Create connection
+              $conn = new mysqli($servername, $username, $password, $dbname);
+              // Check connection
+              if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+              }
 
-            $sql = "SELECT * FROM `RegistroCovid19`.`Usuarios` WHERE `idUsuario` LIKE '$idUsuario'";
-            $result = $conn->query($sql);
+              $sql = "SELECT * FROM `RegistroCovid19`.`Usuarios` WHERE `idUsuario` LIKE '$idUsuario'";
+              $result = $conn->query($sql);
 
-            if ($result->num_rows > 0) {
+              if ($result->num_rows > 0) {
 
-              // output data of each row
-              while ($row = $result->fetch_assoc()) {
-                echo "<tr>
+                // output data of each row
+                while ($row = $result->fetch_assoc()) {
+                  echo "<tr>
                         <td>" . $row["idUsuario"] . "</td>
                         <td>" . $row["nombre"] . "</td>
                         <td>" . $row["apellido1"] . "</td>
@@ -437,15 +435,15 @@ $idUsuario = $_SESSION['idUsuario'];
                         <td>" . $row["tipoUsuario"] . "</td>
                         <td>" . $row["estadoUsuario"] . "</td>
                         </tr>";
-              }
-              echo "</tbody>
+                }
+                echo "</tbody>
               </table>";
-            } else {
-              echo "0 results";
-            }
+              } else {
+                echo "0 results";
+              }
 
-            $conn->close();
-            ?>
+              $conn->close();
+              ?>
 
 
         </div>
@@ -455,6 +453,255 @@ $idUsuario = $_SESSION['idUsuario'];
   </section>
 
   <!-- end info2 section -->
+  <!-- doctor section -->
+  <?php
+  require_once("./Consultas.php");
+  $consult = new Consulta();
+  $astra = $consult->CantAstra();
+  $pfizer = $consult->CantPfizer();
+  $hombres = $consult->CantHombres();
+  $mujeres = $consult->CantMujeres();
+  $deRiesgo = $consult->CantDeRiesgo();
+  $sinRiesgo = $consult->CantSinRiesgo();
+
+
+  ?>
+  <section class="doctor_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h3>
+          Informes Estádisticos sobre los vacunados contra el COVID-19
+        </h3>
+
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-lg-4 mx-auto">
+          <div class="box">
+
+            <div class="detail-box">
+              <div id="piechartRiesgo"></div>
+
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+              <script type='text/javascript'>
+                // Load google charts
+                google.charts.load('current', {
+                  'packages': ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+                var De_Riesgo = '<?php echo $deRiesgo ?>';
+                var Sin_Riesgo = '<?php echo $sinRiesgo ?>';
+
+
+
+                alert('<?php $sinRiesgo ?>');
+                alert(two);
+                // Draw the chart and set the chart values
+                function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                    ['Vacunados', 'Cantidad'],
+                    ['Personas de Riesgo', Number(De_Riesgo)],
+                    ['Personas sin Riesgo', Number(Sin_Riesgo)],
+
+                  ]);
+
+                  // Optional; add a title and set the width and height of the chart
+                  var options = {
+                    'title': 'Porcentage de vacunados por condición de riesgo debido otras patologías',
+                    'width': 400,
+                    'height': 400
+                  };
+
+                  // Display the chart inside the <div> element with id='piechart'
+                  var chart = new google.visualization.PieChart(document.getElementById('piechartRiesgo'));
+                  chart.draw(data, options);
+                }
+              </script>
+
+
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mx-auto">
+          <div class="box">
+
+            <div class="detail-box">
+              <div id="piechartAge"></div>
+
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+              <script type='text/javascript'>
+                // Load google charts
+                google.charts.load('current', {
+                  'packages': ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+                var Mas65 = 7;
+                var Menos65 = 6;
+                // Draw the chart and set the chart values
+                function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                    ['Vacunados', 'Cantidad'],
+                    ['Mayores de 65', Number(Mas65)],
+                    ['Menores de 65', Number(Menos65)],
+
+                  ]);
+
+                  // Optional; add a title and set the width and height of the chart
+                  var options = {
+                    'title': 'Porcentage de vacunados Mayores de 65 años',
+                    'width': 400,
+                    'height': 400
+                  };
+
+                  // Display the chart inside the <div> element with id='piechart'
+                  var chart = new google.visualization.PieChart(document.getElementById('piechartAge'));
+                  chart.draw(data, options);
+                }
+              </script>
+
+
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 mx-auto">
+          <div class="box">
+
+            <div class="detail-box">
+              <div id="piechart"></div>
+
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+              <script type='text/javascript'>
+                // Load google charts
+                google.charts.load('current', {
+                  'packages': ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+                var Hombres = '<?php echo $hombres ?>';
+                var Mujeres = '<?php echo $mujeres ?>';
+
+                // Draw the chart and set the chart values
+                function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                    ['Vacunados', 'Cantidad'],
+                    ['Mujeres', Number(Mujeres)],
+                    ['Hombres', Number(Hombres)],
+
+                  ]);
+
+                  // Optional; add a title and set the width and height of the chart
+                  var options = {
+                    'title': 'Porcentage de vacunados según el sexo',
+                    'width': 400,
+                    'height': 400
+                  };
+
+                  // Display the chart inside the <div> element with id='piechart'
+                  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                  chart.draw(data, options);
+                }
+              </script>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href="">
+          View All
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!--  fin Graficas pastel-->
+  <!-- Gaficas de barras -->
+  <section class="doctor_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h3>
+          <br>Porcentage de vacunados según el tipo de vacuna
+        </h3>
+
+        <div class="row">
+          <div class="col-sm-6 col-lg-4 mx-auto">
+            <div class="box">
+
+
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 mx-auto">
+            <div class="box">
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+              <script type="text/javascript">
+                google.charts.load("current", {
+                  packages: ['corechart']
+                });
+                google.charts.setOnLoadCallback(drawChart);
+                var P = "<?php echo $pfizer; ?>";
+                var B = "<?php echo $astra; ?>";
+
+                function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                    ["Element", "Personas", {
+                      role: "style"
+                    }],
+
+                    ["BioNTech-Pfizer", Number(P), "silver"],
+                    ["Oxford-Astrazeneca", Number(B), "gold"],
+
+                  ]);
+
+                  var view = new google.visualization.DataView(data);
+                  view.setColumns([0, 1,
+                    {
+                      calc: "stringify",
+                      sourceColumn: 1,
+                      type: "string",
+                      role: "annotation"
+                    },
+                    2
+                  ]);
+
+                  var options = {
+                    title: "Porcentaje de Vacuanas aplicadas según su marca",
+                    width: 700,
+                    height: 400,
+                    bar: {
+                      groupWidth: "95%"
+                    },
+                    legend: {
+                      position: "none"
+                    },
+                  };
+                  var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+                  chart.draw(view, options);
+                }
+              </script>
+              <div id="columnchart_values" style="width: 2000px; height: 400px;"></div>
+
+            </div>
+          </div>
+          <div class="col-sm-6 col-lg-4 mx-auto">
+            <div class="box">
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-box">
+        <a href="">
+          View All
+        </a>
+      </div>
+    </div>
+  </section>
+
 
   <!-- end client section -->
 
@@ -567,9 +814,8 @@ $idUsuario = $_SESSION['idUsuario'];
   <!-- jQery -->
   <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
   <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
   <!-- bootstrap js -->
   <script type="text/javascript" src="js/bootstrap.js"></script>
   <!-- owl slider -->
