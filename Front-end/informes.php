@@ -138,13 +138,13 @@ $usuario = implode(", ", $user);
                 google.charts.setOnLoadCallback(drawChart);
                 var De_Riesgo = '<?php $deRiesgo ?>';
                 var Sin_Riesgo = 'hola';
-                alert("<?php echo $deRiesgo ?>, <?php echo $sinRiesgo ?> <?php echo $pfizer ?>, <?php echo $astra ?>, <?php echo $hombres ?>, <?php echo $mujeres ?>");
+                alert("<?php echo $deRiesgo ?>");
                 // Draw the chart and set the chart values
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
                     ['Vacunados', 'Cantidad'],
-                    ['Personas de Riesgo', De_Riesgo],
-                    ['Personas sin Riesgo', Sin_Riesgo],
+                    ['Personas de Riesgo', parseInt(De_Riesgo)],
+                    ['Personas sin Riesgo',parseInt( Sin_Riesgo)],
 
                   ]);
 
