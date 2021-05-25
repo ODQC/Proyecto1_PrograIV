@@ -104,7 +104,7 @@ $usuario = implode(", ", $user);
       <div class="row">
         <div class="col-md-6">
           <div class="form_container contact-form">
-            <form method="$_POST" action="../Back-end/procesos/guardarRegistros.php">
+            <form method="post" action="../Back-end/procesos/guardarRegistros.php">
               <div>
                 <label for="sel1">Ingrese el número de cédula del paciente:</label>
                 <input type="text" placeholder="Número de cédula" />

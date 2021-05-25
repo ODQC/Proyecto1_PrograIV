@@ -107,7 +107,7 @@ $usuario = implode(", ", $user);
       <div class="row"> 
         <div class="col-md-6">
           <div class="form_container contact-form">
-            <form method="$_POST" action="../Back-end/procesos/guardarUsuarios.php">
+            <form method="post" action="../Back-end/procesos/guardarUsuarios.php">
               <div>
                 <label for="sel1">Ingrese el número de cédula:</label>
                 <input type="text" placeholder="Número de cédula" id="idUsuario" name="idUsuario" />
@@ -434,23 +434,7 @@ $usuario = implode(", ", $user);
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
-  <?php
-  if ($_POST['password'] == $_POST['password2']) {
-
-    if (isset($_POST["registrarse"])) {
-      echo $_POST["nombre"];
-      echo $_POST["apellido1"];
-      echo $_POST["apellido2"];
-      echo $_POST["passwword"];
-      echo $_POST["idUsuario"];
-      echo $_POST["email"];
-    }
-  } else {
-    echo '<script type="text/JavaScript"> 
-              alert("Las contraseñas no coinciden");
-            </script>';
-  }
-  ?>
+  
 </body>
 
 </html>
