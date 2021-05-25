@@ -90,7 +90,7 @@ $usuario = implode(", ", $user);
               <li class="nav-item">
                 <a class="nav-link" href="../Back-end/logout.php"><?php $usuario ?></a>
               </li>
-              
+
             </ul>
           </div>
         </nav>
@@ -290,12 +290,10 @@ $usuario = implode(", ", $user);
 
                     ["BioNTech-Pfizer", '<?php (int)$pfizer ?>', "silver"],
                     ["Oxford-Astrazeneca", '<?php (int)$astra ?>', "gold"],
-                    <?php
-
-
-                    ?>
 
                   ]);
+                  alert("<?php echo $pfizer; ?>");
+                  alert("<?php echo $astra; ?>");
 
                   var view = new google.visualization.DataView(data);
                   view.setColumns([0, 1,
