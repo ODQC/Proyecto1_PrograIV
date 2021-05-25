@@ -138,7 +138,7 @@ $usuario = implode(", ", $user);
                 google.charts.setOnLoadCallback(drawChart);
                 var De_Riesgo = '<?php $deRiesgo ?>';
                 var Sin_Riesgo = 'hola';
-                alert(Sin_Riesgo);
+                alert(<?php $deRiesgo?>);
                 // Draw the chart and set the chart values
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
