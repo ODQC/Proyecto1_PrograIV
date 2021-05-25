@@ -136,14 +136,14 @@ $usuario = implode(", ", $user);
                   'packages': ['corechart']
                 });
                 google.charts.setOnLoadCallback(drawChart);
-                var De_Riesgo = '<?php $deRiesgo ?>';
-                var Sin_Riesgo = '<?php $sinRiesgo ?>';
+                var De_Riesgo = parseInt("<?php $deRiesgo ?>");
+                var Sin_Riesgo = parseInt("<?php $sinRiesgo ?>");
                 // Draw the chart and set the chart values
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
                     ['Vacunados', 'Cantidad'],
-                    ['Personas de Riesgo', '<?php $deRiesgo ?>'],
-                    ['Personas sin Riesgo', '5'],
+                    ['Personas de Riesgo', De_Riesgo],
+                    ['Personas sin Riesgo', Sin_Riesgo],
 
                   ]);
 
