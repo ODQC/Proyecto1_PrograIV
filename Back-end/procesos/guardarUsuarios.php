@@ -10,7 +10,7 @@ try {
 	$apellido1 = $_POST['apellido1'];
 	$apellido2 = $_POST['apellido2'];
 	$email = $_POST['email'];
-	$contrasenia = md5($_POST['contrasenia']);
+	$contrasenia = $_POST['contrasenia'];
 	$tipoUsuario = $_POST['tipoUsuario'];
 	$genero = $_POST['genero'];
 	$telefono = $_POST['telefono'];
