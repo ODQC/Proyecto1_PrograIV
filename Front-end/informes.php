@@ -138,6 +138,7 @@ $usuario = implode(", ", $user);
                 google.charts.setOnLoadCallback(drawChart);
                 var De_Riesgo = parseInt("<?php $deRiesgo ?>");
                 var Sin_Riesgo = parseInt("<?php $sinRiesgo ?>");
+                alert(Sin_Riesgo);
                 // Draw the chart and set the chart values
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
@@ -281,8 +282,8 @@ $usuario = implode(", ", $user);
                   packages: ['corechart']
                 });
                 google.charts.setOnLoadCallback(drawChart);
-                alert("<?php echo $pfizer; ?>");
-                alert("<?php echo $astra; ?>");
+                //alert("<?php echo $pfizer; ?>");
+                //alert("<?php echo $astra; ?>");
 
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
