@@ -136,8 +136,8 @@ $usuario = implode(", ", $user);
                   'packages': ['corechart']
                 });
                 google.charts.setOnLoadCallback(drawChart);
-                var De_Riesgo = parseInt("<?php $deRiesgo ?>");
-                var Sin_Riesgo = parseInt("<?php $sinRiesgo ?>");
+                var De_Riesgo = <?php $deRiesgo ?>;
+                var Sin_Riesgo = <?php $sinRiesgo ?>;
                 alert(Sin_Riesgo);
                 // Draw the chart and set the chart values
                 function drawChart() {
