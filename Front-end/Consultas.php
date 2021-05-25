@@ -84,11 +84,21 @@ class Consulta{
         return implode(",", $value6);
     }
 
-    function functionName()
+    function functionMayores65()
     {
 
         $conn = connetion();
-        $sql7 = "SELECT COUNT(*) FROM `RegistroCovid19`.`Usuarios` GROUP BY productVendor HAVING COUNT(*) >= 9 ORDER BY COUNT(*) DESC;";
+        $sql7 = "SELECT COUNT(*) FROM `RegistroCovid19`.`Usuarios` WHERE edad >= 65";
+        $result7 = $conn->query($sql7);
+        $value7 = $row = $result7->fetch_assoc();
+        $conn->close();
+        return implode(",", $value7);
+    }
+    function functionMenores65()
+    {
+
+        $conn = connetion();
+        $sql7 = "SELECT COUNT(*) FROM `RegistroCovid19`.`Usuarios` WHERE edad < 65";
         $result7 = $conn->query($sql7);
         $value7 = $row = $result7->fetch_assoc();
         $conn->close();
