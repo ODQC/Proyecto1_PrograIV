@@ -19,17 +19,17 @@ try {
 	$edad = $_POST['edad'];
 	$estadoUsuario = $_POST['estadoUsuario'];
 
-	$query = "UPDATE `RegistroCovid19`.`Usuarios` SET `email` = '$email', `tipoUsuario` = '$tipoUsuario', `genero` = '$genero', `telefono` = '$telefono', `edad` = '$edad' WHERE (`idUsuario` = '$idUsuario');";
-	if ($mysqli->query($query)) {
+	$sql = "UPDATE `RegistroCovid19`.`Usuarios` SET `email` = '$email', `tipoUsuario` = '$tipoUsuario', `genero` = '$genero', `telefono` = '$telefono', `edad` = '$edad' WHERE (`idUsuario` = '$idUsuario');";
+	$result = mysqli_query($conn, $sql);
+	echo $sql;
+	if ($result) {
 		echo '<script type="text/JavaScript"> 
-						alert("Datos actualizados");
-					</script>';
-		
+			alert("El usuario se modificó correctamente");
+		</script>';
 	} else {
-
 		echo '<script type="text/JavaScript"> 
-							alert("Error no se pudo actualizar los datos");
-						</script>';
+			alert("No se pudo modificar el usuario");
+		</script>';
 	}
 } catch (mysqli_sql_exception $e) {
 	throw $e;

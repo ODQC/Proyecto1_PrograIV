@@ -1,260 +1,519 @@
-<script type="text/JavaScript">
-    function myFunction() {
-		var person = prompt("Ingrese el numero de cedula que quiere ingresar");
-		if (person != null) {
-			<?php
-            try {
-                require_once "../php/connect.php";
-                $query = "SELECT * FROM RegistroCovid19.Usuarios WHERE idUsuario='$person'";
-                $consulta3 = $mysqli->query($query);
-                if ($consulta3->num_rows >= 1) {
-                    while ($row = $result->fetch_assoc()) {
-                        $idUsuario = $row["idRegistro"];
-                        $nombre = $row["nombre"];
-                        $apellido1 = $row["apellido1"];
-                        $apellido2 = $row["apellido2"];
-                        $genero = $row["genero"];
-                        $edad = $row["edad"];
-                        $email = $row["email"];
-                        $telefono = $row["telfono"];
-                        $tipoUsuario = $row["tipoUsuario"];
-                        $estadoUsuario = $row["estadousuario"];
-                        return list($idUsuario,$nombre,$apellido1,$apellido2,$genero,$edad,$email,$telefono,$tipoUsuario,$estadoUsuario);
-                    }
+<?php
+session_start();
+if (!$_SESSION['verificar']) {
+  header("Location: logIn.php");
+}
+$user = $_SESSION['user'];
+$usuario = implode(", ", $user);
 
-                } else {
-                    echo "No hemos encotrado ningun usuario con ese id " . $palabra;
-                    header("Location: ../Front-end/usuariosF.php");
-                }
-            } catch (mysqli_sql_exception $e) {
-                throw $e;
-            } catch (Exception $e) {
-                echo 'Message: ' . $e->getMessage();
-            }
-            mysqli_close($conexion);
-
-            ?>
-		}else{
-            header("Location: ../Front-end/usuariosF.php");
-        }
-
-	}
-</script>
-
-
-
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <link rel="shortcut icon" href="images/favicon.png" type="">
 
-    <title>Sign-Up</title>
-    <!DOCTYPE html>
-    <html lang="es">
+  <title> Registrar Usuarios </title>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Sign Up Form by Colorlib</title>
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
-        <!-- Font Icon -->
-        <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-        <!-- Main css -->
-        <link rel="stylesheet" href="css/styleLogin.css">
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
 
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
 
-    </head>
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/combo.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
 
-<body>
+</head>
 
-    <div class="main">
+<body class="sub_page">
 
-        <section class="signup">
-            <!-- <img src="images/signup-bg.jpg" alt=""> -->
-            <div class="container">
-                <div class="signup-content">
-                    <form method="POST" id="signup-form" class="signup-form" action="../Back-end/procesos/guardarUsuarios.php">
-                        <h2 class="form-title">Registro de Usuarios</h2>
-                        <div class="form-group">
-                            <input type="text" class="form-input" name="idUsuario" id="idUsuario" placeholder="Cédula de indentidad" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-input" name="nombre" id="nombre" placeholder="Nombre" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-input" name="apellido1" id="apellido1" placeholder="Primer apellido" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-input" name="apellido2" id="apellido2" placeholder="Segundo apellido" />
-                        </div>
-                        <div class="form-group">
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              Sistema de
+              Vacunación <br>contra el Covid-19
+            </span>
+          </a>
 
-                            <select class="form-control" id="genero" name="genero">
-                                <option value="">--Genero--</option>
-                                <option value="Masculino">Masculino</option>
-                                <option value="Femenino">Femenino</option>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
 
-                            </select>
-                        </div>
-                        <div class="form-group">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="indexAdmin.php">Inicio </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="registros.php">Registros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="vacunacionF.php">Vacunación</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="informes.php">Informes</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="usuariosF.php">Usuarios<span class="sr-only">(current)</span> </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../Front-end/editUser.php">Editar</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../Back-end/logout.php">Salir</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""><?php $usuario ?></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+<section class="about_section layout_padding">
+    <div class="container  ">
 
-                            <select class="form-control" id="edad" name="edad">
-                                <option value="">--Edad--</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                                <option value="32">32</option>
-                                <option value="33">33</option>
-                                <option value="34">34</option>
-                                <option value="35">35</option>
-                                <option value="36">36</option>
-                                <option value="37">37</option>
-                                <option value="38">38</option>
-                                <option value="39">39</option>
-                                <option value="40">40</option>
-                                <option value="41">41</option>
-                                <option value="42">42</option>
-                                <option value="43">43</option>
-                                <option value="44">44</option>
-                                <option value="45">45</option>
-                                <option value="46">46</option>
-                                <option value="47">47</option>
-                                <option value="48">48</option>
-                                <option value="49">49</option>
-                                <option value="50">50</option>
-                                <option value="51">51</option>
-                                <option value="52">52</option>
-                                <option value="53">53</option>
-                                <option value="54">54</option>
-                                <option value="55">55</option>
-                                <option value="56">56</option>
-                                <option value="57">57</option>
-                                <option value="58">58</option>
-                                <option value="59">59</option>
-                                <option value="60">60</option>
-                                <option value="61">61</option>
-                                <option value="62">62</option>
-                                <option value="63">63</option>
-                                <option value="64">64</option>
-                                <option value="65">65</option>
-                                <option value="66">66</option>
-                                <option value="67">67</option>
-                                <option value="68">68</option>
-                                <option value="69">69</option>
-                                <option value="70">70</option>
-                                <option value="71">71</option>
-                                <option value="72">72</option>
-                                <option value="73">73</option>
-                                <option value="74">74</option>
-                                <option value="75">75</option>
-                                <option value="76">76</option>
-                                <option value="77">77</option>
-                                <option value="78">78</option>
-                                <option value="79">79</option>
-                                <option value="80">80</option>
-                                <option value="81">81</option>
-                                <option value="82">82</option>
-                                <option value="83">83</option>
-                                <option value="84">84</option>
-                                <option value="85">85</option>
-                                <option value="86">86</option>
-                                <option value="87">87</option>
-                                <option value="88">88</option>
-                                <option value="89">89</option>
-                                <option value="90">90</option>
-                                <option value="91">91</option>
-                                <option value="92">92</option>
-                                <option value="93">93</option>
-                                <option value="94">94</option>
-                                <option value="95">95</option>
-                                <option value="96">96</option>
-                                <option value="97">97</option>
-                                <option value="98">98</option>
-                                <option value="99">99</option>
-                                <option value="100">100</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="email" class="form-input" name="email" id="email" placeholder="Correo Electrónico" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-input" name="telefono" id="telefono" placeholder="Telefono" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-input" name="password" id="password" placeholder="Contraseña" />
-                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" class="form-input" name="password2" id="password2" placeholder="Confirmar contraseña" />
-                        </div>
-                        <div class="form-group">
-
-                            <select class="form-control" id="tipoUsuario" name="tipoUsuario">
-                                <option value="Paciente">Paciente</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-
-                            <select class="form-control" id="estadoUsuario" name="estadoUsuario">
-                                <option value="">--Estado--</option>
-                                <option value="Activo">Activo</option>
-                                <option value="Inactivo">Inctivo</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" name="registrase" id="registrase" class="form-submit" value="Registrase" />
-                        </div>
-                    </form>
-                    <p class="loginhere">
-                        Ya tienes una cuenta? <a href="logIn.php" class="loginhere-link">Accesa aquí</a>
-                        <br> Esta plantilla fue tomada de (https://colorlib.com)
-                        <br>Rediseñada por Oscar Quesada.
-                        <br>Con fines académicos.
-                    </p>
-                </div>
+        <div class="container">
+            
+            <div class="heading_container">
+                <h2>
+                    Formulario para edición de Usuarios
+                </h2>
             </div>
-        </section>
+            <h2><br> <br> Registros de Usuarios</h2>
+            <p>Acontiniacion se mostrara los registros de los usuarios ingresados en el sistema</p>
+            <table class="table table-hover">
+
+                <thead>
+                    <tr>
+
+                        <th>Cédula</th>
+                        <th>Nomble</th>
+                        <th>Apellido1</th>
+                        <th>Apellido2</th>
+                        <th>Genero</th>
+                        <th>Edad</th>
+                        <th>Email</th>
+                        <th>Telefono</th>
+                        <th>Tipo de usuario</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "207460988";
+            $dbname = "RegistroCovid19";
+
+            // Create connection
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+            }
+
+            $sql = "SELECT * FROM `RegistroCovid19`.`Usuarios`";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+
+              // output data of each row
+              while ($row = $result->fetch_assoc()) {
+                echo "<tr>
+                        <td>" . $row["idUsuario"] . "</td>
+                        <td>" . $row["nombre"] . "</td>
+                        <td>" . $row["apellido1"] . "</td>
+                        <td>" . $row["apellido2"] . "</td>
+                        <td>" . $row["genero"] . "</td>
+                        <td>" . $row["edad"] . "</td>
+                        <td>" . $row["email"] . "</td>
+                        <td>" . $row["telefono"] . "</td>
+                        <td>" . $row["tipoUsuario"] . "</td>
+                        <td>" . $row["estadoUsuario"] . "</td>
+                        </tr>";
+              }
+              echo "</tbody>
+              </table>";
+            } else {
+              echo "0 results";
+            }
+
+            $conn->close();
+            ?>
+
+
+
+
+        </div>
 
     </div>
 
-    <!-- JS -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/main.js"></script>
 
-</body><!-- La plantilla fue tomada de  Colorlib (https://colorlib.com) -->
+    </div>
+    </div>
+    </div>
+</section>
+  <!-- Formulario de vacunación section -->
+  <section class="contact_section layout_padding">
+    <div class="container">
+   <h2>Formulario de edición de Usuarios</h2>
+      <div class="row"> 
+        <div class="col-md-6">
+          <div class="form_container contact-form">
+            <form method="post" action="../Back-end/procesos/editarUsuarios.php">
+              <div>
+                <label for="sel1">Ingrese el número de cédula que desae editar:</label>
+                <input type="text" placeholder="Número de cédula" id="idUsuario" name="idUsuario" />
+              </div>
+              <div>
+                <label for="sel1">Ingrese el nombre :</label>
+                <input type="text" placeholder="Nombre" id="nombre" name="nombre" />
+              </div>
+              <div>
+                <label for="sel1">Ingrese el primer apellido :</label>
+                <input type="text" placeholder="Apellido 1" id="apellido1" name="apellido1" />
+              </div>
+              <div>
+                <label for="sel1">Ingrese el segundo apellido:</label>
+                <input type="text" placeholder="Apellido 2" id="apellido2" name="apellido2" />
+              </div>
+              <div class="form-group">
+                <label for="sel1">Indique el genero:</label>
+                <select class="form-control" id="genero" name="genero">
+                  <option value="">--Genero--</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Femenino">Femenino</option>
+
+                </select>
+              </div>
+              <div class="form-group">
+
+                <select class="form-control" id="edad" name="edad">
+                  <option value="">--Edad--</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                  <option value="32">32</option>
+                  <option value="33">33</option>
+                  <option value="34">34</option>
+                  <option value="35">35</option>
+                  <option value="36">36</option>
+                  <option value="37">37</option>
+                  <option value="38">38</option>
+                  <option value="39">39</option>
+                  <option value="40">40</option>
+                  <option value="41">41</option>
+                  <option value="42">42</option>
+                  <option value="43">43</option>
+                  <option value="44">44</option>
+                  <option value="45">45</option>
+                  <option value="46">46</option>
+                  <option value="47">47</option>
+                  <option value="48">48</option>
+                  <option value="49">49</option>
+                  <option value="50">50</option>
+                  <option value="51">51</option>
+                  <option value="52">52</option>
+                  <option value="53">53</option>
+                  <option value="54">54</option>
+                  <option value="55">55</option>
+                  <option value="56">56</option>
+                  <option value="57">57</option>
+                  <option value="58">58</option>
+                  <option value="59">59</option>
+                  <option value="60">60</option>
+                  <option value="61">61</option>
+                  <option value="62">62</option>
+                  <option value="63">63</option>
+                  <option value="64">64</option>
+                  <option value="65">65</option>
+                  <option value="66">66</option>
+                  <option value="67">67</option>
+                  <option value="68">68</option>
+                  <option value="69">69</option>
+                  <option value="70">70</option>
+                  <option value="71">71</option>
+                  <option value="72">72</option>
+                  <option value="73">73</option>
+                  <option value="74">74</option>
+                  <option value="75">75</option>
+                  <option value="76">76</option>
+                  <option value="77">77</option>
+                  <option value="78">78</option>
+                  <option value="79">79</option>
+                  <option value="80">80</option>
+                  <option value="81">81</option>
+                  <option value="82">82</option>
+                  <option value="83">83</option>
+                  <option value="84">84</option>
+                  <option value="85">85</option>
+                  <option value="86">86</option>
+                  <option value="87">87</option>
+                  <option value="88">88</option>
+                  <option value="89">89</option>
+                  <option value="90">90</option>
+                  <option value="91">91</option>
+                  <option value="92">92</option>
+                  <option value="93">93</option>
+                  <option value="94">94</option>
+                  <option value="95">95</option>
+                  <option value="96">96</option>
+                  <option value="97">97</option>
+                  <option value="98">98</option>
+                  <option value="99">99</option>
+                  <option value="100">100</option>
+                </select>
+              </div>
+              <div>
+                <label for="sel1">Ingrese su correo elctrónico :</label>
+                <input type="email" placeholder="Correo electrónico" name="email" id="email" />
+              </div>
+              <div>
+                <label for="sel1">Ingrese el número de teléfono :</label>
+                <input type="text" placeholder="Teléfono" name="telefono" id="telefono" />
+              </div>
+              <div>
+                <label for="sel1">Ingrese la contraseña :</label>
+                <input type="password" placeholder="Contraseña" id="contrasenia" name="contrasenia" />
+              </div>
+              <div>
+                <label for="sel1">Ingrese la contraseña de nuevo:</label>
+                <input type="password" placeholder="Contraseña" id="contrasenia2" name="contrasenia2" />
+              </div>
+              <div class="form-group">
+                <label for="sel1">Indique el tipo de usuario:</label>
+                <select class="form-control" id="tipoUsuario" name="tipoUsuario">
+                  <option>--Tipo--</option>
+                  <option>Doctor</option>
+                  <option>Paciente</option>
+                </select>
+              </div>
+              <div class="form-group">
+
+                <select class="form-control" id="estadoUsuario" name="estadoUsuario">
+                  <option value="">--Estado--</option>
+                  <option value="Activo">Activo</option>
+                  <option value="Inactivo">Inctivo</option>
+                </select>
+              </div>
+              <div>
+                <input type="submit" name="registrarse" id="registrarse" class="form-group" value="Registrarse" />
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6 ">
+          <div class="img-box">
+            <img src="images/Usuarios.jpeg" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end formulario vacunación section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 footer_col">
+          <div class="footer_contact">
+            <h4>
+              Contactos:
+            </h4>
+            <div class="contact_link_box">
+              <a href="mailto:oscar.quesda.calderon@est.una.cr">
+
+                <span>
+                  oscar.quesda.calderon@est.una.cr
+                </span>
+              </a>
+              <a href="mailto:oscaardanielqc@outlook.es">
+
+                <span>
+                  oscaardanielqc@outlook.es
+                </span>
+              </a>
+              <a href="https://github.com/ODQC" target="_blank">
+
+                <span>
+                  https://github.com/ODQC
+                </span>
+              </a>
+
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-6 col-lg-3 footer_col">
+          <div class="footer_detail">
+            <h4>
+              Acerca del proyecto
+            </h4>
+            <p>
+              Proyecto de programación IV
+              <br>Ingeniería en Sistemas UNA.
+              <br>Desarrollado por Oscar Quesada.
+              <br>Proyecto basado en Orthoc template
+
+
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 mx-auto footer_col">
+          <div class="footer_link_box">
+            <h4>
+              Links
+            </h4>
+            <div class="footer_links">
+              <a class="active" href="indexAdmin.php">
+                Inicio <br>
+              </a>
+              <a class="" href="pacientes.php">
+                Registro
+              </a>
+              <a class="" href="vacunacion.php">
+                Vacunación
+              </a>
+              <a class="" href="informes.php">
+                Informes
+              </a>
+              <a class="" href="logIn.php">
+                Usuarios
+              </a>
+              <a class="" href="./CRUD_PHP/procesos/logout.php">
+                Salir
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 footer_col ">
+          <h4>
+            Repositorio en Github
+          </h4>
+          <div class="contact_link_box">
+            <a href="https://github.com/ODQC/Proyecto1_PrograIV.git" target="_blank">
+              <span>
+                Repositorio en Github
+              </span>
+            </a>
+            <div class="img-box">
+              <img src="images/GitHub-Logo.png" alt="">
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="footer-info">
+        <p>
+          Rediseñada con fines académicos.<br>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          <a href="https://html.design/" target="_blank">Free Html Templates</a>
+
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- footer section -->
+  <!-- jquery JS -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+  <!-- Bootstrap js -->
+  <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- Propeller textfield js -->
+  <script type="text/javascript" src="dist/js/propeller.min.js"></script>
+
+  <!-- Datepicker moment with locales -->
+  <script type="text/javascript" language="javascript" src="datetimepicker/js/moment-with-locales.js"></script>
+
+  <!-- Propeller Bootstrap datetimepicker -->
+  <script type="text/javascript" language="javascript" src="datetimepicker/js/bootstrap-datetimepicker.js"></script>
+
+  <script>
+    $("[data-header-left='true']").parent().addClass("pmd-navbar-left");
+
+    // Datepicker left header
+    $('#datepicker-left-header').datetimepicker({
+      'format': "YYYY-MM-DD HH:mm:ss", // HH:mm:ss
+    });
+  </script>
+  <!-- jQery -->
+  <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+  <!-- popper js -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <!-- bootstrap js -->
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+  <!-- owl slider -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+  <!-- custom js -->
+  <script type="text/javascript" src="js/custom.js"></script>
+  <!-- Google Map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+  
+</body>
 
 </html>
