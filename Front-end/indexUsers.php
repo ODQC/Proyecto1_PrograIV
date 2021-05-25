@@ -514,7 +514,7 @@ $idUsuario = $_SESSION['idUsuario'];
         <div class="detail-box"></div>
         <div class="heading_container">
           <h2>
-            Información acerca vacunación del Paciente
+            <br> <br> Información acerca vacunación del Paciente
           </h2>
         </div>
         <table class="table table-hover">
