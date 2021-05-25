@@ -4,13 +4,13 @@ session_start();
 <?php
 
 try {
-	require_once "../php/connect.php";
+	
 	$idUsuario = $_POST['idUsuario'];
 	$nombre = $_POST['nombre'];
 	$apellido1 = $_POST['apellido1'];
 	$apellido2 = $_POST['apellido2'];
 	$email = $_POST['email'];
-	$contrasenia = $_POST['contrasenia'];
+	$contrasenia = md5($_POST['contrasenia']);
 	$tipoUsuario = $_POST['tipoUsuario'];
 	$genero = $_POST['genero'];
 	$telefono = $_POST['telefono'];
@@ -30,7 +30,7 @@ try {
 
 	$sql= "INSERT INTO `RegistroCovid19`.`Usuarios`
 		(`idUsuario`, `nombre`, `apellido1`, `apellido2`, `email`, `contrasenia`, `tipoUsuario`, `genero`, `telefono`, `edad`,`estadoUsuario` ) 
-		VALUES ('$idUsuario', '$nombre', '$apellido1', '$apellido2', '$email', md5('$contrasenia'), '$tipoUsuario', '$genero', '$telefono', '$edad', '$estadoUsuario');";
+		VALUES ('$idUsuario', '$nombre', '$apellido1', '$apellido2', '$email', '$contrasenia', '$tipoUsuario', '$genero', '$telefono', '$edad', '$estadoUsuario');";
 	echo $sql;
 	$result = mysqli_query($conn, $sql);
 	if ($result) {
