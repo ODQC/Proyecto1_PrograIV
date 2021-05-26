@@ -84,7 +84,7 @@ class Consulta{
         return implode(",", $value6);
     }
 
-    function functionMayores65()
+    function Mayores65()
     {
 
         $conn = connetion();
@@ -94,7 +94,7 @@ class Consulta{
         $conn->close();
         return implode(",", $value7);
     }
-    function functionMenores65()
+    function Menores65()
     {
 
         $conn = connetion();

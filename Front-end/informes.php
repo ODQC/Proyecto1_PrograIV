@@ -109,6 +109,9 @@ $usuario = implode(", ", $user);
   $mujeres = $consult->CantMujeres();
   $deRiesgo = $consult->CantDeRiesgo();
   $sinRiesgo = $consult->CantSinRiesgo();
+  $mayore65 = $consult->Mayores65();
+  $menores65 =$consult->Menores65();
+
 
 
   ?>
@@ -182,8 +185,8 @@ $usuario = implode(", ", $user);
                   'packages': ['corechart']
                 });
                 google.charts.setOnLoadCallback(drawChart);
-                var Mas65 = 7;
-                var Menos65 = 6;
+                var Mas65 = <?php echo $mayore65?>;
+                var Menos65 = <?php echo $menores65?>;
                 // Draw the chart and set the chart values
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
