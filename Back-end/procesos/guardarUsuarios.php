@@ -45,7 +45,7 @@ try {
 		
 	}
 	$ipAdd = $_SERVER['HTTP_HOST'];
-	header("Location:https://$ipAdd/Proyecto1_PrograIV/Front-end/usuariosF.php");
+	header("Location:http://$ipAdd/Proyecto1_PrograIV/Front-end/usuariosF.php");
 } catch (mysqli_sql_exception $e) {
 	throw $e;
 } catch (Exception $e) {
