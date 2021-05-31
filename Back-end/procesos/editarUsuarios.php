@@ -33,7 +33,8 @@ try {
 		</script>';
 		
 	}
-	header("Location:http://18.117.113.184/Proyecto1_PrograIV/Front-end/usuariosF.php");
+	$ipAdd = $_SERVER['HTTP_HOST'];
+	header("Location:http://$ipAdd/Proyecto1_PrograIV/Front-end/usuariosF.php");
 } catch (mysqli_sql_exception $e) {
 	throw $e;
 } catch (Exception $e) {
