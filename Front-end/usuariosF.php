@@ -104,25 +104,25 @@ $usuario = implode(", ", $user);
           Formulario para registro de Usuarios
         </h2>
       </div>
-      <div class="row"> 
+      <div class="row">
         <div class="col-md-6">
           <div class="form_container contact-form">
             <form method="post" action="../Back-end/procesos/guardarUsuarios.php">
               <div>
                 <label for="sel1">Ingrese el número de cédula:</label>
-                <input type="text" placeholder="Número de cédula" id="idUsuario" name="idUsuario" />
+                <input maxlength="9" type="text" placeholder="Número de cédula" id="idUsuario" name="idUsuario" require />
               </div>
               <div>
                 <label for="sel1">Ingrese el nombre :</label>
-                <input type="text" placeholder="Nombre" id="nombre" name="nombre" />
+                <input type="text" placeholder="Nombre" id="nombre" name="nombre" require />
               </div>
               <div>
                 <label for="sel1">Ingrese el primer apellido :</label>
-                <input type="text" placeholder="Apellido 1" id="apellido1" name="apellido1" />
+                <input type="text" placeholder="Apellido 1" id="apellido1" name="apellido1" require />
               </div>
               <div>
                 <label for="sel1">Ingrese el segundo apellido:</label>
-                <input type="text" placeholder="Apellido 2" id="apellido2" name="apellido2" />
+                <input type="text" placeholder="Apellido 2" id="apellido2" name="apellido2" require />
               </div>
               <div class="form-group">
                 <label for="sel1">Indique el genero:</label>
@@ -241,19 +241,19 @@ $usuario = implode(", ", $user);
               </div>
               <div>
                 <label for="sel1">Ingrese su correo elctrónico :</label>
-                <input type="email" placeholder="Correo electrónico" name="email" id="email" />
+                <input type="email" placeholder="Correo electrónico" name="email" id="email" require />
               </div>
               <div>
                 <label for="sel1">Ingrese el número de teléfono :</label>
-                <input type="text" placeholder="Teléfono" name="telefono" id="telefono" />
+                <input maxlength="9" type="text" placeholder="Teléfono" name="telefono" id="telefono" require />
               </div>
               <div>
                 <label for="sel1">Ingrese la contraseña :</label>
-                <input type="password" placeholder="Contraseña" id="contrasenia" name="contrasenia" />
+                <input type="password" placeholder="Contraseña" id="contrasenia" name="contrasenia" require />
               </div>
               <div>
                 <label for="sel1">Ingrese la contraseña de nuevo:</label>
-                <input type="password" placeholder="Contraseña" id="contrasenia2" name="contrasenia2" />
+                <input type="password" placeholder="Contraseña" id="contrasenia2" name="contrasenia2" require />
               </div>
               <div class="form-group">
                 <label for="sel1">Indique el tipo de usuario:</label>
@@ -434,7 +434,7 @@ $usuario = implode(", ", $user);
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
-  
+
 </body>
 
 </html>

@@ -36,16 +36,16 @@
                     <form method="POST" id="signup-form" class="signup-form" action="../Back-end/procesos/guardarUsuarios.php">
                         <h2 class="form-title">Registro de Usuarios</h2>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="idUsuario" id="idUsuario" placeholder="Cédula de indentidad" />
+                            <input maxlength="9" type="text" class="form-input" name="idUsuario" id="idUsuario" placeholder="Cédula de indentidad" require />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="nombre" id="nombre" placeholder="Nombre" />
+                            <input type="text" class="form-input" name="nombre" id="nombre" placeholder="Nombre" require />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="apellido1" id="apellido1" placeholder="Primer apellido" />
+                            <input type="text" class="form-input" name="apellido1" id="apellido1" placeholder="Primer apellido" require />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="apellido2" id="apellido2" placeholder="Segundo apellido" />
+                            <input type="text" class="form-input" name="apellido2" id="apellido2" placeholder="Segundo apellido" require />
                         </div>
                         <div class="form-group">
 
@@ -53,7 +53,7 @@
                                 <option value="">--Genero--</option>
                                 <option value="Masculino">Masculino</option>
                                 <option value="Femenino">Femenino</option>
-                                
+
                             </select>
                         </div>
                         <div class="form-group">
@@ -164,17 +164,17 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="email" class="form-input" name="email" id="email" placeholder="Correo Electrónico" />
+                            <input type="email" class="form-input" name="email" id="email" placeholder="Correo Electrónico" require />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="telefono" id="telefono" placeholder="Telefono" />
+                            <input maxlength="9" type="text" class="form-input" name="telefono" id="telefono" placeholder="Telefono" require />
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="password" id="password" placeholder="Contraseña" />
+                            <input type="text" class="form-input" name="password" id="password" placeholder="Contraseña" require />
                             <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-input" name="password2" id="password2" placeholder="Confirmar contraseña" />
+                            <input type="password" class="form-input" name="password2" id="password2" placeholder="Confirmar contraseña" require />
                         </div>
                         <div class="form-group">
 
@@ -209,7 +209,7 @@
     <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/main.js"></script>
-    
+
 </body><!-- La plantilla fue tomada de  Colorlib (https://colorlib.com) -->
 
 </html>

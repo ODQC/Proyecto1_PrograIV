@@ -107,7 +107,7 @@ $usuario = implode(", ", $user);
             <form method="post" action="../Back-end/procesos/guardarRegistros.php">
               <div>
                 <label for="sel1">Ingrese el número de cédula del paciente:</label>
-                <input type="text" placeholder="Número de cédula" id="Usuarios_idUsuario" name="Usuarios_idUsuario" />
+                <input maxlength="9" type="text" placeholder="Número de cédula" id="Usuarios_idUsuario" name="Usuarios_idUsuario" require />
               </div>
               <div class="form-group">
                 <label for="sel1">Seleccione el tipo de Vacuna:</label>
