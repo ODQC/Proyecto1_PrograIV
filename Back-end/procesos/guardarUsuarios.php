@@ -44,7 +44,7 @@ try {
 		</script>';
 		
 	}
-	header("Location:http://18.117.113.184/Proyecto1_PrograIV/Front-end/usuariosF.php");
+	header("Location:http:// 172.31.45.118/Proyecto1_PrograIV/Front-end/usuariosF.php");
 } catch (mysqli_sql_exception $e) {
 	throw $e;
 } catch (Exception $e) {
